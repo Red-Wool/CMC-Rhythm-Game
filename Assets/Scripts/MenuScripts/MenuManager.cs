@@ -33,15 +33,15 @@ public class MenuManager : MonoBehaviour
     }
 }
 
-[System.Serializable]
+/*[System.Serializable]
 public struct Album
 {
     public string name;
     public Texture coverArt;
     public Song[] songList;
-}
+}*/
 
-[System.Serializable]
+/*[System.Serializable]
 public struct Song
 {
     public string name;
@@ -49,4 +49,4 @@ public struct Song
     public string description;
     public Texture songArt;
     public Texture songFrameArt;
-}
+}*/

@@ -19,7 +19,7 @@ public class CameraEffects : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        ScreenBop(1, 1);
+        //ScreenBop(1, 1);
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class CameraEffects : MonoBehaviour
     {
         if (screenBopTimer >= 1f)
         {
-            ScreenBop(-0.2f, 0.75f);
+            //ScreenBop(-0.2f, 0.75f);
         }
         screenBopTimer += Time.deltaTime / screenBopTimeTotal;
 
