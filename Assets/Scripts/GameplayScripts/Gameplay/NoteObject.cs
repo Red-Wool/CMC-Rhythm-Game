@@ -21,18 +21,6 @@ public class NoteObject : NoteClass
     void Start()
     {
         buttonController = null;
-
-        //CodeToSaveLater: For Instatiating the long note part, which will be done in beatScroller, which will fix the length and have less references
-        /*if (isLongNote && length > 0f)
-        {
-            int counter = 0;
-
-            while (counter < length)
-            {
-
-            }
-        }*/
-        
     }
 
     // Update is called once per frame
@@ -102,5 +90,17 @@ public class NoteObject : NoteClass
         }
 
         return 0f;
+    }
+
+    public Note GetNoteData()
+    {
+        Note note;
+
+        note.color = GetNoteColor();
+        note.yVal = transform.position.y;
+        note.isLongNote = isLongNote;
+        note.longNoteLen = length;
+
+        return note;
     }
 }

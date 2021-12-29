@@ -33,14 +33,15 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         //Shows different images if pressing or not
-        if (Input.GetKey(keyPress) || Input.GetKey(altKeyPress))
+        if (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress))
+        {
+            ps.gameObject.transform.position = this.transform.position;
+            ParticleManager.instance.ToggleParticle(true, true, ps);
+            ps.Play();
+        }
+        else if (Input.GetKey(keyPress) || Input.GetKey(altKeyPress))
         {
             sr.sprite = pressedImg;
-
-            ps.gameObject.transform.position = this.transform.position;
-
-            ParticleManager.instance.ToggleParticle(true, true, ps);
-            //ps.Play();
         }
         else
         {

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class SongLoader : MonoBehaviour
 {
     public GameObject noteHolder;
-    public string name;
+    //public string songName;
 
     [SerializeField]
     private GameObject[] editorNotePrefab;
@@ -16,6 +17,8 @@ public class SongLoader : MonoBehaviour
     private GameObject[] longNoteMiddlePrefab;
     [SerializeField]
     private GameObject[] longNoteEndPrefab;
+    [SerializeField]
+    private SongComplier compiler;
 
     //Extra Varibles so only instatiated once
     private Note noteData;
@@ -24,31 +27,41 @@ public class SongLoader : MonoBehaviour
     private EditorNoteObject ediObj;
 
     private NoteObject noteObj;
+    private SongFileInfo songInfo;
 
     private Vector3 pos;
     private Vector3 scaleTemp;
     private int length;
 
-    public void LoadSong (string name)
+    public SongFileInfo LoadSong(string name, float spdMult)
     {
-        LoadSong(name, 0f);
-    }
+        //Remove all the other notes
+        GameObject[] childrenList = new GameObject[noteHolder.transform.childCount];
 
-    public int LoadSong(string name, float spdMult)
-    {
+        for (int i = 0; i < noteHolder.transform.childCount; i++)
+        {
+            childrenList[i] = noteHolder.transform.GetChild(i).gameObject;
+        }
+
+        foreach(GameObject i in childrenList)
+        {
+            Destroy(i);
+        }
+
         string path = Application.dataPath + "/SongData/" + name + ".txt";
         int lineCount = 1;
-
-        int totalNotes = 0;
 
         if (File.Exists(path))
         {
             StreamReader textFile = new StreamReader(path);
 
+            songInfo = JsonUtility.FromJson<SongFileInfo>(textFile.ReadLine());
+
             while (!textFile.EndOfStream)
             {
                 string inpStr = textFile.ReadLine();
-                if (lineCount > 4 && inpStr != "End")
+                //Debug.Log(inpStr);
+                if (inpStr != "End")
                 {
                     noteData = JsonUtility.FromJson<Note>(inpStr);
 
@@ -58,7 +71,7 @@ public class SongLoader : MonoBehaviour
                     }
                     else
                     {
-                        totalNotes += SetUpGameNote(noteData, spdMult);
+                        SetUpGameNote(noteData, spdMult);
                     }
                 }
 
@@ -67,14 +80,14 @@ public class SongLoader : MonoBehaviour
 
             textFile.Close();
 
-            return totalNotes;
+            return songInfo;
         }
         else
         {
             Debug.Log("Invalid Path! Like what is this?? " + path);
         }
 
-        return 0;
+        return new SongFileInfo();
     }
 
     public void SetUpEditorNote(Note data)
@@ -135,21 +148,12 @@ public class SongLoader : MonoBehaviour
         return 1;
     }
 
-    public void Test()
+    //Method for Song Editor Button
+    public void EditorLoad()
     {
         Debug.Log("loading");
-        LoadSong(name);
-    }
+        songInfo = LoadSong(compiler.SongName, 0f);
+        compiler.BPM = songInfo.bpm.ToString();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

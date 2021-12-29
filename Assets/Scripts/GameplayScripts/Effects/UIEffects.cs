@@ -176,7 +176,7 @@ public class UIEffects : MonoBehaviour
     {
         //return new Vector2(0, Mathf.Sin(pos.y + time) * 30);
         float power = ((Mathf.Cos((2f / 3f) * time * 1) + 1) / 4f) + 0.5f;
-        return new Vector2(Mathf.Cos(time * 1f) * 10f * power, Mathf.Sin(time * 1f) * 10f * power);    //Mathf.Clamp(Mathf.Cos(time * 5f)*10, -6f, 6f), Mathf.Clamp(Mathf.Sin(time * 5f)*10, -6f, 6f));
+        return new Vector2(Mathf.Cos(time * 1f) * 1f * power, Mathf.Sin(time * 1f) * 1f * power);    //Mathf.Clamp(Mathf.Cos(time * 5f)*10, -6f, 6f), Mathf.Clamp(Mathf.Sin(time * 5f)*10, -6f, 6f));
     }
 
     //To Start Animation for breaking a combo

@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     private int topCombo;
 
+    private float gameTime; public float GameTime { get { return gameTime; } }
+
     //[HideInInspector]
     public float buttonSize;
 
@@ -91,21 +93,25 @@ public class GameManager : MonoBehaviour
         if (!playing && Input.anyKeyDown)
         {
             playing = true;
-            //bs.playing = true;
 
             bs.StartGame();
 
             music.Play();
         }
-        else if (playing && !music.isPlaying && !gameEnd) //When Song ends, go display scoreboar and stuff
+        else if (playing && !gameEnd) //When Song ends, go display scoreboar and stuff
         {
-            Debug.Log("The End");
+            if (!music.isPlaying)
+            {
+                Debug.Log("The End");
+                ec.ShowScoreboard(score, topCombo, hitTypeCount, bs.GetTotalNotes(), hits);
 
-            ec.ShowScoreboard(score, topCombo, hitTypeCount, bs.GetTotalNotes(), hits);
-
-            gameEnd = true;
+                gameEnd = true;
+            }
+            else
+            {
+                gameTime += Time.deltaTime;
+            }
         }
-
 
     }
 
