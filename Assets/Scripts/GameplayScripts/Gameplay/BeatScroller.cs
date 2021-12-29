@@ -7,9 +7,6 @@ public class BeatScroller : MonoBehaviour
     [Header("Song Speed")]
     public float bpm;
     private float beatTempo;
-
-    public float speedMultiplier;
-
     private int totalNotes;
 
     [HideInInspector]
@@ -22,17 +19,19 @@ public class BeatScroller : MonoBehaviour
 
     private GameObject[] arrowButtons;
 
+    private SongFileInfo songInfo;
+
     // Start is called before the first frame update
     void Start()
     {
         totalNotes = 0;
 
-        SongFileInfo songInfo = sl.LoadSong("Stream", speedMultiplier);
+        songInfo = sl.LoadSong("Stream", false);
         totalNotes = songInfo.totalNotes;
         bpm = songInfo.bpm;
 
         //Calculate the speed of which notes scroll down
-        beatTempo = bpm * speedMultiplier / 30;
+        beatTempo = bpm * songInfo.startSpeed / 30;
 
         arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
 
@@ -46,11 +45,12 @@ public class BeatScroller : MonoBehaviour
         Debug.Log("Loaded!");
     }
 
-    public void StartGame()
+    public SongFileInfo StartGame()
     {
         playing = true;
 
         GameManager.instance.buttonSize = beatTempo / averageBeatNormal;
+        return songInfo;
     }
 
     // Update is called once per frame

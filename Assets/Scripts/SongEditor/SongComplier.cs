@@ -9,8 +9,11 @@ public class SongComplier : MonoBehaviour
 {
     //public string songName;
 
-    [SerializeField] private TMP_InputField songNameInput; public string SongName { get { return songNameInput.text; } set { songNameInput.text = value; } }
+    [Header("Input Objects"), Space(10), 
+     SerializeField] private TMP_InputField songNameInput; public string SongName { get { return songNameInput.text; } set { songNameInput.text = value; } }
+    [SerializeField] private TMP_InputField songFileNameInput; public string SongFileName { get { return songFileNameInput.text; } set { songFileNameInput.text = value; } }
     [SerializeField] private TMP_InputField bpmInput; public string BPM { get { return bpmInput.text; } set { bpmInput.text = value; } }
+    [SerializeField] private TMP_InputField scrollInput; public string Scroll { get { return scrollInput.text; } set { scrollInput.text = value; } }
 
     private const string validNum = "0123456789.";
 
@@ -31,9 +34,11 @@ public class SongComplier : MonoBehaviour
         //Set Header Data
         SongFileInfo info = new SongFileInfo();
         info.songName = name;
+        info.songFileName = songFileNameInput.text;
         info.version = "V6";
         info.lastEdit = DateTime.Now + "";
         info.bpm = float.Parse(bpmInput.text);
+        info.startSpeed = float.Parse(scrollInput.text);
 
         //Varible to track total notes
         int totalNotes = 0;
@@ -68,6 +73,8 @@ public class SongComplier : MonoBehaviour
     {
         bpmInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
         bpmInput.characterLimit = 10;
+        scrollInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
+        scrollInput.characterLimit = 10;
     }
 
     private char ValidateCharacter(string validCharacters, char addedChr)
@@ -98,8 +105,10 @@ public struct Note
 public struct SongFileInfo
 {
     public string songName;
+    public string songFileName;
     public string version;
     public string lastEdit;
     public float bpm;
+    public float startSpeed;
     public int totalNotes;
 }

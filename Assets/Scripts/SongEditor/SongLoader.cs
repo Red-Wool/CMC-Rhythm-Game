@@ -33,39 +33,46 @@ public class SongLoader : MonoBehaviour
     private Vector3 scaleTemp;
     private int length;
 
-    public SongFileInfo LoadSong(string name, float spdMult)
+    public SongFileInfo LoadSong(string name, bool isEditor)
     {
-        //Remove all the other notes
+        //Varible Declaration
         GameObject[] childrenList = new GameObject[noteHolder.transform.childCount];
 
+        //Remove Existing Notes
         for (int i = 0; i < noteHolder.transform.childCount; i++)
         {
             childrenList[i] = noteHolder.transform.GetChild(i).gameObject;
         }
-
         foreach(GameObject i in childrenList)
         {
             Destroy(i);
         }
 
+        //Get Path
         string path = Application.dataPath + "/SongData/" + name + ".txt";
-        int lineCount = 1;
 
+        //Check if Path Exists
         if (File.Exists(path))
         {
+            //Get Stream reader to read txt file
             StreamReader textFile = new StreamReader(path);
 
+            //Get Song Info
             songInfo = JsonUtility.FromJson<SongFileInfo>(textFile.ReadLine());
 
+            //Set Speed
+            float spdMult = songInfo.startSpeed;
+
+            //Go Through entire file until the end
             while (!textFile.EndOfStream)
             {
                 string inpStr = textFile.ReadLine();
-                //Debug.Log(inpStr);
                 if (inpStr != "End")
                 {
                     noteData = JsonUtility.FromJson<Note>(inpStr);
 
-                    if (spdMult == 0f)
+                    //Check if editor edition
+                    if (isEditor)
                     {
                         SetUpEditorNote(noteData);
                     }
@@ -74,16 +81,16 @@ public class SongLoader : MonoBehaviour
                         SetUpGameNote(noteData, spdMult);
                     }
                 }
-
-                lineCount++;
             }
 
+            //Close the text file
             textFile.Close();
 
             return songInfo;
         }
         else
         {
+            //Oh crap you gave the wrong path
             Debug.Log("Invalid Path! Like what is this?? " + path);
         }
 
@@ -151,9 +158,10 @@ public class SongLoader : MonoBehaviour
     //Method for Song Editor Button
     public void EditorLoad()
     {
-        Debug.Log("loading");
-        songInfo = LoadSong(compiler.SongName, 0f);
+        Debug.Log("Loading File!");
+        songInfo = LoadSong(compiler.SongName, true);
+        compiler.SongFileName = songInfo.songFileName;
         compiler.BPM = songInfo.bpm.ToString();
-
+        compiler.Scroll = songInfo.startSpeed.ToString();
     }
 }

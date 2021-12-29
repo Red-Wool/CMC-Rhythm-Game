@@ -94,7 +94,25 @@ public class GameManager : MonoBehaviour
         {
             playing = true;
 
-            bs.StartGame();
+            SongFileInfo songInfo = bs.StartGame();
+            try
+            {
+                AudioClip song = Resources.Load<AudioClip>("Music/" + songInfo.songFileName);
+                if (song == null)
+                {
+                    Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
+                }
+                else
+                {
+                    music.clip = song;
+                    //music.Play();
+                }
+
+            }
+            catch
+            {
+                Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
+            }
 
             music.Play();
         }

@@ -10,7 +10,8 @@ public class SongEditorCameraManager : MonoBehaviour
     [SerializeField]
     private SongComplier sc;
 
-    [SerializeField]
+
+    [Header("Editor Objects"), Space(10), SerializeField]
     private GameObject noteHolder;
 
     [SerializeField]
@@ -25,7 +26,7 @@ public class SongEditorCameraManager : MonoBehaviour
     //GameObject Selection
     private GameObject selectedObj;
 
-    [SerializeField]
+    [Header("Arrow Modifiers"), Space(10), SerializeField]
     private GameObject selectorIndicator;
     [SerializeField]
     private Image noteDisplay;
