@@ -17,16 +17,18 @@ public class BeatScroller : MonoBehaviour
     [Header("Instatiate References"), Space(10), SerializeField]
     private SongLoader sl;
 
-    private GameObject[] arrowButtons;
-
+    private GameObject[] arrowButtons; public GameObject ArrowButtons(int i) { if (arrowButtons == null) arrowButtons = GameObject.FindGameObjectsWithTag("Activator"); return arrowButtons[i]; }
+    [SerializeField] private GameObject[] arrowLines; public GameObject ArrowLines(int i) { return arrowLines[i]; } 
     private SongFileInfo songInfo;
+
+    private Vector3 tempPos;
 
     // Start is called before the first frame update
     void Start()
     {
         totalNotes = 0;
 
-        songInfo = sl.LoadSong("Stream", false);
+        songInfo = sl.LoadSong("Grotto", false);
         totalNotes = songInfo.totalNotes;
         bpm = songInfo.bpm;
 
@@ -59,7 +61,11 @@ public class BeatScroller : MonoBehaviour
         //Scrolls down when Playing
         if (playing)
         {
-            transform.position -= Vector3.up * beatTempo * Time.deltaTime;
+            tempPos = Vector3.up * beatTempo * Time.deltaTime;
+            foreach (GameObject i in arrowLines)
+            {
+                i.transform.localPosition -= tempPos;
+            }
         }
     }
 

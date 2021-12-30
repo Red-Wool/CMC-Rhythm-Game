@@ -59,11 +59,13 @@ public class ParticleManager : MonoBehaviour
         }
     }
 
-    public void ToggleParticle(bool flag, NoteColor noteCol, NoteType noteType, HitText hitType)
+    public void ToggleParticle(bool flag, Vector3 pos, NoteColor noteCol, NoteType noteType, HitText hitType)
     {
         ps = ((int)hitType >= 4) ?
             noteMistimePS[(int)noteType].particleSystem[(int)noteCol] :
             noteHitPS[(int)noteType].particleSystem[(int)noteCol];
+
+        ps.transform.position = pos;
 
         ToggleParticle(flag, hitType == HitText.Perfect, ps);
     }

@@ -7,41 +7,54 @@ public class NoteObject : NoteClass
     [SerializeField]
     private bool canBePressed;
 
-    public float yVal;
-
-    private ButtonController buttonController;
-
-    //private bool holding;
+    private bool flag;
 
     public override NoteType GetNoteType { get { return NoteType.Normal; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        buttonController = null;
+        flag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))
+        if (yVal != -1) 
         {
-            gameObject.SetActive(false);
+            eval = yVal - GameManager.instance.GameTime;
+            if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))
+            {
+                gameObject.SetActive(false);
 
-            //buttonController.avalible = true;
+                //buttonController.avalible = true;
 
-            GameManager.instance.NoteHit(6f + this.transform.position.y, this.gameObject);
-        }
-        else if (yVal != -1 && Mathf.Abs(yVal - GameManager.instance.GameTime) < 0.25f)
-        {
-            canBePressed = true;
-        }
-        else
-        {
-            canBePressed = false;
+                GameManager.instance.NoteHit(eval, this.gameObject);
+            }
+            else if (!flag && Mathf.Abs(eval) < 0.25f)
+            {
+                flag = true;
+                canBePressed = GameManager.instance.NoteCanBePressed(this);
+            }
+            else if (flag && eval < -0.25f)
+            {
+                canBePressed = false;
+                flag = false;
+                yVal = -1;
+                GameManager.instance.NoteMissed(this);
+            }
         }
     }
 
+    public void ActivateArrow()
+    {
+        if (Mathf.Abs(yVal - GameManager.instance.GameTime) < 0.25f)
+        {
+            canBePressed = true;
+        }
+    }
+
+    #region Archived
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Activator")
@@ -99,4 +112,5 @@ public class NoteObject : NoteClass
 
         return note;
     }*/
+    #endregion
 }

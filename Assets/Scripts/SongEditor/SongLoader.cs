@@ -36,17 +36,21 @@ public class SongLoader : MonoBehaviour
     public SongFileInfo LoadSong(string name, bool isEditor)
     {
         //Varible Declaration
-        GameObject[] childrenList = new GameObject[noteHolder.transform.childCount];
+        if (isEditor)
+        {
+            GameObject[] childrenList = new GameObject[noteHolder.transform.childCount];
 
-        //Remove Existing Notes
-        for (int i = 0; i < noteHolder.transform.childCount; i++)
-        {
-            childrenList[i] = noteHolder.transform.GetChild(i).gameObject;
+            //Remove Existing Notes
+            for (int i = 0; i < noteHolder.transform.childCount; i++)
+            {
+                childrenList[i] = noteHolder.transform.GetChild(i).gameObject;
+            }
+            foreach (GameObject i in childrenList)
+            {
+                Destroy(i);
+            }
         }
-        foreach(GameObject i in childrenList)
-        {
-            Destroy(i);
-        }
+        
 
         //Get Path
         string path = Application.dataPath + "/SongData/" + name + ".txt";
@@ -113,7 +117,8 @@ public class SongLoader : MonoBehaviour
 
         //Track Total Notes
         //totalNotes++;
-        gameObj = Instantiate(notePrefab[(int)data.color], noteHolder.transform);
+        Transform parent = GameManager.instance.bs.ArrowLines((int)data.color).transform;
+        gameObj = Instantiate(notePrefab[(int)data.color], parent);
 
         //Set Arrows in sync with speed Multiplier
         pos = gameObj.transform.localPosition;
@@ -128,15 +133,17 @@ public class SongLoader : MonoBehaviour
         if (data.isLongNote && data.longNoteLen != 0f)
         {
             length = (int)data.longNoteLen;
+            data.yVal += data.longNoteLen;
 
             //totalNotes += lengthVal;
 
             data.longNoteLen *= speedMultiplier / 2;
-            pos.y -= 6f;
+            //pos.y -= 6f;
 
             //Instantiate Long Note Middle
             pos.y += data.longNoteLen;
-            gameObj = Instantiate(longNoteMiddlePrefab[(int)data.color], pos, Quaternion.identity, noteHolder.transform);
+            gameObj = Instantiate(longNoteMiddlePrefab[(int)data.color], pos, parent.transform.rotation, parent); //arrowButton.transform.position + Vector3.up * ((1f - percent) * tempLength / 2)
+            gameObj.transform.localPosition = pos;
 
             scaleTemp = Vector3.one;
             scaleTemp.y = data.longNoteLen;
@@ -144,13 +151,17 @@ public class SongLoader : MonoBehaviour
             gameObj.transform.localScale = scaleTemp;
 
             gameObj.GetComponent<LongNoteObject>().LongNoteSetup(
-                noteObj.gameObject,
+                noteObj,
+                GameManager.instance.bs.ArrowButtons((int)data.color),
                 data.longNoteLen * 2,
-                length
+                length,
+                length / (bpm / 30)
                 );
 
             pos.y += data.longNoteLen;
-            Instantiate(longNoteEndPrefab[(int)data.color], pos, Quaternion.identity, this.transform);
+            gameObj = Instantiate(longNoteEndPrefab[(int)data.color], pos, parent.transform.rotation, parent);
+            gameObj.GetComponent<LongNoteEndObject>().yVal = data.yVal / (bpm / 30);
+            gameObj.transform.localPosition = pos; 
 
             return length + 1;
         }

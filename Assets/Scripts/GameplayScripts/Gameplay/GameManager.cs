@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     private int topCombo;
 
     private float gameTime; public float GameTime { get { return gameTime; } }
+    private List<NoteObject>[] arrowList;
 
     //[HideInInspector]
     public float buttonSize;
@@ -82,6 +83,12 @@ public class GameManager : MonoBehaviour
 
         hitVal = HitText.Miss;
         hitTextDisplay.sprite = null;
+
+        arrowList = new List<NoteObject>[4];
+        for (int i = 0; i < arrowList.Length; i++)
+        {
+            arrowList[i] = new List<NoteObject>();
+        }
 
         hitTypeCount = new int[7];
 
@@ -125,6 +132,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("The End");
                 ec.ShowScoreboard(score, topCombo, hitTypeCount, bs.GetTotalNotes(), hits);
 
+                bs.playing = false;
+
                 gameEnd = true;
             }
             else
@@ -140,7 +149,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("Hit");
 
-        value /= buttonSize;
+        //value /= buttonSize;
 
         //Evalute how good the hit was, set points, combo, and art
         hitVal = Evalute(value);
@@ -152,6 +161,8 @@ public class GameManager : MonoBehaviour
         //    (hitVal == HitText.Early || hitVal == HitText.Late) ? false : true);
 
         score += baseNoteScore * currentMultiplier;
+
+        NoteWasPressed(note.GetComponent<NoteObject>());
 
         //Hit Stuff ######add back pls 9/2/21
         ParticleManager.instance.PlayParticle(note.transform.position, 
@@ -190,14 +201,62 @@ public class GameManager : MonoBehaviour
     }
 
     //Note Object references this when It is missed
-    public void NoteMissed()
+    public void NoteMissed(NoteObject note)
     {
-        //Debug.Log("Miss");
-
         //Setting stuff and remove Combo
         NoteHitEffects(HitText.Miss);
 
+        
+        NoteWasPressed(note);
+
         UpdateScoreBoard();
+    }
+
+    public bool NoteCanBePressed(NoteObject note)
+    {
+        //Debug.Log(note.name);
+        arrowList[(int)note.GetNoteColor()].Add(note);
+        if (arrowList[(int)note.GetNoteColor()].Count == 1)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void NoteWasPressed(NoteObject note)
+    {
+        if (note != null)
+        {
+            arrowList[(int)note.GetNoteColor()].Remove(note);
+            EnableOtherNote((int)note.GetNoteColor());
+        }
+    }
+
+    private void EnableOtherNote(int col)
+    {
+        if (arrowList[col].Count > 0)
+        {
+            NoteObject result = arrowList[col][0];
+            float counter = result.yVal;
+            for (int i = 1; i < arrowList[col].Count; i++)
+            {
+                if (arrowList[col][i].yVal < counter)
+                {
+                    result = arrowList[col][i];
+                    counter = result.yVal;
+                }
+            }
+
+            StartCoroutine("WaitOneFrame", result);
+            //result.ActivateArrow();
+        }
+    }
+
+    IEnumerator WaitOneFrame(NoteObject result)
+    {
+        yield return 0;
+        result.ActivateArrow();
     }
 
     //Manages Text stuff

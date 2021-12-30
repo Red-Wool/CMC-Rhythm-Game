@@ -12,6 +12,9 @@ public abstract class NoteClass : MonoBehaviour
     [SerializeField]
     protected NoteColor noteCol;
 
+    public float yVal;
+    protected float eval;
+
     public KeyCode GetKeyPress() { return keyPress; }
     public KeyCode GetAltKeyPress() { return altKeyPress; }
     public NoteColor GetNoteColor() { return noteCol; }
