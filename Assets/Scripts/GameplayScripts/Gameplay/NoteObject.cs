@@ -6,10 +6,8 @@ public class NoteObject : NoteClass
 {
     [SerializeField]
     private bool canBePressed;
-    [SerializeField]
-    private bool isLongNote;
-    [SerializeField]
-    private float length;
+
+    public float yVal;
 
     private ButtonController buttonController;
 
@@ -30,13 +28,21 @@ public class NoteObject : NoteClass
         {
             gameObject.SetActive(false);
 
-            buttonController.avalible = true;
+            //buttonController.avalible = true;
 
             GameManager.instance.NoteHit(6f + this.transform.position.y, this.gameObject);
         }
+        else if (yVal != -1 && Mathf.Abs(yVal - GameManager.instance.GameTime) < 0.25f)
+        {
+            canBePressed = true;
+        }
+        else
+        {
+            canBePressed = false;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Activator")
         {
@@ -80,19 +86,9 @@ public class NoteObject : NoteClass
 
             buttonController.avalible = true;
         }
-    }
+    }*/
 
-    public float CheckIfLongNote()
-    {
-        if (isLongNote)
-        {
-            return length;
-        }
-
-        return 0f;
-    }
-
-    public Note GetNoteData()
+    /*public Note GetNoteData() //Archived as was used for ArrowArchiver, which is also archived
     {
         Note note;
 
@@ -102,5 +98,5 @@ public class NoteObject : NoteClass
         note.longNoteLen = length;
 
         return note;
-    }
+    }*/
 }

@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
 
         topCombo = 0;
 
+        gameEnd = false;
+
         hitVal = HitText.Miss;
         hitTextDisplay.sprite = null;
 

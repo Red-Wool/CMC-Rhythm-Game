@@ -5,7 +5,9 @@ using UnityEditor;
 using System;
 using System.IO;
 
-public class ArrowArchive : EditorWindow
+//No Longer in use
+//Was just used to get data from original Purple song
+/*public class ArrowArchive : EditorWindow
 {
 
     string songName;
@@ -55,4 +57,4 @@ public class ArrowArchive : EditorWindow
         File.WriteAllText(path, data);
         //}
     }
-}
+}*/

@@ -62,6 +62,7 @@ public class SongLoader : MonoBehaviour
 
             //Set Speed
             float spdMult = songInfo.startSpeed;
+            float bpm = songInfo.bpm;
 
             //Go Through entire file until the end
             while (!textFile.EndOfStream)
@@ -78,7 +79,7 @@ public class SongLoader : MonoBehaviour
                     }
                     else
                     {
-                        SetUpGameNote(noteData, spdMult);
+                        SetUpGameNote(noteData, bpm, spdMult);
                     }
                 }
             }
@@ -107,7 +108,7 @@ public class SongLoader : MonoBehaviour
         ediObj.SetLongNote(data.isLongNote, data.longNoteLen);
     }
 
-    public int SetUpGameNote(Note data, float speedMultiplier) //FIX IT to actually work
+    public int SetUpGameNote(Note data, float bpm, float speedMultiplier) //FIX IT to actually work
     {
 
         //Track Total Notes
@@ -121,6 +122,8 @@ public class SongLoader : MonoBehaviour
 
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
+
+        noteObj.yVal = data.yVal / (bpm / 30);
 
         if (data.isLongNote && data.longNoteLen != 0f)
         {

@@ -62,7 +62,7 @@ public class LongNoteObject : NoteClass
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Activator")
+        if (collision.CompareTag("Activator"))
         {
             arrowButton = collision.gameObject;
 
@@ -75,7 +75,7 @@ public class LongNoteObject : NoteClass
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Activator" && this.gameObject.activeSelf)
+        if (collision.CompareTag("Activator") && this.gameObject.activeSelf)
         {
             ParticleToggle(false, true);
 
