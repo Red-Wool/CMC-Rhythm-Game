@@ -15,6 +15,8 @@ public class SongComplier : MonoBehaviour
     [SerializeField] private TMP_InputField bpmInput; public string BPM { get { return bpmInput.text; } set { bpmInput.text = value; } }
     [SerializeField] private TMP_InputField scrollInput; public string Scroll { get { return scrollInput.text; } set { scrollInput.text = value; } }
 
+    public TMP_Text warningText;
+
     private const string validNum = "0123456789.";
 
     public GameObject noteHolder;
@@ -22,6 +24,9 @@ public class SongComplier : MonoBehaviour
     private string data;
 
     private EditorNoteObject obj;
+
+    public bool saveFlag;
+    public bool loadFlag;
 
     public void SaveSong(string name, GameObject notes)
     {
@@ -65,12 +70,25 @@ public class SongComplier : MonoBehaviour
 
     public void EditorCompile()
     {
-        Debug.Log("dad");
-        SaveSong(songNameInput.text, noteHolder);
+        Debug.Log("Compiling");
+        if (noteHolder.transform.childCount > 10 || saveFlag)
+        {
+            SaveSong(songNameInput.text, noteHolder);
+            saveFlag = false;
+            warningText.text = "";
+        }
+        else
+        {
+            saveFlag = true;
+            warningText.text = "Sure you want to save?";
+        }
     }
 
     private void Start()
     {
+        saveFlag = false;
+        loadFlag = false;
+
         bpmInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
         bpmInput.characterLimit = 10;
         scrollInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
@@ -79,6 +97,8 @@ public class SongComplier : MonoBehaviour
 
     private char ValidateCharacter(string validCharacters, char addedChr)
     {
+
+
         //Debug.Log(validCharacters + " " + addedChr + " " + validCharacters.IndexOf(addedChr));
         if (validCharacters.IndexOf(addedChr) != -1)
         {

@@ -144,22 +144,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+    #region NoteHitMethods
     //Note Object References this when a note is hit
     public void NoteHit(float value, GameObject note)
     {
-        //Debug.Log("Hit");
 
-        //value /= buttonSize;
-
-        //Evalute how good the hit was, set points, combo, and art
+        //Evalute how good the hit was
         hitVal = Evalute(value);
 
         //Setting stuff, bounce animation, and add score
         NoteHitEffects(hitVal);
 
-        //uiEffects.BounceGameObj(hitTextDisplay.gameObject, //Just know that it says its bad if it is early or late
-        //    (hitVal == HitText.Early || hitVal == HitText.Late) ? false : true);
-
+        //Add Score
         score += baseNoteScore * currentMultiplier;
 
         NoteWasPressed(note.GetComponent<NoteObject>());
@@ -212,6 +208,57 @@ public class GameManager : MonoBehaviour
         UpdateScoreBoard();
     }
 
+    //Determine how good or bad a hit is
+    public HitText Evalute(float value)
+    {
+        value /= 0.25f;
+
+        if (Mathf.Abs(value) < 0.09f) { hitVal = HitText.Perfect; } //2.7 Frames //Remember to Test Rates
+        else if (Mathf.Abs(value) < 0.20f) { hitVal = HitText.Great; } //6 Frames
+        else if (Mathf.Abs(value) < 0.42f) { hitVal = HitText.Good; } //10 Frames
+        else if (Mathf.Abs(value) < 0.75f) { hitVal = HitText.Meh; }
+        else if (value > 0f) { hitVal = HitText.Early; }
+        else if (value < 0f) { hitVal = HitText.Late; }
+
+        baseNoteScore = noteScoring[(int)hitVal];
+
+        return hitVal;
+    }
+
+    //Manages the effects of hitting a note
+    public void NoteHitEffects(HitText hitValue)
+    {
+        hitTextDisplay.sprite = hitTextSprites[(int)hitValue];
+
+        if ((int)hitValue >= 4)
+        {
+            uiEffects.BounceGameObj(hitTextDisplay.gameObject, false);
+
+            uiEffects.ComboBreakEffect(uiEffects.transform.position, combo);
+
+            ParticleManager.instance.PlayBreak(combo > comboMultiplierInterval[1], combo);
+
+            combo = 0;
+        }
+        else
+        {
+            uiEffects.BounceGameObj(hitTextDisplay.gameObject, true);
+
+            hits++;
+            //Continue the combo
+            combo++;
+
+            if (combo > topCombo)
+            {
+                topCombo = combo;
+            }
+        }
+
+        hitTypeCount[(int)hitValue]++;
+    }
+    #endregion
+
+    #region MultiNoteRecognitionSystem
     public bool NoteCanBePressed(NoteObject note)
     {
         //Debug.Log(note.name);
@@ -258,6 +305,7 @@ public class GameManager : MonoBehaviour
         yield return 0;
         result.ActivateArrow();
     }
+    #endregion
 
     //Manages Text stuff
     public void UpdateScoreBoard()
@@ -282,52 +330,7 @@ public class GameManager : MonoBehaviour
         cc.UpdateComboCircle(combo, comboMultiplierInterval);
     }
 
-    //Determine how good or bad a hit is
-    public HitText Evalute(float value)
-    {
-        if (Mathf.Abs(value) < 0.09f) {hitVal = HitText.Perfect;} //Remember to Test Rates
-        else if (Mathf.Abs(value) < 0.20f) {hitVal = HitText.Great;}
-        else if (Mathf.Abs(value) < 0.35f) {hitVal = HitText.Good;}
-        else if (Mathf.Abs(value) < 0.65f) {hitVal = HitText.Meh;}
-        else if (value > 0f) {hitVal = HitText.Early;}
-        else if (value < 0f) {hitVal = HitText.Late;}
-
-        baseNoteScore = noteScoring[(int)hitVal];
-
-        return hitVal;
-    }
-
-    //Manages the effects of hitting a note
-    public void NoteHitEffects(HitText hitValue)
-    {
-        hitTextDisplay.sprite = hitTextSprites[(int)hitValue];
-
-        if ((int)hitValue >= 4)
-        {
-            uiEffects.BounceGameObj(hitTextDisplay.gameObject, false);
-
-            uiEffects.ComboBreakEffect(uiEffects.transform.position, combo);
-
-            ParticleManager.instance.PlayBreak(combo > comboMultiplierInterval[1], combo);
-
-            combo = 0;
-        }
-        else
-        {
-            uiEffects.BounceGameObj(hitTextDisplay.gameObject, true);
-
-            hits++;
-            //Continue the combo
-            combo++;
-
-            if (combo > topCombo)
-            {
-                topCombo = combo;
-            }
-        }
-
-        hitTypeCount[(int)hitValue]++;
-    }
+    
 }
 
 //Catogorize the types of Hits

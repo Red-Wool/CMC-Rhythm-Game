@@ -60,42 +60,6 @@ public class LongNoteObject : NoteClass
         }
     }
 
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Activator"))
-        {
-            arrowButton = collision.gameObject;
-
-            if (Input.GetKey(keyPress) || Input.GetKey(altKeyPress))
-            {
-                valid = true;
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Activator") && this.gameObject.activeSelf)
-        {
-            ParticleToggle(false, true);
-
-            if (valid)
-            {
-                valid = false;
-            }
-            //gameObject.SetActive(false);
-
-            /*if (!endPart)
-            {
-                GameManager.instance.LongNoteHit(true);
-            }
-            //GameManager.instance.NoteMissed();
-
-            //buttonController.avalible = true;
-        }
-    }*/
-
     public void LongNoteSetup(NoteObject parent, GameObject arrow, float len, int lenVal, float time)
     {
         parentObj = parent;
@@ -123,15 +87,13 @@ public class LongNoteObject : NoteClass
         //This Formula tells how much of the long bar is complete Very Good!
         percent = (GameManager.instance.GameTime - parentObj.yVal) / yVal;
 
-        //Debug.Log(arrowButton.transform.position);
-        Debug.Log(1f - percent);
-        tempPos = Vector3.zero;//arrowButton.transform.position;
-        tempPos.y = (parentObj.transform.localPosition.y) + tempLength - (1f - percent) * tempLength * 0.5f; //+ (1f - percent) * tempLength * 0.5f + tempLength * 0.5f;
-        //Debug.Log(tempPos.y);
-        transform.localPosition = tempPos;//arrowButton.transform.position + 
+        tempPos = Vector3.zero;
+        tempPos.y = (parentObj.transform.localPosition.y) + tempLength - ((1f - percent) * tempLength * 0.5f); //+ (1f - percent) * tempLength * 0.5f + tempLength * 0.5f;
+
+        transform.localPosition = tempPos;
 
         tempPos = Vector3.one;
-        tempPos.y = tempLength / 2 * (1f - percent);
+        tempPos.y = (tempLength / 2) * (1f - percent);
 
         transform.localScale = tempPos;
 
@@ -147,6 +109,6 @@ public class LongNoteObject : NoteClass
 
     public void ParticleToggle(bool flag, bool flame)
     {
-        ParticleManager.instance.ToggleParticle(flag, arrowButton.transform.position, noteCol, NoteType.Long, (flame) ? HitText.Perfect : HitText.Miss);
+        ParticleManager.instance.ToggleParticle(flag, arrowButton.transform.position - (arrowButton.transform.up * 0.2f), noteCol, NoteType.Long, (flame) ? HitText.Perfect : HitText.Miss);
     }
 }

@@ -32,6 +32,7 @@ public class SongLoader : MonoBehaviour
     private Vector3 pos;
     private Vector3 scaleTemp;
     private int length;
+    private float temp;
 
     public SongFileInfo LoadSong(string name, bool isEditor)
     {
@@ -133,6 +134,8 @@ public class SongLoader : MonoBehaviour
         if (data.isLongNote && data.longNoteLen != 0f)
         {
             length = (int)data.longNoteLen;
+            temp = data.longNoteLen;
+
             data.yVal += data.longNoteLen;
 
             //totalNotes += lengthVal;
@@ -155,7 +158,7 @@ public class SongLoader : MonoBehaviour
                 GameManager.instance.bs.ArrowButtons((int)data.color),
                 data.longNoteLen * 2,
                 length,
-                length / (bpm / 30)
+                temp / (bpm / 30)
                 );
 
             pos.y += data.longNoteLen;
@@ -173,9 +176,20 @@ public class SongLoader : MonoBehaviour
     public void EditorLoad()
     {
         Debug.Log("Loading File!");
-        songInfo = LoadSong(compiler.SongName, true);
-        compiler.SongFileName = songInfo.songFileName;
-        compiler.BPM = songInfo.bpm.ToString();
-        compiler.Scroll = songInfo.startSpeed.ToString();
+        if (noteHolder.transform.childCount < 10 || compiler.loadFlag)
+        {
+            songInfo = LoadSong(compiler.SongName, true);
+            compiler.SongFileName = songInfo.songFileName;
+            compiler.BPM = songInfo.bpm.ToString();
+            compiler.Scroll = songInfo.startSpeed.ToString();
+            compiler.loadFlag = false;
+            compiler.warningText.text = "";
+        }
+        else
+        {
+            compiler.loadFlag = true;
+            compiler.warningText.text = "Sure you want to Load?";
+        }
+        
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BeatScroller : MonoBehaviour
 {
-    [Header("Song Speed")]
+    [Header("Song Speed"), SerializeField]
+    private string songName;
     public float bpm;
     private float beatTempo;
     private int totalNotes;
@@ -28,7 +29,7 @@ public class BeatScroller : MonoBehaviour
     {
         totalNotes = 0;
 
-        songInfo = sl.LoadSong("Grotto", false);
+        songInfo = sl.LoadSong(songName, false);
         totalNotes = songInfo.totalNotes;
         bpm = songInfo.bpm;
 
@@ -36,13 +37,6 @@ public class BeatScroller : MonoBehaviour
         beatTempo = bpm * songInfo.startSpeed / 30;
 
         arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
-
-        //Modify Arrow Buttons to account for speed
-        for (int i = 0; i < arrowButtons.Length; i++)
-        {
-            arrowButtons[i].GetComponent<BoxCollider2D>().size = new Vector2(1f, 2f * (beatTempo / averageBeatNormal));
-        }
-
 
         Debug.Log("Loaded!");
     }
