@@ -18,6 +18,7 @@ public class BeatScroller : MonoBehaviour
     [Header("Instatiate References"), Space(10), SerializeField]
     private SongLoader sl;
 
+    [SerializeField] private GameObject arrowLineParent;
     private GameObject[] arrowButtons; public GameObject ArrowButtons(int i) { if (arrowButtons == null) arrowButtons = GameObject.FindGameObjectsWithTag("Activator"); return arrowButtons[i]; }
     [SerializeField] private GameObject[] arrowLines; public GameObject ArrowLines(int i) { return arrowLines[i]; } 
     private SongFileInfo songInfo;
@@ -65,5 +66,25 @@ public class BeatScroller : MonoBehaviour
 
     public int GetTotalNotes() {return totalNotes;}
 
-    //public GameObject[] GetArrowGameObjects() {return arrow }
+    public void ActivateEffect(EffectModule effect)
+    {
+        switch (effect.objID)
+        {
+            case "Main":
+                effect.Activate(arrowLineParent);
+                break;
+            case "RedLine":
+                effect.Activate(arrowButtons[0]);
+                break;
+            case "BlueLine":
+                effect.Activate(arrowButtons[1]);
+                break;
+            case "GreenLine":
+                effect.Activate(arrowButtons[2]);
+                break;
+            case "YellowLine":
+                effect.Activate(arrowButtons[3]);
+                break;
+        }
+    }
 }
