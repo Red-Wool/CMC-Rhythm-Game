@@ -6,7 +6,7 @@ public class EffectTriggerObject : MonoBehaviour
 {
     private EffectModule effectType;
 
-    private float yVal;
+    [SerializeField] private float yVal;
 
     public void SetupEffect(EffectModule effect, float val)
     {
@@ -20,7 +20,10 @@ public class EffectTriggerObject : MonoBehaviour
         if (yVal <= GameManager.instance.GameTime)
         {
             GameManager.instance.bs.ActivateEffect(effectType);
+            Debug.Log("effect!");
+
             gameObject.SetActive(false);
+            
         }
     }
 }

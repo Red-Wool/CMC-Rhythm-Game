@@ -23,7 +23,11 @@ public class SongComplier : MonoBehaviour
 
     private string data;
 
+    private string noteString;
+    private string effectString;
+
     private EditorNoteObject obj;
+    private EditorEffectTriggerObject effectObj;
 
     public bool saveFlag;
     public bool loadFlag;
@@ -45,16 +49,31 @@ public class SongComplier : MonoBehaviour
         info.bpm = float.Parse(bpmInput.text);
         info.startSpeed = float.Parse(scrollInput.text);
 
+        noteString = "\0";
+        effectString = "\0";
+
         //Varible to track total notes
         int totalNotes = 0;
         for (int i = 0; i < notes.transform.childCount; i++)
         {
             obj = notes.transform.GetChild(i).GetComponent<EditorNoteObject>();
+            if (obj != null)
+            {
+                Note noteObj = obj.GetNoteData();
+                totalNotes += noteObj.isLongNote ? (int)noteObj.longNoteLen + 1 : 1;
 
-            Note noteObj = obj.GetNoteData();
-            totalNotes += noteObj.isLongNote ? (int)noteObj.longNoteLen + 1 : 1; 
+                noteString += "\n" + JsonUtility.ToJson(noteObj);
+            }
+            else
+            {
+                effectObj = notes.transform.GetChild(i).GetComponent<EditorEffectTriggerObject>();
+                if (effectObj != null)
+                {
+                    EffectModule noteObj = effectObj.effectInfo;
 
-            data += "\n" + JsonUtility.ToJson(noteObj);
+                    effectString += "\n" + JsonUtility.ToJson(noteObj);
+                }
+            }
         }
         info.totalNotes = totalNotes;
         data = JsonUtility.ToJson(info) + data;

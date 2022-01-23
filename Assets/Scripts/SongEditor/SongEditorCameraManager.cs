@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class SongEditorCameraManager : MonoBehaviour
 {
@@ -26,22 +27,44 @@ public class SongEditorCameraManager : MonoBehaviour
     //GameObject Selection
     private GameObject selectedObj;
 
-    [Header("Arrow Modifiers"), Space(10), SerializeField]
-    private GameObject selectorIndicator;
-    [SerializeField]
-    private Image noteDisplay;
-    [SerializeField]
-    private TMP_InputField customYAddInputField;
+    [Header("Arrow Modifiers"), Space(10), 
+     SerializeField] private GameObject selectorIndicator;
+    [SerializeField] private Image noteDisplay;
+    [SerializeField] private TMP_InputField customYAddInputField;
 
-    [SerializeField]
-    private TMP_InputField longNoteInputField;
-    [SerializeField]
-    private Toggle longNoteToggle;
-    [HideInInspector]
-    private bool longNoteFlag;
+    [SerializeField] private TMP_InputField longNoteInputField;
+    [SerializeField] private Toggle longNoteToggle;
+    [HideInInspector] private bool longNoteFlag;
 
     private const string validNum = "-0123456789.";
-    //private const string validNumNoNeg = "0123456789.";
+
+    //Effect Section
+    [Header("Effect Editor"), Space(10),
+     SerializeField] private GameObject effectButtonPrefab;
+    [Space(10),
+     SerializeField] private GameObject effectContainer;
+    [SerializeField] private TMP_Text effectContTxt;
+
+    [Space(10),
+     SerializeField] private GameObject easeContainer;
+    [SerializeField] private TMP_Text easeContTxt;
+
+    [Space(10),
+     SerializeField] private GameObject loopContainer;
+    [SerializeField] private TMP_Text loopContTxt;
+
+    [Space(10),
+     SerializeField] private TMP_InputField effectObjectID;
+
+    [Space(10),
+     SerializeField] private TMP_InputField effectX;
+    [SerializeField] private TMP_InputField effectY;
+    [SerializeField] private TMP_InputField effectZ;
+
+    [Space(10),
+     SerializeField] private TMP_InputField effectBarCount;
+    [SerializeField] private TMP_InputField effectLoopCount;
+
 
     //Camera
     private Camera mainCamera;
@@ -75,6 +98,9 @@ public class SongEditorCameraManager : MonoBehaviour
 
     //ExtraVaribles
     private EditorNoteObject noteObj;
+    private EditorEffectTriggerObject triggerObj;
+
+    private GameObject tempGameObj;
 
     // Start is called before the first frame update
     void Start()
@@ -85,13 +111,48 @@ public class SongEditorCameraManager : MonoBehaviour
 
         baseScreenSize = mainCamera.orthographicSize;
 
-        //customYAddInputField.in
-        customYAddInputField.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar, false); };
-        customYAddInputField.characterLimit = 10;
-        longNoteInputField.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar, false); };
-        longNoteInputField.characterLimit = 10;
+        //Custom Y and Long Note Len Input Constraints
+        AddNumConstraint(customYAddInputField, 10, false);
+        AddNumConstraint(longNoteInputField, 10, true);
+
+        AddNumConstraint(effectX, 10, false);
+        AddNumConstraint(effectY, 10, false);
+        AddNumConstraint(effectZ, 10, false);
+        AddNumConstraint(effectBarCount, 10, true);
+        AddNumConstraint(effectLoopCount, 10, false);
 
         snapPos.z = 0f;
+
+        //Add all effects, eases, and loops to editor
+        EffectType[] allEffects = System.Enum.GetValues(typeof(EffectType)) as EffectType[];
+        for (int i = 0; i < allEffects.Length; i++)
+        {
+            tempGameObj = Instantiate(effectButtonPrefab, effectContainer.transform);
+            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((EffectType) i).ToString();
+
+            EffectType e = allEffects[i];
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetEffectType(e));
+        }
+
+        Ease[] allEases = System.Enum.GetValues(typeof(Ease)) as Ease[];
+        for (int i = 0; i < allEases.Length; i++)
+        {
+            tempGameObj = Instantiate(effectButtonPrefab, easeContainer.transform);
+            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((Ease)i).ToString();
+
+            Ease ea = allEases[i];
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetEaseType(ea));
+        }
+
+        LoopType[] allLoops = System.Enum.GetValues(typeof(LoopType)) as LoopType[];
+        for (int i = 0; i < allLoops.Length; i++)
+        {
+            tempGameObj = Instantiate(effectButtonPrefab, loopContainer.transform);
+            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((LoopType)i).ToString();
+
+            LoopType l = allLoops[i];
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetLoopType(l));
+        }
     }
 
     // Update is called once per frame
@@ -108,7 +169,7 @@ public class SongEditorCameraManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //Regular Arrows
-            if (Mathf.Abs(mousePos.x) <= 4f)
+            if (mousePos.x <= 10f && mousePos.x >= -4f)
             {
                 snapPos.y = Mathf.Round(mousePos.y / yPlaceSnap) * yPlaceSnap;
 
@@ -129,15 +190,34 @@ public class SongEditorCameraManager : MonoBehaviour
                     case 3f:
                         selectedObj = arrowGameObjs[3];
                         break;
+                    case 7f:
+                        selectedObj = arrowGameObjs[4];
+                        break;
+                    case 9f:
+                        selectedObj = arrowGameObjs[4];
+                        break;
                     default:
-                        selectedObj = arrowGameObjs[0];
-                        Debug.Log("Something went wrong!");
+                        //selectedObj = arrowGameObjs[0];
+                        Debug.Log("InvalidPos");
                         break;
                 }
 
-                selectedObj = Instantiate(selectedObj, snapPos, Quaternion.identity, noteHolder.transform);
-                OnSelectGameObject(selectedObj);
-                SetLongNote();
+                if (selectedObj != null)
+                {
+                    selectedObj = Instantiate(selectedObj, snapPos, Quaternion.identity, noteHolder.transform);
+                    OnSelectGameObject(selectedObj);
+
+                    if (selectedObj.GetComponent<EditorNoteObject>())
+                    {
+                        SetLongNote();
+                    }
+                    else
+                    {
+                        HandleEffectInput();
+                        UpdateEffectEditor();
+                    }
+                }
+                
             }
         }
         //========Right Click=======
@@ -151,7 +231,14 @@ public class SongEditorCameraManager : MonoBehaviour
             {
                 OnSelectGameObject(hit.collider.gameObject);
 
-                GetLongNote(hit.collider.gameObject);
+                if (hit.collider.gameObject.GetComponent<EditorNoteObject>())
+                {
+                    GetLongNote(hit.collider.gameObject);
+                }
+                else
+                {
+                    UpdateEffectEditor();
+                }
             }
             else
             {
@@ -222,6 +309,85 @@ public class SongEditorCameraManager : MonoBehaviour
         
     }
 
+    //Effect Editor Methods
+    public void UpdateEffectEditor()
+    {
+        triggerObj = selectedObj.GetComponent<EditorEffectTriggerObject>();
+
+        effectContTxt.text = triggerObj.effectInfo.effectType.ToString();
+        easeContTxt.text = triggerObj.effectInfo.easeType.ToString();
+        loopContTxt.text = triggerObj.effectInfo.loopingStyle.ToString();
+
+        effectObjectID.text = triggerObj.effectInfo.objID;
+
+        effectX.text = triggerObj.effectInfo.vec.x.ToString();
+        effectY.text = triggerObj.effectInfo.vec.y.ToString();
+        effectZ.text = triggerObj.effectInfo.vec.z.ToString();
+
+        effectBarCount.text = triggerObj.effectInfo.bars.ToString();
+        effectLoopCount.text = triggerObj.effectInfo.loops.ToString();
+    }
+
+    public void HandleEffectInput()
+    {
+        if (CheckEffectInfo())
+        {
+            triggerObj.effectInfo.objID = effectObjectID.text;
+
+            triggerObj.effectInfo.vec = new Vector3(float.Parse(effectX.text), float.Parse(effectY.text), float.Parse(effectZ.text));
+
+            triggerObj.effectInfo.bars = float.Parse(effectBarCount.text);
+            triggerObj.effectInfo.loops = int.Parse(effectLoopCount.text);
+        }
+    }
+
+    private bool CheckEffectInfo()
+    {
+        triggerObj = selectedObj.GetComponent<EditorEffectTriggerObject>();
+        if (triggerObj != null)
+        {
+            if (triggerObj.effectInfo == null)
+            {
+                triggerObj.effectInfo = new EffectModule();
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void SetEffectType(EffectType effect)
+    {
+        if (CheckEffectInfo())
+        {
+            triggerObj.effectInfo.effectType = effect;
+            effectContTxt.text = effect.ToString();
+        }
+    }
+
+    public void SetEaseType(Ease easeType)
+    {
+        if (CheckEffectInfo())
+        {
+           
+
+            triggerObj.effectInfo.easeType = easeType;
+            easeContTxt.text = easeType.ToString();
+        }
+    }
+
+    public void SetLoopType(LoopType loopType)
+    {
+        if (CheckEffectInfo())
+        {
+
+            triggerObj.effectInfo.loopingStyle = loopType;
+            loopContTxt.text = loopType.ToString();
+        }
+    }
+
+    //Helper Methods
     public float CeilOrFloorBasedOnSign(float num)
     {
         if (num >= 0f)
@@ -305,6 +471,12 @@ public class SongEditorCameraManager : MonoBehaviour
         longNoteToggle.isOn = noteObj.GetIfLongNote();
 
         
+    }
+
+    private void AddNumConstraint(TMP_InputField field, int maxLen, bool noNegative)
+    {
+        field.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar, noNegative); };
+        field.characterLimit = maxLen;
     }
 
     private char ValidateCharacter(string validCharacters, char addedChr, bool noNegative)
