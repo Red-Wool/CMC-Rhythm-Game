@@ -6,15 +6,15 @@ public class EditorEffectTriggerObject : MonoBehaviour
 {
     public EffectModule effectInfo;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetUp(EffectModule data)
     {
-        
+        effectInfo = data;
+        transform.position = new Vector3(data.xSpot ? 9f : 7f, data.yVal);
     }
 
-    // Update is called once per frame
-    void Update()
+    public EffectModule GetData()
     {
-        
+        effectInfo.yVal = transform.position.y;
+        return effectInfo;
     }
 }

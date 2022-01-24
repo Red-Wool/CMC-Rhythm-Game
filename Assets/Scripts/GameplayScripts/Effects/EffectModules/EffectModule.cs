@@ -7,6 +7,8 @@ using DG.Tweening;
 public class EffectModule
 {
     public string objID;
+    public float yVal;
+    public bool xSpot;
     public EffectType effectType;
     public Vector3 vec;
     public float bars;
@@ -23,6 +25,14 @@ public class EffectModule
         {
             case EffectType.TweenMove:
                 obj.transform.DOMove(vec, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                break;
+
+            case EffectType.TweenMoveX:
+                obj.transform.DOMoveX(vec.x, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                break;
+
+            case EffectType.TweenMoveY:
+                obj.transform.DOMoveY(vec.y, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
                 break;
 
             case EffectType.TweenRotate:
@@ -60,8 +70,12 @@ public class SpecialEffectModule
 public enum EffectType
 {
     TweenMove,
+    TweenMoveX,
+    TweenMoveY,
     TweenRotate,
+    //TweenRotateTo,
     TweenScale,
+    //TweenScaleTo,
     TweenKill,
     Teleport,
     CountDown

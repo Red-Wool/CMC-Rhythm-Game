@@ -68,7 +68,10 @@ public class BeatScroller : MonoBehaviour
 
     public void ActivateEffect(EffectModule effect)
     {
-        switch (effect.objID)
+
+        Debug.Log(effect.objID);
+
+        switch (effect.objID.Trim())
         {
             case "Main":
                 effect.Activate(arrowLineParent);

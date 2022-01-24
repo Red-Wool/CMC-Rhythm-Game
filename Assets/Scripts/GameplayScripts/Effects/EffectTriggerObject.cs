@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EffectTriggerObject : MonoBehaviour
 {
-    private EffectModule effectType;
+    [SerializeField] private EffectModule effectType;
 
     [SerializeField] private float yVal;
 
-    public void SetupEffect(EffectModule effect, float val)
+    public void SetupEffect(EffectModule effect, float bpm)
     {
         effectType = effect;
-        yVal = val;
+        yVal = effect.yVal / (bpm / 30);
     }
 
     // Update is called once per frame

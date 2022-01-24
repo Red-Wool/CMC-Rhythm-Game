@@ -38,7 +38,7 @@ public class SongComplier : MonoBehaviour
         //Get the file Location
         string path = Application.dataPath + "/SongData/" + name + ".txt";
 
-        data = "\0";
+        data = "";
 
         //Set Header Data
         SongFileInfo info = new SongFileInfo();
@@ -49,8 +49,8 @@ public class SongComplier : MonoBehaviour
         info.bpm = float.Parse(bpmInput.text);
         info.startSpeed = float.Parse(scrollInput.text);
 
-        noteString = "\0";
-        effectString = "\0";
+        noteString = "";
+        effectString = "";
 
         //Varible to track total notes
         int totalNotes = 0;
@@ -69,12 +69,17 @@ public class SongComplier : MonoBehaviour
                 effectObj = notes.transform.GetChild(i).GetComponent<EditorEffectTriggerObject>();
                 if (effectObj != null)
                 {
-                    EffectModule noteObj = effectObj.effectInfo;
+                    EffectModule noteObj = effectObj.GetData();
 
                     effectString += "\n" + JsonUtility.ToJson(noteObj);
                 }
             }
         }
+        data = "\nNote";// + noteString + "\nEffect" + effectString;
+        data += noteString;
+        data += "\nEffect";
+        data += effectString;
+
         info.totalNotes = totalNotes;
         data = JsonUtility.ToJson(info) + data;
 

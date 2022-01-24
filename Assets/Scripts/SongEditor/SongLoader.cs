@@ -17,11 +17,16 @@ public class SongLoader : MonoBehaviour
     private GameObject[] longNoteMiddlePrefab;
     [SerializeField]
     private GameObject[] longNoteEndPrefab;
+
+    [SerializeField] private GameObject effectTriggerPrefab;
+    [SerializeField] private GameObject effectTriggerEditorPrefab;
+
     [SerializeField]
     private SongComplier compiler;
 
     //Extra Varibles so only instatiated once
     private Note noteData;
+    private EffectModule effectData;
     private GameObject gameObj;
 
     private EditorNoteObject ediObj;
@@ -33,6 +38,8 @@ public class SongLoader : MonoBehaviour
     private Vector3 scaleTemp;
     private int length;
     private float temp;
+
+    public string[] invalidStrings = {"End", "Effect", "Note"};
 
     public SongFileInfo LoadSong(string name, bool isEditor)
     {
@@ -69,22 +76,46 @@ public class SongLoader : MonoBehaviour
             float spdMult = songInfo.startSpeed;
             float bpm = songInfo.bpm;
 
+            bool effect = false;
+
             //Go Through entire file until the end
             while (!textFile.EndOfStream)
             {
-                string inpStr = textFile.ReadLine();
-                if (inpStr != "End")
+                string inpStr = textFile.ReadLine().Trim();
+                inpStr.Replace("\n", "");
+                if (inpStr == "Effect")
                 {
-                    noteData = JsonUtility.FromJson<Note>(inpStr);
+                    effect = true;
+                }
 
-                    //Check if editor edition
-                    if (isEditor)
+                if (inpStr != "Note" && inpStr != "Effect" && inpStr != "End")
+                {
+                    if (effect)
                     {
-                        SetUpEditorNote(noteData);
+                        effectData = JsonUtility.FromJson<EffectModule>(inpStr);
+
+                        if (isEditor)
+                        {
+                            SetUpEffectEditor(effectData);
+                        }
+                        else
+                        {
+                            SetUpEffect(effectData, bpm);
+                        }
                     }
                     else
                     {
-                        SetUpGameNote(noteData, bpm, spdMult);
+                        noteData = JsonUtility.FromJson<Note>(inpStr);
+
+                        //Check if editor edition
+                        if (isEditor)
+                        {
+                            SetUpEditorNote(noteData);
+                        }
+                        else
+                        {
+                            SetUpGameNote(noteData, bpm, spdMult);
+                        }
                     }
                 }
             }
@@ -172,6 +203,18 @@ public class SongLoader : MonoBehaviour
         return 1;
     }
 
+    public void SetUpEffectEditor(EffectModule data)
+    {
+        gameObj = Instantiate(effectTriggerEditorPrefab, noteHolder.transform);
+        gameObj.GetComponent<EditorEffectTriggerObject>().SetUp(data);
+    }
+
+    public void SetUpEffect(EffectModule data, float bpm)
+    {
+        gameObj = Instantiate(effectTriggerPrefab);
+        gameObj.GetComponent<EffectTriggerObject>().SetupEffect(data, bpm);
+    }
+
     //Method for Song Editor Button
     public void EditorLoad()
     {
@@ -191,5 +234,18 @@ public class SongLoader : MonoBehaviour
             compiler.warningText.text = "Sure you want to Load?";
         }
         
+    }
+
+    private bool WordCheck(string word)
+    {
+        for (int i = 0; i < invalidStrings.Length; i++)
+        {
+            //Debug.Log(" ?= " + invalidStrings[i]); //invalidStrings[i]);
+            if (invalidStrings[i].Trim() == word.Trim())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
