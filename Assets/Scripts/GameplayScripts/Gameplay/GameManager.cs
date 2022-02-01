@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public BeatScroller bs;
     public ComboCircle cc;
     public EndScoreboard ec;
+    public CameraEffects ce;
 
     //UI + Basically UI
     [Header("UI"), Space(10)]
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
         //Press a Key to start Playing
         if (!playing && Input.anyKeyDown)
         {
+            StartGame();
+
             playing = true;
 
             SongFileInfo songInfo = bs.StartGame();
@@ -142,6 +145,34 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void StartGame()
+    {
+        //Singleton of this for Notes to send data to
+        instance = this;
+
+        hits = 0;
+
+        score = 0;
+        combo = 0;
+
+        topCombo = 0;
+
+        gameEnd = false;
+
+        hitVal = HitText.Miss;
+        hitTextDisplay.sprite = null;
+
+        arrowList = new List<NoteObject>[4];
+        for (int i = 0; i < arrowList.Length; i++)
+        {
+            arrowList[i] = new List<NoteObject>();
+        }
+
+        hitTypeCount = new int[7];
+
+        UpdateScoreBoard();
     }
 
     #region NoteHitMethods

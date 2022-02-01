@@ -20,13 +20,32 @@ public class BeatScroller : MonoBehaviour
 
     [SerializeField] private GameObject arrowLineParent;
     private GameObject[] arrowButtons; public GameObject ArrowButtons(int i) { if (arrowButtons == null) arrowButtons = GameObject.FindGameObjectsWithTag("Activator"); return arrowButtons[i]; }
-    [SerializeField] private GameObject[] arrowLines; public GameObject ArrowLines(int i) { return arrowLines[i]; } 
+    [SerializeField] private GameObject[] arrowLines; public GameObject ArrowLines(int i) { return arrowLines[i]; }
+    [SerializeField] private GameObject flashScreen;
+
+
     private SongFileInfo songInfo;
 
     private Vector3 tempPos;
 
     // Start is called before the first frame update
     void Start()
+    {
+        /*totalNotes = 0;
+
+        songInfo = sl.LoadSong(songName, false);
+        totalNotes = songInfo.totalNotes;
+        bpm = songInfo.bpm;
+
+        //Calculate the speed of which notes scroll down
+        beatTempo = bpm * songInfo.startSpeed / 30;
+
+        arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
+
+        Debug.Log("Loaded!");*/
+    }
+
+    public SongFileInfo StartGame()
     {
         totalNotes = 0;
 
@@ -39,11 +58,6 @@ public class BeatScroller : MonoBehaviour
 
         arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
 
-        Debug.Log("Loaded!");
-    }
-
-    public SongFileInfo StartGame()
-    {
         playing = true;
 
         GameManager.instance.buttonSize = beatTempo / averageBeatNormal;
@@ -87,6 +101,9 @@ public class BeatScroller : MonoBehaviour
                 break;
             case "YellowLine":
                 effect.Activate(arrowButtons[3]);
+                break;
+            case "FlashScreen":
+                effect.Activate(flashScreen);
                 break;
         }
     }

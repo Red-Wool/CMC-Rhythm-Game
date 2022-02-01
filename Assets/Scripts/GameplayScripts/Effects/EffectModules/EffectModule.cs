@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 using DG.Tweening;
 
 [System.Serializable]
@@ -8,8 +9,8 @@ public class EffectModule
 {
     public string objID;
     public float yVal;
-    public bool xSpot;
-    public EffectType effectType;
+    public int xSpot;
+    public string effectType;
     public Vector3 vec;
     public float bars;
 
@@ -21,7 +22,10 @@ public class EffectModule
 
     public void Activate(GameObject obj)
     {
-        switch (effectType)
+        EffectType effect;
+        System.Enum.TryParse<EffectType>(effectType, out effect);
+
+        switch (effect)
         {
             case EffectType.TweenMove:
                 obj.transform.DOMove(vec, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
@@ -47,13 +51,48 @@ public class EffectModule
                 obj.transform.DOKill();
                 break;
 
+            case EffectType.TweenKillAll:
+                DOTween.KillAll();
+                break;
+
             case EffectType.Teleport:
                 obj.transform.position = vec;
                 break;
 
             case EffectType.CountDown:
                 break;
+
+            case EffectType.Flash:
+                obj.GetComponent<SpriteRenderer>().DOFade(1, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+                obj.GetComponent<SpriteRenderer>().DOFade(0, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+                break;
+
+            case EffectType.CameraBop:
+                Camera.main.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+                Camera.main.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+                break;
+
+            case EffectType.CameraBopRepeat:
+
+                for (int i = 0; i < loops; i++)
+                {
+                    CameraRepeat((vec.z / (GameManager.instance.bs.bpm / 30f)) * i);
+                }
+                break;
         }
+    }
+
+    private async void CameraRepeat(float duration)
+    {
+        var end = Time.time + duration;
+
+        while (Time.time < end)
+            await Task.Yield();
+
+
+        Debug.Log("Ew");
+        Camera.main.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+            Camera.main.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
     }
 
     public EffectModule GetData()
@@ -77,8 +116,14 @@ public enum EffectType
     TweenScale,
     //TweenScaleTo,
     TweenKill,
+    TweenKillAll,
     Teleport,
-    CountDown
+    CountDown,
+    Flash,
+    FadeIn,
+    FadeOut,
+    CameraBop,
+    CameraBopRepeat
 }
 
 

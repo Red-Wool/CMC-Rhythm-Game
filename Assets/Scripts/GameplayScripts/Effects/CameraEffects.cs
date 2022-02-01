@@ -12,6 +12,8 @@ public class CameraEffects : MonoBehaviour
     private float screenBopTimeTotal = 1f;
     private float screenBopTimer = 1f;
 
+
+
     [SerializeField]
     private AnimationCurve screenBop;
     //private AnimationCurve

@@ -169,7 +169,7 @@ public class SongEditorCameraManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //Regular Arrows
-            if (mousePos.x <= 10f && mousePos.x >= -4f)
+            if (mousePos.x <= 14f && mousePos.x >= -4f)
             {
                 snapPos.y = Mathf.Round(mousePos.y / yPlaceSnap) * yPlaceSnap;
 
@@ -194,6 +194,12 @@ public class SongEditorCameraManager : MonoBehaviour
                         selectedObj = arrowGameObjs[4];
                         break;
                     case 9f:
+                        selectedObj = arrowGameObjs[4];
+                        break;
+                    case 11f:
+                        selectedObj = arrowGameObjs[4];
+                        break;
+                    case 13f:
                         selectedObj = arrowGameObjs[4];
                         break;
                     default:
@@ -361,7 +367,7 @@ public class SongEditorCameraManager : MonoBehaviour
     {
         if (CheckEffectInfo())
         {
-            triggerObj.effectInfo.effectType = effect;
+            triggerObj.effectInfo.effectType = effect.ToString();
             effectContTxt.text = effect.ToString();
         }
     }

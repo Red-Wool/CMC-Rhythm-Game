@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SongSelect.unity
     guid: 31e60fd59aaf5ef4b9ca82a6df32f742
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TestSongLoad.unity
+    guid: 70b7469bda3d4c3478cbd89389d8cfe2
   m_configObjects: {}

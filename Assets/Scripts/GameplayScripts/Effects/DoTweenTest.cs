@@ -14,6 +14,7 @@ public class DoTweenTest : MonoBehaviour
     //bars -> sec bpm / 60
     void Start()
     {
+        //noteMove.transform.do
         //noteMove.transform.DOMoveX(6, 4/(157f/120f)).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         //noteMove.transform.DOMoveY(6, 4 / (157f / 45f)).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         //noteMove.transform.DORotate(Vector3.left * 180, 3).SetEase(Ease.InOutBounce).SetLoops(-1, LoopType.Incremental);

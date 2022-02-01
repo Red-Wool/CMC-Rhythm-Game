@@ -40,16 +40,15 @@ public class UIEffects : MonoBehaviour
     private List<GameObject> comboBreakPopupPool = new List<GameObject>();
 
     [Header("Smooth Score Increase"), Space(10)]
-
-
-    //[Range(0f, 1f)]
-    //public float smoothSpeed;
     public AnimationCurve smoothSpeed;
 
     private float smoothScoreTimer;
     private int startScore;
     private int smoothScore;
     private int targetScore;
+
+    [Header("ScreenFlash"), Space(10)]
+    public GameObject screenFlash;
 
 
     //Extra Varibles declared only once to save memory
