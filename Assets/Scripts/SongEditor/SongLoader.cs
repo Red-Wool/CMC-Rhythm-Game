@@ -82,7 +82,7 @@ public class SongLoader : MonoBehaviour
             bool effect = false;
 
             //Go Through entire file until the end
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 1; i < text.Length; i++)
             {
                 string inpStr = text[i].Trim();
                 inpStr.Replace("\n", "");
