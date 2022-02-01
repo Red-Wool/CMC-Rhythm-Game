@@ -1,0 +1,9 @@
+{"songName":"ET3","songFileName":"123","version":"V6","lastEdit":"1/23/2022 6:32:23 PM","bpm":123.0,"startSpeed":123.0,"totalNotes":3}
+Note
+{"color":0,"yVal":1.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":4.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":-1.0,"isLongNote":false,"longNoteLen":0.0}
+Effect
+{"objID":"Main\n","yVal":0.0,"xSpot":false,"effectType":0,"vec":{"x":0.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":0,"loopingStyle":0}
+{"objID":"Main\n","yVal":0.0,"xSpot":false,"effectType":0,"vec":{"x":0.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":0,"loopingStyle":0}
+End

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text.RegularExpressions;
 using System.IO;
 using TMPro;
 
@@ -58,19 +59,21 @@ public class SongLoader : MonoBehaviour
                 Destroy(i);
             }
         }
-        
+
 
         //Get Path
-        string path = Application.dataPath + "/SongData/" + name + ".txt";
+        //string path = Application.dataPath + "/SongData/" + name + ".txt";
+        TextAsset textFile = LoadAssetBundle.GetSongData(name);
 
         //Check if Path Exists
-        if (File.Exists(path))
+        if (textFile != null)
         {
             //Get Stream reader to read txt file
-            StreamReader textFile = new StreamReader(path);
+            //StringReader textFile = new StringReader(;
+            string[] text = Regex.Split(textFile.text, "\n");
 
             //Get Song Info
-            songInfo = JsonUtility.FromJson<SongFileInfo>(textFile.ReadLine());
+            songInfo = JsonUtility.FromJson<SongFileInfo>(text[0]);
 
             //Set Speed
             float spdMult = songInfo.startSpeed;
@@ -79,9 +82,9 @@ public class SongLoader : MonoBehaviour
             bool effect = false;
 
             //Go Through entire file until the end
-            while (!textFile.EndOfStream)
+            for (int i = 0; i < text.Length; i++)
             {
-                string inpStr = textFile.ReadLine().Trim();
+                string inpStr = text[i].Trim();
                 inpStr.Replace("\n", "");
                 if (inpStr == "Effect")
                 {
@@ -121,14 +124,14 @@ public class SongLoader : MonoBehaviour
             }
 
             //Close the text file
-            textFile.Close();
+            //textFile.Close();
 
             return songInfo;
         }
         else
         {
             //Oh crap you gave the wrong path
-            Debug.Log("Invalid Path! Like what is this?? " + path);
+            Debug.Log("Invalid Path! Like what is this? " + name);
         }
 
         return new SongFileInfo();

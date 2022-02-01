@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             SongFileInfo songInfo = bs.StartGame();
             try
             {
-                AudioClip song = Resources.Load<AudioClip>("Music/" + songInfo.songFileName);
+                AudioClip song = LoadAssetBundle.GetMusic(songInfo.songFileName); //Resources.Load<AudioClip>("Music/" + songInfo.songFileName);
                 if (song == null)
                 {
                     Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);

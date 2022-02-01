@@ -90,7 +90,7 @@ public class EffectModule
             await Task.Yield();
 
 
-        Debug.Log("Ew");
+        //Debug.Log("Ew");
         Camera.main.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
             Camera.main.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
     }

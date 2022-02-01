@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 2144468052
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: songdata
+      Dependencies: {}
+    Info_1:
+      Name: sfx
+      Dependencies: {}
+    Info_2:
+      Name: music
+      Dependencies: {}

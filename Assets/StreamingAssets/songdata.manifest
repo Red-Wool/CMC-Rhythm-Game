@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 4199198460
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5f40fa4caca6d5006811f40cb684845b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/AssetBundles/songdata/EffectTest.txt
+- Assets/AssetBundles/songdata/ET1.txt
+- Assets/AssetBundles/songdata/Purple.txt
+- Assets/AssetBundles/songdata/FileManager.txt
+- Assets/AssetBundles/songdata/VeryCoolPeople.txt
+- Assets/AssetBundles/songdata/ET4.txt
+- Assets/AssetBundles/songdata/Interlap.txt
+- Assets/AssetBundles/songdata/ET3.txt
+- Assets/AssetBundles/songdata/LieLieLie.txt
+- Assets/AssetBundles/songdata/ET2.txt
+- Assets/AssetBundles/songdata/Test.txt
+- Assets/AssetBundles/songdata/Stream.txt
+- Assets/AssetBundles/songdata/Grotto.txt
+- Assets/AssetBundles/songdata/Tell.txt
+Dependencies: []
