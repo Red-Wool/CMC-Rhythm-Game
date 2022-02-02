@@ -109,6 +109,6 @@ public class LongNoteObject : NoteClass
 
     public void ParticleToggle(bool flag, bool flame)
     {
-        ParticleManager.instance.ToggleParticle(flag, arrowButton.transform.position - (arrowButton.transform.up * 0.2f), noteCol, NoteType.Long, (flame) ? HitText.Perfect : HitText.Miss);
+        ParticleManager.instance.ToggleParticle(flag, arrowButton.transform.position, noteCol, NoteType.Long, (flame) ? HitText.Perfect : HitText.Miss); // - (arrowButton.transform.up * 0.2f)
     }
 }

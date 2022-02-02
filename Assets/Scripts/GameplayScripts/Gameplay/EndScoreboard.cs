@@ -54,8 +54,8 @@ public class EndScoreboard : MonoBehaviour
 
         finalScoreboardObjs[8].GetComponent<TextMeshProUGUI>().text += " " + (accuracy * 100f).ToString("#.00") + "%";
 
-        finalScoreboardObjs[finalScoreboardObjs.Length - 2].GetComponent<TextMeshProUGUI>().text += " " + score;
-        finalScoreboardObjs[finalScoreboardObjs.Length - 1].GetComponent<TextMeshProUGUI>().text += " " + topCombo;
+        finalScoreboardObjs[finalScoreboardObjs.Length - 3].GetComponent<TextMeshProUGUI>().text += " " + score;
+        finalScoreboardObjs[finalScoreboardObjs.Length - 2].GetComponent<TextMeshProUGUI>().text += " " + topCombo;
 
         Texture texture;
 
@@ -84,7 +84,7 @@ public class EndScoreboard : MonoBehaviour
             texture = gradeTextures[5];
         }
 
-        finalScoreboardObjs[finalScoreboardObjs.Length - 3].GetComponent<RawImage>().texture = texture;
+        finalScoreboardObjs[finalScoreboardObjs.Length - 4].GetComponent<RawImage>().texture = texture;
 
         StartCoroutine("DisplayScoreboard");
     }
@@ -104,7 +104,7 @@ public class EndScoreboard : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(0.8f);
 
-        for (int i = finalScoreboardObjs.Length - 3; i < finalScoreboardObjs.Length; i++)
+        for (int i = finalScoreboardObjs.Length - 4; i < finalScoreboardObjs.Length; i++)
         {
             finalScoreboardObjs[i].gameObject.SetActive(true);
         }
