@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4199198460
+CRC: 3743667543
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5f40fa4caca6d5006811f40cb684845b
+    Hash: f70ba6529a90a7e2d259641c7cec9446
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -14,9 +14,11 @@ ClassTypes:
 Assets:
 - Assets/AssetBundles/songdata/EffectTest.txt
 - Assets/AssetBundles/songdata/ET1.txt
+- Assets/AssetBundles/songdata/WhenIWasYourMan.txt
 - Assets/AssetBundles/songdata/Purple.txt
 - Assets/AssetBundles/songdata/FileManager.txt
 - Assets/AssetBundles/songdata/VeryCoolPeople.txt
+- Assets/AssetBundles/songdata/StillIntoYou.txt
 - Assets/AssetBundles/songdata/ET4.txt
 - Assets/AssetBundles/songdata/Interlap.txt
 - Assets/AssetBundles/songdata/ET3.txt

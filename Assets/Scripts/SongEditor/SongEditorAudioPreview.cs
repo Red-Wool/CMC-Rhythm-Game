@@ -47,7 +47,7 @@ public class SongEditorAudioPreview : MonoBehaviour
     {
         try
         {
-            AudioClip music = Resources.Load<AudioClip>("Music/" + compiler.SongFileName);
+            AudioClip music = LoadAssetBundle.GetMusic(compiler.SongFileName); //Resources.Load<AudioClip>("Music/" + compiler.SongFileName);
             if (music == null)
             {
                 Debug.LogError("Invalid Song Path: Music/" + compiler.SongFileName);

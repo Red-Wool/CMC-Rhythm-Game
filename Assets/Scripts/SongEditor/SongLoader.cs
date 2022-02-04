@@ -78,7 +78,6 @@ public class SongLoader : MonoBehaviour
             //Set Speed
             float spdMult = songInfo.startSpeed;
             float bpm = songInfo.bpm;
-
             bool effect = false;
 
             //Go Through entire file until the end
@@ -90,6 +89,8 @@ public class SongLoader : MonoBehaviour
                 {
                     effect = true;
                 }
+
+                Debug.Log(inpStr);
 
                 if (inpStr != "Note" && inpStr != "Effect" && inpStr != "End")
                 {
@@ -134,6 +135,7 @@ public class SongLoader : MonoBehaviour
             Debug.Log("Invalid Path! Like what is this? " + name);
         }
 
+        Debug.Log("Invalid Path! Like what is this? " + name);
         return new SongFileInfo();
     }
 
@@ -230,6 +232,7 @@ public class SongLoader : MonoBehaviour
             compiler.Scroll = songInfo.startSpeed.ToString();
             compiler.loadFlag = false;
             compiler.warningText.text = "";
+            Debug.Log("Loading files complete!");
         }
         else
         {

@@ -36,7 +36,7 @@ public class SongComplier : MonoBehaviour
     {
         
         //Get the file Location
-        string path = Application.dataPath + "/SongData/" + name + ".txt";
+        string path = Application.dataPath + "/AssetBundles/songdata/" + name + ".txt";
 
         data = "";
 
@@ -84,7 +84,6 @@ public class SongComplier : MonoBehaviour
         data = JsonUtility.ToJson(info) + data;
 
         data += "\nEnd";
-
         //if (!File.Exists(path))
         //{ 
         Debug.Log("Scaldedel");
@@ -105,6 +104,7 @@ public class SongComplier : MonoBehaviour
         {
             saveFlag = true;
             warningText.text = "Sure you want to save?";
+            Debug.Log("Crazy!");
         }
     }
 

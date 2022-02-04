@@ -5,10 +5,10 @@ using UnityEditor;
 using System.IO;
 
 
-public class CreateAssetBundles
+public static class CreateAssetBundles
 {
     [MenuItem("Assets/Build AssetBundles")]
-    static void BuildAllAssetBundles()
+    public static void BuildAllAssetBundles()
     {
         string assetBundleDirectory = "Assets/StreamingAssets";
         if (!Directory.Exists(Application.streamingAssetsPath))
@@ -16,5 +16,6 @@ public class CreateAssetBundles
             Directory.CreateDirectory(assetBundleDirectory);
         }
         BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
+        
     }
 }

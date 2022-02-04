@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 942806729
+CRC: 4290270462
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e87ce4a50cf2730992083328398ce7ff
+    Hash: 587f2698967ac77ac814887642d6850f
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -16,4 +16,6 @@ Assets:
 - Assets/AssetBundles/music/TheBoggyGrotto.mp3
 - Assets/AssetBundles/music/Tunnel.mp3
 - Assets/AssetBundles/music/PurpleSong.mp3
+- Assets/AssetBundles/music/BrunoMarsWhenIWasYourMan.mp3
+- Assets/AssetBundles/music/ParamoreStillIntoYou.mp3
 Dependencies: []
