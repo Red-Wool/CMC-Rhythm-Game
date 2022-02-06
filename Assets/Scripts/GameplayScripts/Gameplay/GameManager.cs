@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     //[HideInInspector]
     public float buttonSize;
 
+    [HideInInspector] public Camera mainCamera;
+
     private bool gameEnd;
 
     //Extra Varibles declared only once to save memory
@@ -90,6 +92,8 @@ public class GameManager : MonoBehaviour
         {
             arrowList[i] = new List<NoteObject>();
         }
+
+        mainCamera = Camera.main;
 
         hitTypeCount = new int[7];
 
@@ -265,7 +269,7 @@ public class GameManager : MonoBehaviour
         {
             uiEffects.BounceGameObj(hitTextDisplay.gameObject, false);
 
-            uiEffects.ComboBreakEffect(uiEffects.transform.position, combo);
+            uiEffects.ComboBreakEffect(combo);
 
             ParticleManager.instance.PlayBreak(combo > comboMultiplierInterval[1], combo);
 

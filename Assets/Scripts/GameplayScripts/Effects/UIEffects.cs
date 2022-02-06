@@ -174,12 +174,12 @@ public class UIEffects : MonoBehaviour
     public Vector2 WobbleOffset(Vector3 pos, float time)
     {
         //return new Vector2(0, Mathf.Sin(pos.y + time) * 30);
-        float power = ((Mathf.Cos((2f / 3f) * time * 1) + 1) / 4f) + 0.5f;
-        return new Vector2(Mathf.Cos(time * 1f) * 1f * power, Mathf.Sin(time * 1f) * 1f * power);    //Mathf.Clamp(Mathf.Cos(time * 5f)*10, -6f, 6f), Mathf.Clamp(Mathf.Sin(time * 5f)*10, -6f, 6f));
+        //float power = ((Mathf.Cos((2f / 3f) * time * 1) + 1) / 4f) + 0.5f;
+        return new Vector2(Mathf.Cos(time) * 0.7f, Mathf.Sin(time) * 0.7f);    //Mathf.Clamp(Mathf.Cos(time * 5f)*10, -6f, 6f), Mathf.Clamp(Mathf.Sin(time * 5f)*10, -6f, 6f));
     }
 
     //To Start Animation for breaking a combo
-    public void ComboBreakEffect(Vector3 pos, int combo)
+    public void ComboBreakEffect(int combo)
     {
         //Debug.Log("Failing ez 0 to deathg neabgr");
         cbpObj = null;
@@ -231,7 +231,7 @@ public class UIEffects : MonoBehaviour
 
         //if (interrupt)
         //{
-        smoothScoreTimer = Mathf.Max(Mathf.Min(smoothScoreTimer, 0.8f) - 0.3f, 0f);
+        smoothScoreTimer = Mathf.Clamp(smoothScore, 0f, 0.5f); //Mathf.Max(Mathf.Min(smoothScoreTimer, 0.8f) - 0.3f, 0f);
         //}
 
         targetScore = score;

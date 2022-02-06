@@ -68,8 +68,8 @@ public class EffectModule
                 break;
 
             case EffectType.CameraBop:
-                Camera.main.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-                Camera.main.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+                GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+                GameManager.instance.mainCamera.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
                 break;
 
             case EffectType.CameraBopRepeat:
@@ -91,8 +91,8 @@ public class EffectModule
 
 
         //Debug.Log("Ew");
-        Camera.main.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-            Camera.main.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+        GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+            GameManager.instance.mainCamera.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
     }
 
     public EffectModule GetData()
