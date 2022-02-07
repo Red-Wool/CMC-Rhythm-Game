@@ -1,4 +1,4 @@
-{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V6","lastEdit":"2/3/2022 11:31:45 PM","bpm":73.0,"startSpeed":1.0,"totalNotes":0}
+{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V6","lastEdit":"2/6/2022 10:16:17 AM","bpm":73.0,"startSpeed":1.5,"totalNotes":0}
 Note
 Effect
 End

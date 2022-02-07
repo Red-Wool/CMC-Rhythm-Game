@@ -27,9 +27,9 @@ public class NoteObject : NoteClass
             {
                 gameObject.SetActive(false);
 
-                //buttonController.avalible = true;
-
                 GameManager.instance.NoteHit(eval, this.gameObject);
+
+                enabled = false;
             }
             else if (!flag && Mathf.Abs(eval) < 0.25f)
             {
