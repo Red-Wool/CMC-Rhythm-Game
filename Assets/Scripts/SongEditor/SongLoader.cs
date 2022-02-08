@@ -63,14 +63,31 @@ public class SongLoader : MonoBehaviour
 
         //Get Path
         //string path = Application.dataPath + "/SongData/" + name + ".txt";
-        TextAsset textFile = LoadAssetBundle.GetSongData(name);
+        TextAsset textFile;
+        string[] text;
+        if (!isEditor)
+        {
+            textFile = LoadAssetBundle.GetSongData(name);
+            text = Regex.Split(textFile.text, "\n");
+        }
+        else
+        {
+            //StringReader reader = new StringReader(Application.dataPath + "/AssetBundles/songdata/" + name + ".txt");
+
+            text = File.ReadAllLines(Application.dataPath + "/AssetBundles/songdata/" + name + ".txt");
+
+            //text = Regex.Split(reader.ToString(), "\n");
+
+            //reader.Close();
+        }
+        
 
         //Check if Path Exists
-        if (textFile != null)
+        if (text.Length != 0)
         {
             //Get Stream reader to read txt file
             //StringReader textFile = new StringReader(;
-            string[] text = Regex.Split(textFile.text, "\n");
+            
 
             //Get Song Info
             songInfo = JsonUtility.FromJson<SongFileInfo>(text[0]);
@@ -90,7 +107,7 @@ public class SongLoader : MonoBehaviour
                     effect = true;
                 }
 
-                Debug.Log(inpStr);
+                //Debug.Log(inpStr);
 
                 if (inpStr != "Note" && inpStr != "Effect" && inpStr != "End")
                 {

@@ -86,8 +86,13 @@ public class SongComplier : MonoBehaviour
         data += "\nEnd";
         //if (!File.Exists(path))
         //{ 
-        Debug.Log("Scaldedel");
+        Debug.Log("Scaldedel " + path);
         File.WriteAllText(path, data);
+
+        //var importer = UnityEditor.AssetImporter.GetAtPath(path);
+        //importer.assetBundleName = "songdata";
+
+        //CreateAssetBundles.BuildAllAssetBundles();
         //}
     }
 

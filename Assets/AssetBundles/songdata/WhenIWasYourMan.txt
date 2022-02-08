@@ -1,4 +1,28 @@
-{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V6","lastEdit":"2/6/2022 10:16:17 AM","bpm":73.0,"startSpeed":1.5,"totalNotes":0}
+{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V6","lastEdit":"2/7/2022 11:09:14 PM","bpm":73.0,"startSpeed":2.0,"totalNotes":33}
 Note
+{"color":1,"yVal":17.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":21.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":25.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":31.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":0,"yVal":33.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":35.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":36.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":0,"yVal":37.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":42.0,"isLongNote":true,"longNoteLen":2.0}
+{"color":0,"yVal":39.5,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":40.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":41.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":50.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":0,"yVal":51.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":53.0,"isLongNote":true,"longNoteLen":2.0}
+{"color":2,"yVal":58.5,"isLongNote":true,"longNoteLen":3.0}
+{"color":1,"yVal":57.5,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":65.5,"isLongNote":false,"longNoteLen":0.0}
+{"color":0,"yVal":67.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":69.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":69.5,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":73.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":74.0,"isLongNote":true,"longNoteLen":1.5}
+{"color":0,"yVal":75.5,"isLongNote":true,"longNoteLen":1.5}
 Effect
 End

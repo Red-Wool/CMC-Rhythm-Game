@@ -205,6 +205,7 @@ public class SongEditorCameraManager : MonoBehaviour
                     default:
                         //selectedObj = arrowGameObjs[0];
                         Debug.Log("InvalidPos");
+                        selectedObj = null;
                         break;
                 }
 
@@ -289,9 +290,9 @@ public class SongEditorCameraManager : MonoBehaviour
 
             mainCamera.orthographicSize = baseScreenSize * multiplierScreenSize;
         }
-        //=========R Key===========
+        //=========Plus Key===========
         //To Reset the camera View
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Plus))
         {
             mainCamera.transform.position = resetCamera;
 
@@ -299,9 +300,9 @@ public class SongEditorCameraManager : MonoBehaviour
             mainCamera.orthographicSize = baseScreenSize;
         }
 
-        //========T Key===========
+        //========Minus Key===========
         //Delete a Note
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Minus))
         {
             mousePos2D = new Vector2(mousePos.x, mousePos.y);
 

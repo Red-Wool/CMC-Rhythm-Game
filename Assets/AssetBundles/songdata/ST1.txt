@@ -1,0 +1,6 @@
+{"songName":"ST1","songFileName":"song","version":"V6","lastEdit":"2/7/2022 10:15:21 PM","bpm":1.0,"startSpeed":1.0,"totalNotes":2}
+Note
+{"color":1,"yVal":1.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":3.0,"isLongNote":false,"longNoteLen":0.0}
+Effect
+End

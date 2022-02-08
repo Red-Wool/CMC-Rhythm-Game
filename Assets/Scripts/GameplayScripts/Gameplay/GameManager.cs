@@ -341,8 +341,7 @@ public class GameManager : MonoBehaviour
         result.ActivateArrow();
     }
     #endregion
-
-    //Manages Text stuff
+    //Manages Text st    
     public void UpdateScoreBoard()
     {
         //Sets Combo
