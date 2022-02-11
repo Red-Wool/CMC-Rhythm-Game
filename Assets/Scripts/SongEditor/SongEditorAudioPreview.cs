@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class SongEditorAudioPreview : MonoBehaviour
@@ -10,15 +11,22 @@ public class SongEditorAudioPreview : MonoBehaviour
     [SerializeField] private SongComplier compiler;
     [SerializeField] private TMP_InputField previewTimeInput;
 
+    [SerializeField] private Slider songSpeed;
+    [SerializeField] private TMP_Text songSpeedDisplay;
+
     private const string validNum = "0123456789.";
 
     private bool isPlaying;
     private float scrollSpeed;
+    private float playSpeed;
 
     private void Start()
     {
         previewTimeInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
         previewTimeInput.characterLimit = 10;
+
+        songSpeed.value = 10f;
+        UpdateSongSpeedDisplay();
     }
     private char ValidateCharacter(string validCharacters, char addedChr)
     {
@@ -38,7 +46,7 @@ public class SongEditorAudioPreview : MonoBehaviour
     {
         if (isPlaying)
         {
-            judgementLine.transform.position += Vector3.up * scrollSpeed * Time.deltaTime;
+            judgementLine.transform.position += Vector3.up * scrollSpeed * playSpeed * Time.deltaTime;
             Camera.main.transform.position = judgementLine.transform.position + Vector3.back * 10;
         }
     }
@@ -54,7 +62,10 @@ public class SongEditorAudioPreview : MonoBehaviour
             }
             else
             {
+                UpdateSongSpeedDisplay();
+
                 audioPlayer.clip = music;
+                audioPlayer.pitch = playSpeed;
                 audioPlayer.Play();
                 audioPlayer.time = time;
             }
@@ -85,6 +96,12 @@ public class SongEditorAudioPreview : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         audioPlayer.Stop();
+    }
+
+    public void UpdateSongSpeedDisplay()
+    {
+        playSpeed = songSpeed.value / 10f;
+        songSpeedDisplay.text = "x" + playSpeed;
     }
 
     public void PreviewBar()
