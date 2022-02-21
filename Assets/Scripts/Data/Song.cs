@@ -7,8 +7,8 @@ public class Song : ScriptableObject
 {
     public string songName;
     public string artist;
-    public string description;
+    [TextArea] public string description;
     public Texture songArt;
     public Texture songFrameArt;
-    public LevelData levelData;
+    public string mapName;
 }

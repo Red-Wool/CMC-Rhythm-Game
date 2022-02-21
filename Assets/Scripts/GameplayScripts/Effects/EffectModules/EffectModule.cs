@@ -67,6 +67,14 @@ public class EffectModule
                 obj.GetComponent<SpriteRenderer>().DOFade(0, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
                 break;
 
+            case EffectType.CameraSetScale:
+                GameManager.instance.mainCamera.orthographicSize = vec.x;
+                break;
+
+            case EffectType.CameraSmoothScale:
+                GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType);
+                break;
+
             case EffectType.CameraBop:
                 GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
                 GameManager.instance.mainCamera.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
@@ -122,6 +130,8 @@ public enum EffectType
     Flash,
     FadeIn,
     FadeOut,
+    CameraSetScale,
+    CameraSmoothScale,
     CameraBop,
     CameraBopRepeat
 }

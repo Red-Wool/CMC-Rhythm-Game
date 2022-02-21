@@ -54,6 +54,7 @@ public class SongMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void SetupButton(Song data)
     {
         songData = data;
+        GetComponent<RawImage>().texture = songData.songArt;
     }
 
     public void ButtonPress()

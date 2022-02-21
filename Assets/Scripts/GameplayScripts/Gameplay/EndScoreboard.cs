@@ -93,7 +93,7 @@ public class EndScoreboard : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(2f);
 
-        for (int i = 0; i < finalScoreboardObjs.Length - 3; i++)
+        for (int i = 0; i < finalScoreboardObjs.Length - 4; i++)
         {
             GetComponent<GameManager>().hitSFX.Play();
             finalScoreboardObjs[i].gameObject.SetActive(true);
@@ -104,7 +104,7 @@ public class EndScoreboard : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(0.8f);
 
-        for (int i = finalScoreboardObjs.Length - 4; i < finalScoreboardObjs.Length; i++)
+        for (int i = finalScoreboardObjs.Length - 5; i < finalScoreboardObjs.Length; i++)
         {
             finalScoreboardObjs[i].gameObject.SetActive(true);
         }

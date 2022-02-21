@@ -9,7 +9,10 @@ public class MenuManager : MonoBehaviour
     [HideInInspector]
     public static MenuManager instance;
 
-    public Album[] album;
+    [SerializeField] private Album album;
+
+    [SerializeField] private GameObject songContainer;
+    [SerializeField] private GameObject songPrefab;
 
     [SerializeField]
     private TextMeshProUGUI infoText;
@@ -18,18 +21,24 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         instance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        SetUpSongList(album);
         
     }
     
+    public void SetUpSongList(Album album)
+    {
+        PlayerPrefs.SetString("CurrentMap", album.songList[0].mapName);
+        for (int i = 0; i < album.songList.Length; i++)
+        {
+            Instantiate(songPrefab, songContainer.transform).GetComponent<SongMenuButton>().SetupButton(album.songList[i]);
+
+        }
+    }
 
     public void UpdateInfoText(Song song)
     {
-        infoText.text = song.name + "\nBy: " + song.artist + "\n" + song.description;
+        PlayerPrefs.SetString("CurrentMap", song.mapName);
+        infoText.text = song.songName + "\nBy: " + song.artist + "\n" + song.description;
     }
 }
 

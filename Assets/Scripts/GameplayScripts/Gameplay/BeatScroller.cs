@@ -31,6 +31,23 @@ public class BeatScroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        totalNotes = 0;
+
+        songInfo = sl.LoadSong(PlayerPrefs.GetString("CurrentMap"), false);
+        totalNotes = songInfo.totalNotes;
+        bpm = songInfo.bpm;
+
+        //Calculate the speed of which notes scroll down
+        beatTempo = bpm * songInfo.startSpeed / 30;
+
+        arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
+
+        Debug.Log("Loaded!");
+    }
+
+    public SongFileInfo StartGame()
+    {
         /*totalNotes = 0;
 
         songInfo = sl.LoadSong(songName, false);
@@ -40,23 +57,7 @@ public class BeatScroller : MonoBehaviour
         //Calculate the speed of which notes scroll down
         beatTempo = bpm * songInfo.startSpeed / 30;
 
-        arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
-
-        Debug.Log("Loaded!");*/
-    }
-
-    public SongFileInfo StartGame()
-    {
-        totalNotes = 0;
-
-        songInfo = sl.LoadSong(songName, false);
-        totalNotes = songInfo.totalNotes;
-        bpm = songInfo.bpm;
-
-        //Calculate the speed of which notes scroll down
-        beatTempo = bpm * songInfo.startSpeed / 30;
-
-        arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
+        arrowButtons = GameObject.FindGameObjectsWithTag("Activator");*/
 
         playing = true;
 
