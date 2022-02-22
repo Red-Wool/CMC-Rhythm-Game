@@ -61,7 +61,7 @@ public class BeatScroller : MonoBehaviour
 
         playing = true;
 
-        GameManager.instance.buttonSize = beatTempo / averageBeatNormal;
+        //GameManager.instance.buttonSize = beatTempo / averageBeatNormal;
         return songInfo;
     }
 
@@ -76,6 +76,14 @@ public class BeatScroller : MonoBehaviour
             {
                 i.transform.localPosition -= tempPos;
             }
+        }
+    }
+
+    public void SetY(float y)
+    {
+        foreach (GameObject i in arrowLines)
+        {
+            i.transform.localPosition = Vector3.up * y * beatTempo;
         }
     }
 

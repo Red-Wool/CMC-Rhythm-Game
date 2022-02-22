@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4290270462
+CRC: 1259679209
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 587f2698967ac77ac814887642d6850f
+    Hash: 20bc3af401017b43a78e4c5a1237b2a0
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -17,5 +17,6 @@ Assets:
 - Assets/AssetBundles/music/Tunnel.mp3
 - Assets/AssetBundles/music/PurpleSong.mp3
 - Assets/AssetBundles/music/BrunoMarsWhenIWasYourMan.mp3
+- Assets/AssetBundles/music/BillieEilishBellyache.mp3
 - Assets/AssetBundles/music/ParamoreStillIntoYou.mp3
 Dependencies: []

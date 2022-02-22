@@ -1,4 +1,4 @@
-{"songName":"LieLieLie","songFileName":"MicoLieLieLie","version":"V6","lastEdit":"1/30/2022 11:05:11 PM","bpm":157.0,"startSpeed":3.0,"totalNotes":675}
+{"songName":"LieLieLie","songFileName":"MicoLieLieLie","version":"V6","lastEdit":"2/21/2022 11:32:27 PM","bpm":157.0,"startSpeed":3.0,"startDelay":0.0,"endPos":901.0,"totalNotes":675}
 Note
 {"color":1,"yVal":6.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":7.0,"isLongNote":false,"longNoteLen":0.0}

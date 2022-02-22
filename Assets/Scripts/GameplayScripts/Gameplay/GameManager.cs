@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     //Music
     [Header("Music")]
     public AudioSource music;
-
     public bool playing;
+    public bool hasPlayed;
 
     public AudioSource hitSFX;
 
@@ -55,10 +55,11 @@ public class GameManager : MonoBehaviour
     private int topCombo;
 
     private float gameTime; public float GameTime { get { return gameTime; } }
+    private SongFileInfo songInfo;
     private List<NoteObject>[] arrowList;
 
     //[HideInInspector]
-    public float buttonSize;
+    //public float buttonSize;
 
     [HideInInspector] public Camera mainCamera;
 
@@ -109,8 +110,12 @@ public class GameManager : MonoBehaviour
             StartGame();
 
             playing = true;
+            hasPlayed = false;
 
-            SongFileInfo songInfo = bs.StartGame();
+            songInfo = bs.StartGame();
+            songInfo.startDelay /= songInfo.bpm / 30;
+            songInfo.endPos /= songInfo.bpm / 30;
+
             try
             {
                 AudioClip song = LoadAssetBundle.GetMusic(songInfo.songFileName); //Resources.Load<AudioClip>("Music/" + songInfo.songFileName);
@@ -121,20 +126,25 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     music.clip = song;
-                    //music.Play();
+                    if (songInfo.startDelay == 0f)
+                    {
+                        music.Play();
+                        hasPlayed = true;
+                    }
+                    
                 }
 
             }
             catch
             {
-                Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
+                //Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
             }
 
-            music.Play();
+            //music.Play();
         }
         else if (playing && !gameEnd) //When Song ends, go display scoreboar and stuff
         {
-            if (!music.isPlaying)
+            if (gameTime >= songInfo.endPos)
             {
                 Debug.Log("The End");
                 ec.ShowScoreboard(score, topCombo, hitTypeCount, bs.GetTotalNotes(), hits);
@@ -142,6 +152,16 @@ public class GameManager : MonoBehaviour
                 bs.playing = false;
 
                 gameEnd = true;
+            }
+            else if (!hasPlayed && !music.isPlaying && gameTime >= songInfo.startDelay)
+            {
+                //gameTime += Time.deltaTime;
+                music.Play();
+                //music.time = gameTime - songInfo.startDelay;
+                //bs.SetY(gameTime);
+
+                hasPlayed = true;
+                //gameTime = songInfo.startDelay;
             }
             else
             {

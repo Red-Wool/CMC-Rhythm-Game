@@ -14,6 +14,8 @@ public class SongComplier : MonoBehaviour
     [SerializeField] private TMP_InputField songFileNameInput; public string SongFileName { get { return songFileNameInput.text; } set { songFileNameInput.text = value; } }
     [SerializeField] private TMP_InputField bpmInput; public string BPM { get { return bpmInput.text; } set { bpmInput.text = value; } }
     [SerializeField] private TMP_InputField scrollInput; public string Scroll { get { return scrollInput.text; } set { scrollInput.text = value; } }
+    [SerializeField] private TMP_InputField delayInput; public string Delay { get { return delayInput.text; } set { delayInput.text = value; } }
+    [SerializeField] private TMP_InputField endInput; public string End { get { return endInput.text; } set { endInput.text = value; } }
 
     public TMP_Text warningText;
 
@@ -48,6 +50,8 @@ public class SongComplier : MonoBehaviour
         info.lastEdit = DateTime.Now + "";
         info.bpm = float.Parse(bpmInput.text);
         info.startSpeed = float.Parse(scrollInput.text);
+        info.startDelay = float.Parse(delayInput.text);
+        info.endPos = float.Parse(endInput.text);
 
         noteString = "";
         effectString = "";
@@ -118,10 +122,22 @@ public class SongComplier : MonoBehaviour
         saveFlag = false;
         loadFlag = false;
 
+        AddNumConstraint(bpmInput, 10);
+        AddNumConstraint(scrollInput, 10);
+        AddNumConstraint(delayInput, 10);
+        AddNumConstraint(endInput, 20);
+
+
         bpmInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
         bpmInput.characterLimit = 10;
         scrollInput.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
         scrollInput.characterLimit = 10;
+    }
+
+    private void AddNumConstraint(TMP_InputField field, int maxLen)
+    {
+        field.onValidateInput = (string text, int charIndex, char addedChar) => { return ValidateCharacter(validNum, addedChar); };
+        field.characterLimit = maxLen;
     }
 
     private char ValidateCharacter(string validCharacters, char addedChr)
@@ -159,5 +175,7 @@ public struct SongFileInfo
     public string lastEdit;
     public float bpm;
     public float startSpeed;
+    public float startDelay;
+    public float endPos;
     public int totalNotes;
 }

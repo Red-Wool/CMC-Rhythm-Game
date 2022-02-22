@@ -95,6 +95,12 @@ public class SongLoader : MonoBehaviour
             //Set Speed
             float spdMult = songInfo.startSpeed;
             float bpm = songInfo.bpm;
+            float delay = songInfo.startDelay / (bpm / 30);
+
+            //songInfo.startDelay /= bpm / 30;
+            //songInfo.endPos /= bpm / 30;
+
+            
             bool effect = false;
 
             //Go Through entire file until the end
@@ -135,7 +141,7 @@ public class SongLoader : MonoBehaviour
                         }
                         else
                         {
-                            SetUpGameNote(noteData, bpm, spdMult);
+                            SetUpGameNote(noteData, bpm, spdMult, delay);
                         }
                     }
                 }
@@ -151,7 +157,7 @@ public class SongLoader : MonoBehaviour
             //Oh crap you gave the wrong path
             Debug.Log("Invalid Path! Like what is this? " + name);
         }
-
+        //Why is it here twice
         Debug.Log("Invalid Path! Like what is this? " + name);
         return new SongFileInfo();
     }
@@ -166,7 +172,7 @@ public class SongLoader : MonoBehaviour
         ediObj.SetLongNote(data.isLongNote, data.longNoteLen);
     }
 
-    public int SetUpGameNote(Note data, float bpm, float speedMultiplier) //FIX IT to actually work
+    public int SetUpGameNote(Note data, float bpm, float speedMultiplier, float delay) //FIX IT to actually work
     {
 
         //Track Total Notes
@@ -176,13 +182,13 @@ public class SongLoader : MonoBehaviour
 
         //Set Arrows in sync with speed Multiplier
         pos = gameObj.transform.localPosition;
-        pos.y = data.yVal * speedMultiplier;
+        pos.y = (data.yVal + delay) * speedMultiplier;
         gameObj.transform.localPosition = pos;
 
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
 
-        noteObj.yVal = data.yVal / (bpm / 30);
+        noteObj.yVal = (data.yVal + delay) / (bpm / 30);
 
         if (data.isLongNote && data.longNoteLen != 0f)
         {
@@ -247,6 +253,8 @@ public class SongLoader : MonoBehaviour
             compiler.SongFileName = songInfo.songFileName;
             compiler.BPM = songInfo.bpm.ToString();
             compiler.Scroll = songInfo.startSpeed.ToString();
+            compiler.Delay = songInfo.startDelay.ToString();
+            compiler.End = songInfo.endPos.ToString();
             compiler.loadFlag = false;
             compiler.warningText.text = "";
             Debug.Log("Loading files complete!");
