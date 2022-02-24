@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 30303062
+CRC: 288278461
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a1c03671e4f070f83e4d373a4e136c76
+    Hash: e930446a41bb1413f8e3d95743e900af
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -28,5 +28,6 @@ Assets:
 - Assets/AssetBundles/songdata/Test.txt
 - Assets/AssetBundles/songdata/Stream.txt
 - Assets/AssetBundles/songdata/Grotto.txt
+- Assets/AssetBundles/songdata/FeelGoodInc.txt
 - Assets/AssetBundles/songdata/Tell.txt
 Dependencies: []

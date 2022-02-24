@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1259679209
+CRC: 1975797787
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 20bc3af401017b43a78e4c5a1237b2a0
+    Hash: 2ff9a3afe81db0bb8774b1b4ec6586f7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -14,6 +14,7 @@ ClassTypes:
 Assets:
 - Assets/AssetBundles/music/MicoLieLieLie.mp3
 - Assets/AssetBundles/music/TheBoggyGrotto.mp3
+- Assets/AssetBundles/music/FeelGoodInc.mp3
 - Assets/AssetBundles/music/Tunnel.mp3
 - Assets/AssetBundles/music/PurpleSong.mp3
 - Assets/AssetBundles/music/BrunoMarsWhenIWasYourMan.mp3
