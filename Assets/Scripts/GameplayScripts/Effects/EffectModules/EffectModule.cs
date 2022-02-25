@@ -39,6 +39,14 @@ public class EffectModule
                 obj.transform.DOMoveY(vec.y, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
                 break;
 
+            case EffectType.TweenMoveJump:
+                obj.transform.DOJump(new Vector3(vec.x, vec.y), vec.z, loops, bars / (GameManager.instance.bs.bpm / 30f));
+                break;
+
+            case EffectType.TweenMoveJumpLocal:
+                obj.transform.DOLocalJump(new Vector3(vec.x, vec.y), vec.z, loops, bars / (GameManager.instance.bs.bpm / 30f));
+                break;
+
             case EffectType.TweenRotate:
                 obj.transform.DORotate(vec, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
                 break;
@@ -72,7 +80,7 @@ public class EffectModule
                 break;
 
             case EffectType.CameraSmoothScale:
-                GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType);
+                GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType);
                 break;
 
             case EffectType.CameraBop:
@@ -86,6 +94,10 @@ public class EffectModule
                 {
                     CameraRepeat((vec.z / (GameManager.instance.bs.bpm / 30f)) * i);
                 }
+                break;
+
+            case EffectType.ScreenShake:
+                GameManager.instance.mainCamera.DOShakePosition(bars / (GameManager.instance.bs.bpm / 30f), vec.x, Mathf.RoundToInt(vec.y), vec.z).SetEase(easeType);
                 break;
         }
     }
@@ -119,6 +131,8 @@ public enum EffectType
     TweenMove,
     TweenMoveX,
     TweenMoveY,
+    TweenMoveJump,
+    TweenMoveJumpLocal,
     TweenRotate,
     //TweenRotateTo,
     TweenScale,
@@ -133,7 +147,10 @@ public enum EffectType
     CameraSetScale,
     CameraSmoothScale,
     CameraBop,
-    CameraBopRepeat
+    CameraBopRepeat,
+    ScreenShake,
+    ActivateShader,
+    DeactivateShader,
 }
 
 

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 288278461
+CRC: 488162247
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e930446a41bb1413f8e3d95743e900af
+    Hash: 883a9f1643beb303873f7eee37a9de89
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -20,6 +20,7 @@ Assets:
 - Assets/AssetBundles/songdata/VeryCoolPeople.txt
 - Assets/AssetBundles/songdata/StillIntoYou.txt
 - Assets/AssetBundles/songdata/ET4.txt
+- Assets/AssetBundles/songdata/Double.txt
 - Assets/AssetBundles/songdata/Interlap.txt
 - Assets/AssetBundles/songdata/ET3.txt
 - Assets/AssetBundles/songdata/LieLieLie.txt

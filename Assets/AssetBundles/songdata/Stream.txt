@@ -1,4 +1,4 @@
-{"songName":"Stream","songFileName":"Tunnel","version":"V6","lastEdit":"1/23/2022 8:20:55 PM","bpm":180.0,"startSpeed":4.0,"totalNotes":136}
+{"songName":"Stream","songFileName":"Tunnel","version":"V6","lastEdit":"2/24/2022 5:26:48 PM","bpm":180.0,"startSpeed":4.0,"startDelay":0.0,"endPos":74.0,"totalNotes":136}
 Note
 {"color":0,"yVal":3.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":4.0,"isLongNote":false,"longNoteLen":0.0}
@@ -137,6 +137,6 @@ Note
 {"color":2,"yVal":68.95999908447266,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":69.45999908447266,"isLongNote":false,"longNoteLen":0.0}
 Effect
-{"objID":"Main\n","yVal":3.0,"xSpot":false,"effectType":0,"vec":{"x":2.0,"y":3.0,"z":0.0},"bars":4.0,"loops":-1,"extra":[],"easeType":24,"loopingStyle":1}
-{"objID":"Main\n","yVal":22.0,"xSpot":false,"effectType":3,"vec":{"x":0.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":0,"loopingStyle":0}
+{"objID":"Main\n","yVal":3.0,"xSpot":0,"effectType":"0","vec":{"x":2.0,"y":3.0,"z":0.0},"bars":4.0,"loops":-1,"extra":[],"easeType":24,"loopingStyle":1}
+{"objID":"Main\n","yVal":22.0,"xSpot":0,"effectType":"3","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":0,"loopingStyle":0}
 End
