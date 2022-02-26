@@ -99,6 +99,14 @@ public class EffectModule
             case EffectType.ScreenShake:
                 GameManager.instance.mainCamera.DOShakePosition(bars / (GameManager.instance.bs.bpm / 30f), vec.x, Mathf.RoundToInt(vec.y), vec.z).SetEase(easeType);
                 break;
+
+            case EffectType.ActivateShader:
+                GameManager.instance.mainCamera.GetComponent<ShaderApply>().isActive = true;
+                break;
+
+            case EffectType.DeactivateShader:
+                GameManager.instance.mainCamera.GetComponent<ShaderApply>().isActive = false;
+                break;
         }
     }
 

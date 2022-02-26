@@ -1,8 +1,12 @@
-﻿Shader "Hidden/OldTelevision"
+﻿Shader "Custom/OldTelevision"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _ScanlineTex ("Scanline Texture", 2D) = "white" {}
+        _Str ("Strength", float) = 0
+        _Size ("Size", int) = 0
+        _Speed ("Speed", float) = 0
     }
     SubShader
     {
@@ -38,12 +42,24 @@
             }
 
             sampler2D _MainTex;
+            sampler2D _ScanlineTex;
+            float _Str;
+            int _Size;
+            float _Speed;
+
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
+                float2 scanlineUV = i.uv * (_ScreenParams.y / _Size);
+                scanlineUV.y += _Time[1] * _Speed;
+
+                fixed4 scan = tex2D(_ScanlineTex, scanlineUV);
+
+                col = lerp(col, col * scan, _Str);
+
                 // just invert the colors
-                col.rgb = 1 - col.rgb;
+                
                 return col;
             }
             ENDCG

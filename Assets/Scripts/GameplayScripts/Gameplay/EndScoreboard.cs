@@ -61,11 +61,11 @@ public class EndScoreboard : MonoBehaviour
         {
             texture = gradeTextures[1];
         }
-        else if (accuracy > 0.85f)
+        else if (accuracy > 0.80f)
         {
             texture = gradeTextures[2];
         }
-        else if (accuracy > 0.75f)
+        else if (accuracy > 0.70f)
         {
             texture = gradeTextures[3];
         }
