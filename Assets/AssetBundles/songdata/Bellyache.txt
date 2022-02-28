@@ -1,4 +1,4 @@
-{"songName":"Bellyache","songFileName":"BillieEilishBellyache","version":"V6","lastEdit":"2/26/2022 5:54:57 PM","bpm":100.0,"startSpeed":3.0,"startDelay":0.0,"endPos":601.0,"totalNotes":516}
+{"songName":"Bellyache","songFileName":"BillieEilishBellyache","version":"V6","lastEdit":"2/27/2022 7:01:11 PM","bpm":100.0,"startSpeed":3.0,"startDelay":0.0,"endPos":601.0,"totalNotes":516}
 Note
 {"color":2,"yVal":1.0,"isLongNote":true,"longNoteLen":10.0}
 {"color":1,"yVal":17.0,"isLongNote":true,"longNoteLen":10.0}
@@ -54,18 +54,18 @@ Note
 {"color":1,"yVal":164.0,"isLongNote":true,"longNoteLen":2.0}
 {"color":2,"yVal":169.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":170.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":1,"yVal":171.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":170.70001220703126,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":171.5,"isLongNote":true,"longNoteLen":2.0}
 {"color":2,"yVal":176.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":1,"yVal":177.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":176.89999389648438,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":177.5,"isLongNote":true,"longNoteLen":3.0}
 {"color":1,"yVal":193.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":194.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":195.0,"isLongNote":true,"longNoteLen":3.0}
-{"color":1,"yVal":203.5,"isLongNote":true,"longNoteLen":3.0}
-{"color":2,"yVal":208.5,"isLongNote":false,"longNoteLen":0.0}
-{"color":3,"yVal":209.5,"isLongNote":false,"longNoteLen":0.0}
-{"color":2,"yVal":210.5,"isLongNote":true,"longNoteLen":3.0}
+{"color":1,"yVal":203.29998779296876,"isLongNote":true,"longNoteLen":3.0}
+{"color":2,"yVal":208.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":208.29998779296876,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":210.0,"isLongNote":true,"longNoteLen":3.0}
 {"color":1,"yVal":223.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":224.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":225.0,"isLongNote":true,"longNoteLen":2.0}
@@ -124,8 +124,8 @@ Note
 {"color":1,"yVal":335.0,"isLongNote":true,"longNoteLen":3.0}
 {"color":2,"yVal":327.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":201.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":2,"yVal":201.5,"isLongNote":false,"longNoteLen":0.0}
-{"color":2,"yVal":203.0,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":201.69998168945313,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":202.69998168945313,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":345.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":346.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":348.0,"isLongNote":true,"longNoteLen":2.0}
@@ -136,12 +136,12 @@ Note
 {"color":0,"yVal":356.0,"isLongNote":true,"longNoteLen":3.0}
 {"color":1,"yVal":361.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":362.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":0,"yVal":363.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":2,"yVal":364.0,"isLongNote":true,"longNoteLen":3.0}
-{"color":1,"yVal":369.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":2,"yVal":369.5,"isLongNote":false,"longNoteLen":0.0}
-{"color":3,"yVal":370.0,"isLongNote":true,"longNoteLen":2.0}
-{"color":2,"yVal":372.0,"isLongNote":true,"longNoteLen":2.0}
+{"color":0,"yVal":362.79998779296877,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":363.5999755859375,"isLongNote":true,"longNoteLen":3.0}
+{"color":1,"yVal":368.29998779296877,"isLongNote":false,"longNoteLen":0.0}
+{"color":2,"yVal":368.79998779296877,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":369.3999938964844,"isLongNote":true,"longNoteLen":2.0}
+{"color":2,"yVal":371.3999938964844,"isLongNote":true,"longNoteLen":2.0}
 {"color":1,"yVal":385.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":385.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":386.5,"isLongNote":false,"longNoteLen":0.0}

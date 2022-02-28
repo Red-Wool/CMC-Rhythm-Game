@@ -1,4 +1,4 @@
-{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V6","lastEdit":"2/26/2022 11:53:58 PM","bpm":73.0,"startSpeed":3.0,"startDelay":0.0,"endPos":347.0,"totalNotes":235}
+{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V6","lastEdit":"2/27/2022 6:50:47 PM","bpm":73.0,"startSpeed":3.0,"startDelay":0.0,"endPos":347.0,"totalNotes":235}
 Note
 {"color":1,"yVal":16.700000762939454,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":20.5,"isLongNote":false,"longNoteLen":0.0}
@@ -174,14 +174,14 @@ Effect
 {"objID":"RedLine","yVal":149.0,"xSpot":7,"effectType":"TweenMove","vec":{"x":-2.0,"y":-5.0,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
 {"objID":"YellowLine","yVal":149.0,"xSpot":13,"effectType":"TweenMove","vec":{"x":2.0,"y":-5.0,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
 {"objID":"RedLine","yVal":157.0,"xSpot":7,"effectType":"TweenMove","vec":{"x":-20.0,"y":-5.0,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
-{"objID":"GreenLine","yVal":153.0,"xSpot":11,"effectType":"TweenMove","vec":{"x":-3.0,"y":-4.5,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
-{"objID":"YellowLine","yVal":153.0,"xSpot":13,"effectType":"TweenMove","vec":{"x":3.0,"y":-1.5,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
-{"objID":"GreenLine","yVal":161.0,"xSpot":7,"effectType":"TweenMoveX","vec":{"x":3.0,"y":-1.5,"z":0.0},"bars":3.0,"loops":4,"extra":[],"easeType":4,"loopingStyle":1}
-{"objID":"GreenLine","yVal":161.0,"xSpot":9,"effectType":"TweenMoveY","vec":{"x":3.0,"y":-1.5,"z":0.0},"bars":2.0,"loops":6,"extra":[],"easeType":4,"loopingStyle":1}
-{"objID":"YellowLine","yVal":161.0,"xSpot":11,"effectType":"TweenMoveX","vec":{"x":-3.0,"y":-4.5,"z":0.0},"bars":3.0,"loops":4,"extra":[],"easeType":4,"loopingStyle":1}
-{"objID":"YellowLine","yVal":161.0,"xSpot":13,"effectType":"TweenMoveY","vec":{"x":-3.0,"y":-4.5,"z":0.0},"bars":2.0,"loops":6,"extra":[],"easeType":4,"loopingStyle":1}
-{"objID":"GreenLine","yVal":185.0,"xSpot":11,"effectType":"TweenMove","vec":{"x":17.0,"y":-1.5,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
-{"objID":"YellowLine","yVal":185.0,"xSpot":13,"effectType":"TweenMove","vec":{"x":20.0,"y":-4.5,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
+{"objID":"GreenLine","yVal":153.0,"xSpot":11,"effectType":"TweenMove","vec":{"x":-3.0,"y":-1.5,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
+{"objID":"YellowLine","yVal":153.0,"xSpot":13,"effectType":"TweenMove","vec":{"x":3.0,"y":-4.5,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
+{"objID":"GreenLine","yVal":161.0,"xSpot":7,"effectType":"TweenMoveX","vec":{"x":3.0,"y":-4.5,"z":0.0},"bars":3.0,"loops":4,"extra":[],"easeType":4,"loopingStyle":1}
+{"objID":"GreenLine","yVal":161.0,"xSpot":9,"effectType":"TweenMoveY","vec":{"x":3.0,"y":-4.5,"z":0.0},"bars":2.0,"loops":6,"extra":[],"easeType":4,"loopingStyle":1}
+{"objID":"YellowLine","yVal":161.0,"xSpot":11,"effectType":"TweenMoveX","vec":{"x":-3.0,"y":-1.5,"z":0.0},"bars":3.0,"loops":4,"extra":[],"easeType":4,"loopingStyle":1}
+{"objID":"YellowLine","yVal":161.0,"xSpot":13,"effectType":"TweenMoveY","vec":{"x":-3.0,"y":-1.5,"z":0.0},"bars":2.0,"loops":6,"extra":[],"easeType":4,"loopingStyle":1}
+{"objID":"GreenLine","yVal":185.0,"xSpot":11,"effectType":"TweenMove","vec":{"x":17.0,"y":-4.5,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
+{"objID":"YellowLine","yVal":185.0,"xSpot":13,"effectType":"TweenMove","vec":{"x":20.0,"y":-1.5,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
 {"objID":"RedLine","yVal":185.0,"xSpot":7,"effectType":"TweenMove","vec":{"x":4.0,"y":-5.0,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
 {"objID":"RedLine","yVal":193.0,"xSpot":7,"effectType":"TweenMoveX","vec":{"x":-4.0,"y":-5.0,"z":0.0},"bars":4.329999923706055,"loops":3,"extra":[],"easeType":4,"loopingStyle":1}
 {"objID":"RedLine","yVal":193.0,"xSpot":9,"effectType":"TweenMoveY","vec":{"x":-4.0,"y":-3.0,"z":0.0},"bars":2.1600000858306886,"loops":6,"extra":[],"easeType":4,"loopingStyle":1}
@@ -190,7 +190,7 @@ Effect
 {"objID":"BlueLine","yVal":225.0,"xSpot":9,"effectType":"TweenMoveY","vec":{"x":1.0,"y":1.0,"z":0.0},"bars":4.0,"loops":3,"extra":[],"easeType":4,"loopingStyle":1}
 {"objID":"BlueLine","yVal":225.0,"xSpot":7,"effectType":"TweenMoveX","vec":{"x":1.0,"y":1.0,"z":0.0},"bars":3.0,"loops":4,"extra":[],"easeType":4,"loopingStyle":1}
 {"objID":"BlueLine","yVal":249.0,"xSpot":9,"effectType":"TweenMove","vec":{"x":-20.0,"y":1.0,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
-{"objID":"BlueLine","yVal":242.79998779296876,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.5,"y":7.0,"z":1.0},"bars":0.5,"loops":6,"extra":[],"easeType":3,"loopingStyle":0}
+{"objID":"BlueLine","yVal":242.79998779296876,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.0,"y":7.0,"z":1.0},"bars":0.25,"loops":6,"extra":[],"easeType":3,"loopingStyle":0}
 {"objID":"GreenLine","yVal":245.0,"xSpot":11,"effectType":"TweenMove","vec":{"x":-3.0,"y":-4.5,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
 {"objID":"YellowLine","yVal":245.0,"xSpot":13,"effectType":"TweenMove","vec":{"x":3.0,"y":-1.5,"z":0.0},"bars":4.0,"loops":1,"extra":[],"easeType":4,"loopingStyle":0}
 {"objID":"GreenLine","yVal":253.0,"xSpot":7,"effectType":"TweenMoveX","vec":{"x":3.0,"y":-1.5,"z":0.0},"bars":4.25,"loops":4,"extra":[],"easeType":4,"loopingStyle":1}

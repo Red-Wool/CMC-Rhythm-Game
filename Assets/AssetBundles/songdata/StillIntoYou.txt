@@ -1,4 +1,4 @@
-{"songName":"StillIntoYou","songFileName":"ParamoreStillIntoYou","version":"V6","lastEdit":"2/23/2022 10:12:05 PM","bpm":136.0,"startSpeed":3.0,"startDelay":0.0,"endPos":975.0,"totalNotes":499}
+{"songName":"StillIntoYou","songFileName":"ParamoreStillIntoYou","version":"V6","lastEdit":"2/27/2022 7:05:18 PM","bpm":136.0,"startSpeed":3.0,"startDelay":0.0,"endPos":975.0,"totalNotes":499}
 Note
 {"color":0,"yVal":51.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":51.0,"isLongNote":false,"longNoteLen":0.0}
@@ -384,14 +384,14 @@ Note
 {"color":3,"yVal":965.0,"isLongNote":true,"longNoteLen":0.0}
 Effect
 {"objID":"Main\n","yVal":0.0,"xSpot":7,"effectType":"CameraSetScale","vec":{"x":0.10000000149011612,"y":7.0,"z":0.0},"bars":50.0,"loops":1,"extra":[],"easeType":1,"loopingStyle":0}
-{"objID":"Main\n","yVal":1.0,"xSpot":9,"effectType":"CameraSmoothScale","vec":{"x":12.0,"y":7.0,"z":0.0},"bars":40.0,"loops":1,"extra":[],"easeType":1,"loopingStyle":1}
+{"objID":"Main\n","yVal":1.0,"xSpot":9,"effectType":"CameraSmoothScale","vec":{"x":12.0,"y":7.0,"z":0.0},"bars":49.0,"loops":1,"extra":[],"easeType":1,"loopingStyle":1}
 {"objID":"Main\n","yVal":51.0,"xSpot":7,"effectType":"CameraSmoothScale","vec":{"x":7.0,"y":7.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":55.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.5,"y":7.0,"z":2.0},"bars":0.5,"loops":63,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":213.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.199999809265137,"y":7.0,"z":2.0},"bars":0.5,"loops":31,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":189.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.5,"y":7.0,"z":2.0},"bars":0.5,"loops":1,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":193.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.5,"y":7.0,"z":2.0},"bars":0.5,"loops":1,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":196.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.5,"y":7.0,"z":2.0},"bars":0.30000001192092898,"loops":1,"extra":[],"easeType":6,"loopingStyle":0}
-{"objID":"Main\n","yVal":197.0,"xSpot":9,"effectType":"CameraBop","vec":{"x":6.0,"y":7.0,"z":2.0},"bars":1.0,"loops":1,"extra":[],"easeType":6,"loopingStyle":0}
+{"objID":"Main\n","yVal":197.0,"xSpot":9,"effectType":"CameraBop","vec":{"x":6.0,"y":7.0,"z":2.0},"bars":0.5,"loops":1,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":277.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.199999809265137,"y":7.0,"z":2.0},"bars":0.5,"loops":31,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":280.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.0,"y":7.0,"z":2.0},"bars":0.5,"loops":31,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":283.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":5.800000190734863,"y":7.0,"z":2.0},"bars":0.5,"loops":31,"extra":[],"easeType":6,"loopingStyle":0}
@@ -415,7 +415,7 @@ Effect
 {"objID":"Main\n","yVal":607.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.199999809265137,"y":7.0,"z":2.0},"bars":0.5,"loops":73,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":755.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":5.5,"y":7.0,"z":4.0},"bars":3.0,"loops":73,"extra":[],"easeType":3,"loopingStyle":0}
 {"objID":"Main\n","yVal":759.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.699999809265137,"y":7.0,"z":2.0},"bars":0.5,"loops":23,"extra":[],"easeType":6,"loopingStyle":0}
-{"objID":"Main\n","yVal":807.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.199999809265137,"y":7.0,"z":1.0},"bars":0.5,"loops":15,"extra":[],"easeType":6,"loopingStyle":0}
+{"objID":"Main\n","yVal":807.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.199999809265137,"y":7.0,"z":0.5},"bars":0.5,"loops":12,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":823.0,"xSpot":7,"effectType":"CameraBopRepeat","vec":{"x":6.0,"y":7.0,"z":2.0},"bars":0.5,"loops":30,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":885.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.199999809265137,"y":7.0,"z":2.0},"bars":0.5,"loops":30,"extra":[],"easeType":6,"loopingStyle":0}
 {"objID":"Main\n","yVal":888.0,"xSpot":7,"effectType":"CameraBop","vec":{"x":6.0,"y":7.0,"z":2.0},"bars":0.5,"loops":30,"extra":[],"easeType":6,"loopingStyle":0}

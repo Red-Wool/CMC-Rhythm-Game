@@ -49,6 +49,21 @@ public class BackgroundManager : MonoBehaviour
     void Start()
     {
         update = true;
+        string mapName = PlayerPrefs.GetString("CurrentMap");
+        bool flag = false;
+        for (int i = 1; i < backgrounds.Length; i++)
+        {
+            if (mapName == backgrounds[i].Name)
+            {
+                flag = true;
+                bgID = i;
+                break;
+            }
+        }
+        if (!flag)
+        {
+            bgID = 0;
+        }
     }
 
     // Update is called once per frame
