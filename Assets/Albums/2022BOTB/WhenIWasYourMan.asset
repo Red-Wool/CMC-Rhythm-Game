@@ -15,6 +15,6 @@ MonoBehaviour:
   songName: When I Was Your Man
   artist: Bruno Mars
   description: 
-  songArt: {fileID: 0}
+  songArt: {fileID: 2800000, guid: 9d0c855018c62554eb6be258e350b0a3, type: 3}
   songFrameArt: {fileID: 0}
   mapName: WhenIWasYourMan

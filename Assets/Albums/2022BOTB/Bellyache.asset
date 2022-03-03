@@ -15,6 +15,6 @@ MonoBehaviour:
   songName: bellyache
   artist: Billie Eilish
   description: 
-  songArt: {fileID: 0}
+  songArt: {fileID: 2800000, guid: a84e72342c07e9b4aba71f6475958fb6, type: 3}
   songFrameArt: {fileID: 0}
   mapName: Bellyache

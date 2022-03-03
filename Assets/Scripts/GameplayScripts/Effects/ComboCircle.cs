@@ -34,6 +34,9 @@ public class ComboCircle : MonoBehaviour
         multUp = false;
         setMax = false;
 
+        multUpPS.transform.position = comboCircle.transform.position;
+        maxMultPS.transform.position = comboCircle.transform.position;
+
         //maxMultSupportPS = maxMultPS.GetComponentInChildren<ParticleSystem>();
     }
 

@@ -15,6 +15,6 @@ MonoBehaviour:
   songName: Still Into You
   artist: Paramore
   description: 
-  songArt: {fileID: 0}
+  songArt: {fileID: 2800000, guid: 68fb714d61835bf4b9bf858d898a19c4, type: 3}
   songFrameArt: {fileID: 0}
   mapName: StillIntoYou
