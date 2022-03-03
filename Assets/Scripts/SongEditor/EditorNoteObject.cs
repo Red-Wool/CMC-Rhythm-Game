@@ -12,7 +12,7 @@ public class EditorNoteObject : NoteClass
     private GameObject longNoteMiddle;
     [SerializeField]
     private GameObject longNoteEnd;
-
+    public bool game;
 
     public override NoteType GetNoteType { get { return NoteType.Normal; } }
     public bool GetIfLongNote() { return isLongNote; }
@@ -61,6 +61,7 @@ public class EditorNoteObject : NoteClass
         note.yVal = transform.position.y;
         note.isLongNote = isLongNote;
         note.longNoteLen = length;
+        note.temp = game;
 
         return note;
     }

@@ -190,6 +190,8 @@ public class SongLoader : MonoBehaviour
 
         noteObj.yVal = (data.yVal + delay) / (bpm / 30);
 
+        noteObj.count = data.temp;
+
         if (data.isLongNote && data.longNoteLen != 0f)
         {
             length = (int)data.longNoteLen;

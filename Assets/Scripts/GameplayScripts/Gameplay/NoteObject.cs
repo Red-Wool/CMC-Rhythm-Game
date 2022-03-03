@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class NoteObject : NoteClass
 {
@@ -8,7 +9,8 @@ public class NoteObject : NoteClass
     private bool canBePressed;
 
     private bool flag;
-
+    public bool count;
+    private Transform par;
     public override NoteType GetNoteType { get { return NoteType.Normal; } }
 
     // Start is called before the first frame update
@@ -43,7 +45,26 @@ public class NoteObject : NoteClass
                 yVal = -1;
                 GameManager.instance.NoteMissed(this);
             }
+            else if (count && eval < 3.5294f) 
+            {
+                par = transform.parent;
+                transform.parent = null;
+                count = false;
+                StartCoroutine(CountDown());
+            }
         }
+    }
+
+    IEnumerator CountDown()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            yield return new WaitForSeconds(0.441176f);
+            transform.DOMoveY(6 - 1.71429f * i, 0.1f).SetEase(Ease.InOutQuint);
+
+        }
+
+        transform.parent = par;
     }
 
     public void ActivateArrow()

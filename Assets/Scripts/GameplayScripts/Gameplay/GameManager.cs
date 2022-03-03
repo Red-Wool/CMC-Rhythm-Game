@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Music")]
     public AudioSource music;
     public bool playing;
-    public bool countDown;
-    private float cdTime;
+    public bool hasPlayed;
 
     public AudioSource hitSFX;
 
@@ -112,13 +111,12 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
 
-            playing = false;
-            countDown = true;
+            playing = true;
+            hasPlayed = false;
 
-            songInfo = bs.GetFileInfo();
+            songInfo = bs.StartGame();
             songInfo.startDelay /= songInfo.bpm / 30;
             songInfo.endPos /= songInfo.bpm / 30;
-            cdTime = 60f / songInfo.bpm;
 
             try
             {
@@ -130,13 +128,12 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     music.clip = song;
-
-                    StartCoroutine(CountDown(cdTime));
-                    /*if (songInfo.startDelay == 0f)
+                    if (songInfo.startDelay == 0f)
                     {
                         music.Play();
-                        //hasPlayed = true;
-                    }*/
+                        hasPlayed = true;
+                        countdownText.text = "";
+                    }
                     
                 }
 
@@ -148,7 +145,7 @@ public class GameManager : MonoBehaviour
 
             //music.Play();
         }
-        else if (countDown && !gameEnd) //When Song ends, go display scoreboar and stuff
+        else if (playing && !gameEnd) //When Song ends, go display scoreboar and stuff
         {
             if (gameTime >= songInfo.endPos)
             {
@@ -159,7 +156,17 @@ public class GameManager : MonoBehaviour
 
                 gameEnd = true;
             }
-            else if (playing)
+            else if (!hasPlayed && !music.isPlaying && gameTime >= songInfo.startDelay)
+            {
+                //gameTime += Time.deltaTime;
+                music.Play();
+                //music.time = gameTime - songInfo.startDelay;
+                //bs.SetY(gameTime);
+
+                hasPlayed = true;
+                //gameTime = songInfo.startDelay;
+            }
+            else
             {
                 gameTime += Time.deltaTime;
             }
@@ -193,25 +200,6 @@ public class GameManager : MonoBehaviour
         hitTypeCount = new int[7];
 
         UpdateScoreBoard();
-    }
-
-    private IEnumerator CountDown(float time)
-    {
-        for (int i = 3; i >= 1; i--)
-        {
-            countdownText.text = i.ToString();
-            yield return new WaitForSeconds(time);
-        }
-        countdownText.text = "Go!";
-
-        playing = true;
-
-        music.Play();
-        bs.StartGame();
-        
-
-        yield return new WaitForSeconds(time);
-        countdownText.text = "";
     }
 
     #region NoteHitMethods

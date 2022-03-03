@@ -1,4 +1,4 @@
-{"songName":"FeelGoodInc","songFileName":"FeelGoodInc","version":"V6","lastEdit":"2/25/2022 9:40:01 PM","bpm":139.0,"startSpeed":3.0,"startDelay":0.0,"endPos":1034.0,"totalNotes":652}
+{"songName":"FeelGoodInc","songFileName":"FeelGoodInc","version":"V6","lastEdit":"3/2/2022 9:34:16 PM","bpm":139.0,"startSpeed":3.0,"startDelay":0.0,"endPos":1034.0,"totalNotes":652}
 Note
 {"color":0,"yVal":29.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":31.5,"isLongNote":false,"longNoteLen":0.0}

@@ -46,11 +46,7 @@ public class BeatScroller : MonoBehaviour
         Debug.Log("Loaded!");
     }
 
-    public SongFileInfo GetFileInfo()
-    {
-        return songInfo;
-    }
-    public void StartGame()
+    public SongFileInfo StartGame()
     {
         /*totalNotes = 0;
 
@@ -66,7 +62,7 @@ public class BeatScroller : MonoBehaviour
         playing = true;
 
         //GameManager.instance.buttonSize = beatTempo / averageBeatNormal;
-        //return songInfo;
+        return songInfo;
     }
 
     // Update is called once per frame
