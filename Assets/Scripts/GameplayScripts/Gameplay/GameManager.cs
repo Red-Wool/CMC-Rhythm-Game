@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI comboBoard;
     public TextMeshProUGUI multiplierText;
 
+    public TextMeshProUGUI endName;
+
     public SpriteRenderer hitTextDisplay;
 
     public List<Sprite> hitTextSprites;
@@ -117,6 +119,8 @@ public class GameManager : MonoBehaviour
             songInfo = bs.StartGame();
             songInfo.startDelay /= songInfo.bpm / 30;
             songInfo.endPos /= songInfo.bpm / 30;
+
+            endName.text = PlayerPrefs.GetString("MapName");
 
             try
             {

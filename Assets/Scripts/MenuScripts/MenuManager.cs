@@ -38,6 +38,7 @@ public class MenuManager : MonoBehaviour
     public void UpdateInfoText(Song song)
     {
         PlayerPrefs.SetString("CurrentMap", song.mapName);
+        PlayerPrefs.SetString("MapName", song.songName);
         infoText.text = song.songName + "\nBy: " + song.artist + "\n" + song.description;
     }
 }
