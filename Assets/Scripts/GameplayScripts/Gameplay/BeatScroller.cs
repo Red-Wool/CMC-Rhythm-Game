@@ -19,7 +19,7 @@ public class BeatScroller : MonoBehaviour
     private SongLoader sl;
 
     [SerializeField] private GameObject arrowLineParent;
-    private GameObject[] arrowButtons; public GameObject ArrowButtons(int i) { if (arrowButtons == null) arrowButtons = GameObject.FindGameObjectsWithTag("Activator"); return arrowButtons[i]; }
+    [SerializeField] private GameObject[] arrowButtons; public GameObject ArrowButtons(int i) { if (arrowButtons == null) arrowButtons = GameObject.FindGameObjectsWithTag("Activator"); return arrowButtons[i]; }
     [SerializeField] private GameObject[] arrowLines; public GameObject ArrowLines(int i) { return arrowLines[i]; }
     [SerializeField] private GameObject flashScreen;
 
@@ -41,7 +41,7 @@ public class BeatScroller : MonoBehaviour
         //Calculate the speed of which notes scroll down
         beatTempo = bpm * songInfo.startSpeed / 30;
 
-        arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
+        //arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
 
         Debug.Log("Loaded!");
     }
@@ -92,7 +92,7 @@ public class BeatScroller : MonoBehaviour
     public void ActivateEffect(EffectModule effect)
     {
 
-        Debug.Log(effect.objID);
+        //Debug.Log(effect.objID);
 
         switch (effect.objID.Trim())
         {

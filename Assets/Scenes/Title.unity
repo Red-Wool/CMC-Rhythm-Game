@@ -359,6 +359,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409766774}
   m_CullTransparentMesh: 0
+--- !u!1 &425703434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425703435}
+  - component: {fileID: 425703437}
+  - component: {fileID: 425703436}
+  m_Layer: 5
+  m_Name: TMP SubMeshUI [ThaleahFat_TTF SDF - Outline + LiberationSans SDF Atlas]
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &425703435
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425703434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 618735330}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &425703436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425703434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_spriteAsset: {fileID: 0}
+  m_material: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
+  m_isDefaultMaterial: 0
+  m_padding: 5.8849998
+  m_canvasRenderer: {fileID: 425703437}
+  m_TextComponent: {fileID: 618735331}
+  m_materialReferenceIndex: 1
+--- !u!222 &425703437
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425703434}
+  m_CullTransparentMesh: 0
 --- !u!1 &490871873
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +654,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 425703435}
   m_Father: {fileID: 331646736}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -609,10 +682,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "===========<size=24>\n<color=#42F332>\"Leo is the best \n(Ty kevin)  game
-    designer ...ever\"\n<color=#547e95>\"Bye Felicia.\"\n<color=#F5F12F>\"Hey Felicia.\"\n<color=#4376C1>
-    \"If you can play slow, \nyou can do extreamly fast\"\n<color=#FFAAA3>\"hol' up
-    what\"\n<color=#75FF86>\"Don't let your \ndreams become memes\"\n<color=#ff7c00>
+  m_text: "===========<size=24>\n<color=#42F332>\"Leo is the best \n(Ty kevin <3)
+    \ game designer ...ever\"\n<color=#547e95>\"Bye Felicia.\"\n<color=#F5F12F>\"Hey
+    Felicia.\"\n<color=#4376C1> \"If you can play slow, \nyou can do extreamly fast\"\n<color=#FFAAA3>\"hol'
+    up what\"\n<color=#75FF86>\"Don't let your \ndreams become memes\"\n<color=#ff7c00>
     \"Estoy back\" \n<color=#DE3EFF>\"poo poo pee pee ha ha\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27eab002c68f34045b6649a7bc6a5347, type: 2}
@@ -682,10 +755,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 618735331}
-    characterCount: 238
+    characterCount: 241
     spriteCount: 0
-    spaceCount: 47
-    wordCount: 41
+    spaceCount: 48
+    wordCount: 42
     linkCount: 0
     lineCount: 12
     pageCount: 1
@@ -696,7 +769,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 425703436}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

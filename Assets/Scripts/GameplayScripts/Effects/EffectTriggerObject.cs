@@ -20,7 +20,7 @@ public class EffectTriggerObject : MonoBehaviour
         if (yVal <= GameManager.instance.GameTime)
         {
             GameManager.instance.bs.ActivateEffect(effectType);
-            Debug.Log("effect!");
+            //Debug.Log("effect!");
 
             gameObject.SetActive(false);
             

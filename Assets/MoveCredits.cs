@@ -10,6 +10,6 @@ public class MoveCredits : MonoBehaviour
 
     public void MoveCredit(bool flag)
     {
-        credit.transform.DOMoveX(flag ? target.transform.position.x : -650f, 1f).SetEase(Ease.InOutSine);
+        credit.transform.DOMoveX(flag ? target.transform.position.x : -1000f, 1f).SetEase(Ease.InOutSine);
     }
 }
