@@ -8,8 +8,9 @@ using DG.Tweening;
 public class EffectModule
 {
     public string objID;
+
     public float yVal;
-    public int xSpot;
+    public float editorPos;
     public string effectType;
     public Vector3 vec;
     public float bars;
@@ -84,8 +85,8 @@ public class EffectModule
                 break;
 
             case EffectType.CameraBop:
-                GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-                GameManager.instance.mainCamera.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+                GameManager.instance.mainCamera.DOFieldOfView(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+                GameManager.instance.mainCamera.DOFieldOfView(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
                 break;
 
             case EffectType.CameraBopRepeat:

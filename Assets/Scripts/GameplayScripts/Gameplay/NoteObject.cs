@@ -8,6 +8,8 @@ public class NoteObject : NoteClass
     [SerializeField]
     private bool canBePressed;
 
+    private NoteButton button;
+
     private bool flag;
     public bool count;
     private Transform par;
@@ -22,9 +24,11 @@ public class NoteObject : NoteClass
     // Update is called once per frame
     void Update()
     {
+
         if (yVal != -1) 
         {
             eval = yVal - GameManager.instance.GameTime;
+            //transform.localPosition = button.SetPosition(eval);
             if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))
             {
                 gameObject.SetActive(false);
@@ -45,17 +49,17 @@ public class NoteObject : NoteClass
                 yVal = -1;
                 GameManager.instance.NoteMissed(this);
             }
-            else if (count && eval < 3.5294f) 
+            /*else if (count && eval < 3.5294f) 
             {
                 par = transform.parent;
                 transform.parent = null;
                 count = false;
                 StartCoroutine(CountDown());
-            }
+            }*/
         }
     }
 
-    IEnumerator CountDown()
+    /*IEnumerator CountDown()
     {
         for (int i = 0; i < 8; i++)
         {
@@ -65,7 +69,7 @@ public class NoteObject : NoteClass
         }
 
         transform.parent = par;
-    }
+    }*/
 
     public void ActivateArrow()
     {

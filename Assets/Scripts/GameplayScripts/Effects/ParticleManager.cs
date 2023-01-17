@@ -74,7 +74,7 @@ public class ParticleManager : MonoBehaviour
     {
         var emission = comboBreakPS.emission;
 
-        emission.rateOverTime = Mathf.Min(combo, 150) * 2;
+        emission.rateOverTime = Mathf.Min(combo, 150) * 4;
 
         comboBreakPS.Play(flag);
     }
