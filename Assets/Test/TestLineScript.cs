@@ -16,8 +16,8 @@ public class TestLineScript : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
 
-        lines = new Vector3[200];
-        lr.positionCount = 200;
+        lines = new Vector3[100];
+        lr.positionCount = 100;
 
         for (int i = 0; i < moveModules.Length; i++)
         {
@@ -30,6 +30,7 @@ public class TestLineScript : MonoBehaviour
         Vector3 total = Vector3.zero;
         for (int i = 0; i < moveModules.Length; i++)
         {
+            //Debug.Log(moveModules[i].notePosID + " " + moveModules[i].notePos);
             total += moveModules[i].CalculateNotePosition(time);
         }
         return total;
@@ -45,7 +46,7 @@ public class TestLineScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 1; i < 200; i++)
+        for (int i = 1; i < 100; i++)
         {
             lines[i] = GetPos(i*.05f);
         }

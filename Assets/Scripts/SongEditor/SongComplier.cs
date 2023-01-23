@@ -46,7 +46,7 @@ public class SongComplier : MonoBehaviour
         SongFileInfo info = new SongFileInfo();
         info.songName = name;
         info.songFileName = songFileNameInput.text;
-        info.version = "V6";
+        info.version = "V7";
         info.lastEdit = DateTime.Now + "";
         info.bpm = float.Parse(bpmInput.text);
         info.startSpeed = float.Parse(scrollInput.text);

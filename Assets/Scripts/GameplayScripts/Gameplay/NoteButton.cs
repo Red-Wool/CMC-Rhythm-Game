@@ -21,6 +21,9 @@ public class NoteButton : MonoBehaviour
 
     public ParticleSystem ps;
 
+    //Move Module Stuff
+    public List<MoveModule> moveModules;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,9 +54,38 @@ public class NoteButton : MonoBehaviour
         }
     }
 
+    public void AddModule(MoveModule module)
+    {
+        moveModules.Add(module);
+    }
+
+    public void DisableModule(string notePosID, int objID)
+    {
+        foreach(MoveModule module in moveModules)
+        {
+            if (module.notePosID == notePosID && module.objID == objID)
+                module.isActive = false;
+        }
+    }
+
+    public void EnableModule(string notePosID, int objID)
+    {
+        foreach (MoveModule module in moveModules)
+        {
+            if (module.notePosID == notePosID && module.objID == objID)
+                module.isActive = true;
+        }
+    }
+
     public Vector3 SetPosition(float time)
     {
-        return Vector3.up;// * beatTempo;
+        Vector3 total = Vector3.zero;
+        for (int i = 0; i < moveModules.Count; i++)
+        {
+            //Debug.Log(moveModules[i].notePosID + " " + moveModules[i].notePos);
+            total += moveModules[i].CalculateNotePosition(time);
+        }
+        return total;
     }
 
     //private void OnCollisionStay(Collision collision)

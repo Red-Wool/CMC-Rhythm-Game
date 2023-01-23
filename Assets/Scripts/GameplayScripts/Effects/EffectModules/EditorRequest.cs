@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EditorRequest
 {
-    public EditorReqestField[] reqestFields;
+    public EditorReqestField[] requestFields;
 }
 
 public class EditorReqestField
