@@ -30,6 +30,11 @@ public class NoteButton : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         avalible = true;
+
+        for (int i = 0; i < moveModules.Count; i++)
+        {
+            moveModules[i].RequestData();
+        }
     }
 
     // Update is called once per frame

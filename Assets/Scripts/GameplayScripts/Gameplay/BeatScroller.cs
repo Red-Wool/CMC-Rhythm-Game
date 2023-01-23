@@ -69,14 +69,14 @@ public class BeatScroller : MonoBehaviour
     void Update()
     {
         //Scrolls down when Playing
-        if (playing)
+        /*if (playing)
         {
             tempPos = Vector3.up * beatTempo * Time.deltaTime;
             foreach (GameObject i in arrowLines)
             {
                 i.transform.localPosition -= tempPos;
             }
-        }
+        }*/
     }
 
     public void SetY(float y)

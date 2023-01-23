@@ -188,6 +188,7 @@ public class SongLoader : MonoBehaviour
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
 
+        noteObj.SetUpNote(GameManager.instance.bs.ArrowButtons((int)data.color).GetComponent<NoteButton>());
         noteObj.yVal = (data.yVal + delay) / (bpm / 30);
 
         noteObj.count = data.temp;
