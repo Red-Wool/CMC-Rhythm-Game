@@ -89,11 +89,8 @@ public class BeatScroller : MonoBehaviour
 
     public int GetTotalNotes() {return totalNotes;}
 
-    public void ActivateEffect(EffectModule effect)
+    public void ActivateMoveEffect(MoveModule effect)
     {
-
-        //Debug.Log(effect.objID);
-
         switch (effect.objID.Trim())
         {
             case "Main":
@@ -116,4 +113,6 @@ public class BeatScroller : MonoBehaviour
                 break;
         }
     }
+
+
 }

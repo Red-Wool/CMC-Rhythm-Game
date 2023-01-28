@@ -22,7 +22,7 @@ public class NoteButton : MonoBehaviour
     public ParticleSystem ps;
 
     //Move Module Stuff
-    public List<MoveModule> moveModules;
+    public List<ArrowPathModule> moveModules;
 
     // Start is called before the first frame update
     void Start()
@@ -59,14 +59,14 @@ public class NoteButton : MonoBehaviour
         }
     }
 
-    public void AddModule(MoveModule module)
+    public void AddModule(ArrowPathModule module)
     {
         moveModules.Add(module);
     }
 
     public void DisableModule(string notePosID, int objID)
     {
-        foreach(MoveModule module in moveModules)
+        foreach(ArrowPathModule module in moveModules)
         {
             if (module.notePosID == notePosID && module.objID == objID)
                 module.isActive = false;
@@ -75,7 +75,7 @@ public class NoteButton : MonoBehaviour
 
     public void EnableModule(string notePosID, int objID)
     {
-        foreach (MoveModule module in moveModules)
+        foreach (ArrowPathModule module in moveModules)
         {
             if (module.notePosID == notePosID && module.objID == objID)
                 module.isActive = true;

@@ -319,6 +319,7 @@ public class SongEditorCameraManager : MonoBehaviour
     //Effect Editor Methods
     public void UpdateEffectEditor()
     {
+        /*
         triggerObj = selectedObj.GetComponent<EditorEffectTriggerObject>();
 
         effectContTxt.text = triggerObj.effectInfo.effectType.ToString();
@@ -333,10 +334,12 @@ public class SongEditorCameraManager : MonoBehaviour
 
         effectBarCount.text = triggerObj.effectInfo.bars.ToString();
         effectLoopCount.text = triggerObj.effectInfo.loops.ToString();
+        */
     }
 
     public void HandleEffectInput()
     {
+        /*
         if (CheckEffectInfo())
         {
             triggerObj.effectInfo.objID = effectObjectID.text;
@@ -346,10 +349,12 @@ public class SongEditorCameraManager : MonoBehaviour
             triggerObj.effectInfo.bars = float.Parse(effectBarCount.text);
             triggerObj.effectInfo.loops = int.Parse(effectLoopCount.text);
         }
+        */
     }
 
     private bool CheckEffectInfo()
     {
+        /*
         triggerObj = selectedObj.GetComponent<EditorEffectTriggerObject>();
         if (triggerObj != null)
         {
@@ -360,21 +365,25 @@ public class SongEditorCameraManager : MonoBehaviour
 
             return true;
         }
-
+        */
         return false;
+        
     }
 
     public void SetEffectType(EffectType effect)
     {
+        /*
         if (CheckEffectInfo())
         {
             triggerObj.effectInfo.effectType = effect.ToString();
             effectContTxt.text = effect.ToString();
         }
+        */
     }
 
     public void SetEaseType(Ease easeType)
     {
+        /*
         if (CheckEffectInfo())
         {
            
@@ -382,16 +391,19 @@ public class SongEditorCameraManager : MonoBehaviour
             triggerObj.effectInfo.easeType = easeType;
             easeContTxt.text = easeType.ToString();
         }
+        */
     }
 
     public void SetLoopType(LoopType loopType)
     {
+        /*
         if (CheckEffectInfo())
         {
 
             triggerObj.effectInfo.loopingStyle = loopType;
             loopContTxt.text = loopType.ToString();
         }
+        */
     }
 
     //Helper Methods

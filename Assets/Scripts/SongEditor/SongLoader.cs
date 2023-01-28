@@ -27,12 +27,15 @@ public class SongLoader : MonoBehaviour
 
     //Extra Varibles so only instatiated once
     private Note noteData;
-    private EffectModule effectData;
+    private MoveModule effectData;
     private GameObject gameObj;
 
     private EditorNoteObject ediObj;
 
+    private NoteButton noteButton;
     private NoteObject noteObj;
+    private LongNoteObject longNoteObj;
+    private LongNoteEndObject longNoteEndObj;
     private SongFileInfo songInfo;
 
     private Vector3 pos;
@@ -119,16 +122,16 @@ public class SongLoader : MonoBehaviour
                 {
                     if (effect)
                     {
-                        effectData = JsonUtility.FromJson<EffectModule>(inpStr);
+                        effectData = JsonUtility.FromJson<MoveModule>(inpStr);
 
-                        if (isEditor)
+                        /*if (isEditor)
                         {
                             SetUpEffectEditor(effectData);
                         }
                         else
                         {
                             SetUpEffect(effectData, bpm);
-                        }
+                        }*/
                     }
                     else
                     {
@@ -178,6 +181,7 @@ public class SongLoader : MonoBehaviour
         //Track Total Notes
         //totalNotes++;
         Transform parent = GameManager.instance.bs.ArrowLines((int)data.color).transform;
+        noteButton = GameManager.instance.bs.ArrowButtons((int)data.color).GetComponent<NoteButton>();
         gameObj = Instantiate(notePrefab[(int)data.color], parent);
 
         //Set Arrows in sync with speed Multiplier
@@ -188,7 +192,7 @@ public class SongLoader : MonoBehaviour
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
 
-        noteObj.SetUpNote(GameManager.instance.bs.ArrowButtons((int)data.color).GetComponent<NoteButton>());
+        noteObj.SetUpNote(noteButton);
         noteObj.yVal = (data.yVal + delay) / (bpm / 30);
 
         noteObj.count = data.temp;
@@ -215,7 +219,9 @@ public class SongLoader : MonoBehaviour
 
             gameObj.transform.localScale = scaleTemp;
 
-            gameObj.GetComponent<LongNoteObject>().LongNoteSetup(
+            longNoteObj = gameObj.GetComponent<LongNoteObject>();
+            longNoteObj.SetUpNote(noteButton);
+            longNoteObj.LongNoteSetup(
                 noteObj,
                 GameManager.instance.bs.ArrowButtons((int)data.color),
                 data.longNoteLen * 2,
@@ -225,7 +231,11 @@ public class SongLoader : MonoBehaviour
 
             pos.y += data.longNoteLen;
             gameObj = Instantiate(longNoteEndPrefab[(int)data.color], pos, parent.transform.rotation, parent);
-            gameObj.GetComponent<LongNoteEndObject>().yVal = data.yVal / (bpm / 30);
+
+            longNoteEndObj = gameObj.GetComponent<LongNoteEndObject>();
+            longNoteEndObj.SetUpNote(noteButton);
+            longNoteEndObj.yVal = data.yVal / (bpm / 30);
+
             gameObj.transform.localPosition = pos; 
 
             return length + 1;
@@ -234,13 +244,13 @@ public class SongLoader : MonoBehaviour
         return 1;
     }
 
-    public void SetUpEffectEditor(EffectModule data)
+    public void SetUpEffectEditor(EffectStat data)
     {
         gameObj = Instantiate(effectTriggerEditorPrefab, noteHolder.transform);
         gameObj.GetComponent<EditorEffectTriggerObject>().SetUp(data);
     }
 
-    public void SetUpEffect(EffectModule data, float bpm)
+    public void SetUpEffect(EffectStat data, float bpm)
     {
         gameObj = Instantiate(effectTriggerPrefab);
         gameObj.GetComponent<EffectTriggerObject>().SetupEffect(data, bpm);

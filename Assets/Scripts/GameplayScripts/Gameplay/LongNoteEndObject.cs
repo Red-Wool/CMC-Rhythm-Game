@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LongNoteEndObject : NoteClass
 {
@@ -21,13 +22,15 @@ public class LongNoteEndObject : NoteClass
         if (yVal != -1)
         {
             eval = yVal - GameManager.instance.GameTime;
+            transform.localPosition = button.SetPosition(eval);
+
             if (valid && (Input.GetKeyUp(keyPress) || Input.GetKeyUp(altKeyPress)))
             {
                 gameObject.SetActive(false);
 
                 valid = false;
 
-                GameManager.instance.NoteHit(eval, this.gameObject);
+                GameManager.instance.NoteHit(eval, gameObject);
             }
             else if (!valid && Mathf.Abs(eval) < 0.25f && (Input.GetKey(keyPress) || Input.GetKey(altKeyPress)))
             {
@@ -35,31 +38,15 @@ public class LongNoteEndObject : NoteClass
             }
             else if (!valid && eval < -0.25f)
             {
-                yVal = -1;
+                transform.DOScale(0, .1f).OnComplete(DisableArrow);
                 GameManager.instance.NoteMissed(null);
             }
         }
-        /*if (valid && (Input.GetKeyUp(keyPress) || Input.GetKeyUp(altKeyPress)))
-        {
-            valid = false;
-
-            gameObject.SetActive(false);
-
-            GameManager.instance.NoteHit(6f + this.transform.position.y, this.gameObject);
-        }*/
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void DisableArrow()
     {
-        if (collision.tag == "Activator")
-        {
-            if ((Input.GetKey(keyPress) || Input.GetKey(altKeyPress)))
-            {
-                valid = true;
-
-                //GetComponent<SpriteRenderer>().sprite = null;
-
-            }
-        }
-    }*/
+        gameObject.SetActive(false);
+        yVal = -1;
+    }
 }

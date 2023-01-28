@@ -47,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c12ae6012ff98db42b7a6c85600005c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbea3bd7a7d22c24285c424f7125dacc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,17 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b4cce8d92e69141a0d4073d08d64d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectInfo:
-    objID: 
-    yVal: 0
-    xSpot: 0
-    effectType: 
-    vec: {x: 0, y: 0, z: 0}
-    bars: 0
-    loops: 0
-    extra: []
-    easeType: 0
-    loopingStyle: 0
 --- !u!61 &-8770825024807724205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,7 +112,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 3.2, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

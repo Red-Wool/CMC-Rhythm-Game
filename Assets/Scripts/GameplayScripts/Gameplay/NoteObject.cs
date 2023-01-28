@@ -10,7 +10,7 @@ public class NoteObject : NoteClass
 
     private bool flag;
     public bool count;
-    private Transform par;
+
     public override NoteType GetNoteType { get { return NoteType.Normal; } }
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class NoteObject : NoteClass
         {
             eval = yVal - GameManager.instance.GameTime;
             transform.localPosition = button.SetPosition(eval);
+
             if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))
             {
                 gameObject.SetActive(false);
@@ -42,12 +43,19 @@ public class NoteObject : NoteClass
             }
             else if (flag && eval < -0.25f)
             {
+                transform.DOScale(0, .1f).OnComplete(DisableArrow);
+
                 canBePressed = false;
                 flag = false;
-                yVal = -1;
                 GameManager.instance.NoteMissed(this);
             }
         }
+    }
+
+    private void DisableArrow()
+    {
+        gameObject.SetActive(false);
+        yVal = -1;
     }
 
     public void ActivateArrow()

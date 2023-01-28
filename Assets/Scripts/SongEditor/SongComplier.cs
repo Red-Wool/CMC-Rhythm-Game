@@ -73,9 +73,10 @@ public class SongComplier : MonoBehaviour
                 effectObj = notes.transform.GetChild(i).GetComponent<EditorEffectTriggerObject>();
                 if (effectObj != null)
                 {
-                    EffectModule noteObj = effectObj.GetData();
+                    //REQUIRES FIXING
+                    //EffectModule noteObj = effectObj.GetData();
 
-                    effectString += "\n" + JsonUtility.ToJson(noteObj);
+                    //effectString += "\n" + JsonUtility.ToJson(noteObj);
                 }
             }
         }

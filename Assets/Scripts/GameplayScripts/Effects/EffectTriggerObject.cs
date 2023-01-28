@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class EffectTriggerObject : MonoBehaviour
 {
-    [SerializeField] private EffectModule effectType;
+    [SerializeField] private EffectType effectType;
 
-    [SerializeField] private float yVal;
+    [SerializeField] private EffectStat stat;
 
-    public void SetupEffect(EffectModule effect, float bpm)
+    public void SetupEffect(EffectStat effectStat, float bpm)
     {
-        effectType = effect;
-        yVal = effect.yVal / (bpm / 30);
+        //BIG NEED FOR FIX UP
+        //effectType = effect;
+        //yVal = effect.yVal / (bpm / 30);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (yVal <= GameManager.instance.GameTime)
+        if (stat.yVal <= GameManager.instance.GameTime)
         {
-            GameManager.instance.bs.ActivateEffect(effectType);
+            //ALSO NEEDS FIX
+            //GameManager.instance.bs.ActivateEffect(effectType);
             //Debug.Log("effect!");
 
             gameObject.SetActive(false);

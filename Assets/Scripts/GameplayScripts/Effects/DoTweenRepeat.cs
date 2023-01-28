@@ -6,6 +6,7 @@ using DG.Tweening;
 public class DoTweenRepeat : MonoBehaviour
 {
     //EffectModule effect;
+    /*
     public static void DoCamera(EffectModule effect)
     {
         
@@ -21,5 +22,5 @@ public class DoTweenRepeat : MonoBehaviour
 
             yield return new WaitForSeconds(effect.vec.z / (GameManager.instance.bs.bpm / 60f));
         }
-    }
+    }*/
 }

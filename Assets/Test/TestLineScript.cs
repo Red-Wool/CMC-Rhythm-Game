@@ -6,7 +6,7 @@ public class TestLineScript : MonoBehaviour
 {
     public GameObject end;
 
-    public MoveModule[] moveModules;
+    public ArrowPathModule[] moveModules;
 
     LineRenderer lr;
     Vector3[] lines;

@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class EditorEffectTriggerObject : MonoBehaviour
 {
-    public EffectModule effectInfo;
+    public EffectStat effectInfo;
 
-    public void SetUp(EffectModule data)
+    public EffectType type { get; protected set; }
+
+    public void SetUp(EffectStat data)
     {
         effectInfo = data;
         transform.position = new Vector3(data.editorPos, data.yVal);
     }
 
-    public EffectModule GetData()
+    /*public EffectModule GetData()
     {
         effectInfo.yVal = transform.position.y;
         effectInfo.editorPos = (int)transform.position.x;
         return effectInfo;
-    }
+    }*/
+}
+
+public struct EffectStat
+{
+    public float editorPos;
+    public float yVal;
 }
