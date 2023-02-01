@@ -34,7 +34,7 @@ public class BeatScroller : MonoBehaviour
 
         totalNotes = 0;
 
-        songInfo = sl.LoadSong(PlayerPrefs.GetString("CurrentMap"), false);
+        songInfo = sl.LoadSong(PlayerPrefs.GetString("CurrentMap"));
         totalNotes = songInfo.totalNotes;
         bpm = songInfo.bpm;
 

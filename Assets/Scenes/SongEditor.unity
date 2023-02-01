@@ -23845,7 +23845,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1189857006}
   - component: {fileID: 1189857005}
-  - component: {fileID: 1189857007}
   - component: {fileID: 1189857008}
   m_Layer: 0
   m_Name: FileManager
@@ -23890,35 +23889,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1189857007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189857004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd942b2e74b71943890462b55e4597c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteHolder: {fileID: 1816910485}
-  editorNotePrefab:
-  - {fileID: 4970181631813649467, guid: 7b4fe3a228029bf4ab978c8d3e0436cd, type: 3}
-  - {fileID: 1947249714142373532, guid: 931a22516f8988841bebd11d83264237, type: 3}
-  - {fileID: 4284016100017260689, guid: d083a026c6b56d340922a623a1515693, type: 3}
-  - {fileID: 4465359189266668543, guid: 078b7bfd9d591d94bb4d73ac208f85c8, type: 3}
-  notePrefab: []
-  longNoteMiddlePrefab: []
-  longNoteEndPrefab: []
-  effectTriggerPrefab: {fileID: 0}
-  effectTriggerEditorPrefab: {fileID: 7124195015780346307, guid: 31056b14a372cf04a9df6e15c541dd5f,
-    type: 3}
-  compiler: {fileID: 1189857005}
-  invalidStrings:
-  - End
-  - Effect
-  - Note
 --- !u!114 &1189857008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37351,7 +37321,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1189857007}
+      - m_Target: {fileID: 1189857008}
         m_MethodName: EditorLoad
         m_Mode: 1
         m_Arguments:

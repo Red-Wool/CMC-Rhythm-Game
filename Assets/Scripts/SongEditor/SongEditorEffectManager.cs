@@ -24,8 +24,7 @@ public class SongEditorEffectManager : MonoBehaviour
     private Transform effectChooseDisplayParent;
     private List<GameObject> effectChooseObjects;
 
-    private List<GameObject> moveOptionList;
-    private List<GameObject> arrowPathOptionList;
+    private List<GameObject>[] moveOptionList;
 
     private EditorEffectTriggerObject selectedGameObject;
     private EditorMoveEffect selectMove;
@@ -35,7 +34,8 @@ public class SongEditorEffectManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        effectChooseObjects = new List<GameObject>();
+        //Create Effect Type Display
+        effectChooseObjects = new List<GameObject>(); 
         for (int i = 0; i < data.effectTypeSprites.Length; i++)
         {
             GameObject obj = Instantiate(effectChoosePrefab, effectChooseDisplayParent.transform);
@@ -74,8 +74,35 @@ public class SongEditorEffectManager : MonoBehaviour
         return Instantiate(effectPrefabs[chooseID], position, Quaternion.identity, noteHolder);
     }
 
-    public void SelectEffect(GameObject obj)
+    public void SelectEffect(EditorEffectTriggerObject obj)
     {
+        selectedGameObject = obj;
+        if (selectedGameObject == null)
+        {
+            Debug.LogError("Null Editor Effect Trigger Object Selected!");
+            return;
+        }
+        ChangeEffectOptions((int)selectedGameObject.effectType);
+        switch (selectedGameObject.effectType)
+        {
+            case EffectType.Move:
+                selectMove = obj.GetComponent<EditorMoveEffect>();
+                break;
+            case EffectType.ArrowPath:
+                selectArrowPath = obj.GetComponent<EditorArrowPathEffect>();
+                break;
+        }
+    }
 
+    private void ChangeEffectOptions(int id)
+    {
+        for (int i = 0; i < moveOptionList.Length; i++)
+        {
+            for (int j = 0; j < moveOptionList[i].Count; j++)
+            {
+                moveOptionList[i][j].SetActive(id == i);
+            }
+        }
+        
     }
 }

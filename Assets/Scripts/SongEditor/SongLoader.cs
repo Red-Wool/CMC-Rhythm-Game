@@ -8,10 +8,7 @@ using TMPro;
 public class SongLoader : MonoBehaviour
 {
     public GameObject noteHolder;
-    //public string songName;
 
-    [SerializeField]
-    private GameObject[] editorNotePrefab;
     [SerializeField]
     private GameObject[] notePrefab;
     [SerializeField]
@@ -20,17 +17,11 @@ public class SongLoader : MonoBehaviour
     private GameObject[] longNoteEndPrefab;
 
     [SerializeField] private GameObject effectTriggerPrefab;
-    [SerializeField] private GameObject effectTriggerEditorPrefab;
-
-    [SerializeField]
-    private SongComplier compiler;
 
     //Extra Varibles so only instatiated once
     private Note noteData;
     private MoveModule effectData;
     private GameObject gameObj;
-
-    private EditorNoteObject ediObj;
 
     private NoteButton noteButton;
     private NoteObject noteObj;
@@ -45,45 +36,16 @@ public class SongLoader : MonoBehaviour
 
     public string[] invalidStrings = {"End", "Effect", "Note"};
 
-    public SongFileInfo LoadSong(string name, bool isEditor)
+    public SongFileInfo LoadSong(string name)
     {
-        //Varible Declaration
-        if (isEditor)
-        {
-            GameObject[] childrenList = new GameObject[noteHolder.transform.childCount];
-
-            //Remove Existing Notes
-            for (int i = 0; i < noteHolder.transform.childCount; i++)
-            {
-                childrenList[i] = noteHolder.transform.GetChild(i).gameObject;
-            }
-            foreach (GameObject i in childrenList)
-            {
-                Destroy(i);
-            }
-        }
-
 
         //Get Path
         //string path = Application.dataPath + "/SongData/" + name + ".txt";
         TextAsset textFile;
         string[] text;
-        if (!isEditor)
-        {
-            textFile = LoadAssetBundle.GetSongData(name);
-            text = Regex.Split(textFile.text, "\n");
-        }
-        else
-        {
-            //StringReader reader = new StringReader(Application.dataPath + "/AssetBundles/songdata/" + name + ".txt");
 
-            text = File.ReadAllLines(Application.dataPath + "/AssetBundles/songdata/" + name + ".txt");
-
-            //text = Regex.Split(reader.ToString(), "\n");
-
-            //reader.Close();
-        }
-        
+        textFile = LoadAssetBundle.GetSongData(name);
+        text = Regex.Split(textFile.text, "\n");
 
         //Check if Path Exists
         if (text.Length != 0)
@@ -138,14 +100,7 @@ public class SongLoader : MonoBehaviour
                         noteData = JsonUtility.FromJson<Note>(inpStr);
 
                         //Check if editor edition
-                        if (isEditor)
-                        {
-                            SetUpEditorNote(noteData);
-                        }
-                        else
-                        {
-                            SetUpGameNote(noteData, bpm, spdMult, delay);
-                        }
+                        SetUpGameNote(noteData, bpm, spdMult, delay);
                     }
                 }
             }
@@ -165,17 +120,7 @@ public class SongLoader : MonoBehaviour
         return new SongFileInfo();
     }
 
-    public void SetUpEditorNote(Note data)
-    {
-        gameObj = Instantiate(editorNotePrefab[(int)data.color], noteHolder.transform);
-
-        ediObj = gameObj.GetComponent<EditorNoteObject>();
-
-        ediObj.SetY(data.yVal);
-        ediObj.SetLongNote(data.isLongNote, data.longNoteLen);
-    }
-
-    public int SetUpGameNote(Note data, float bpm, float speedMultiplier, float delay) //FIX IT to actually work
+    public int SetUpGameNote(Note data, float bpm, float speedMultiplier, float delay)
     {
 
         //Track Total Notes
@@ -244,40 +189,10 @@ public class SongLoader : MonoBehaviour
         return 1;
     }
 
-    public void SetUpEffectEditor(EffectStat data)
-    {
-        gameObj = Instantiate(effectTriggerEditorPrefab, noteHolder.transform);
-        gameObj.GetComponent<EditorEffectTriggerObject>().SetUp(data);
-    }
-
     public void SetUpEffect(EffectStat data, float bpm)
     {
         gameObj = Instantiate(effectTriggerPrefab);
         gameObj.GetComponent<EffectTriggerObject>().SetupEffect(data, bpm);
-    }
-
-    //Method for Song Editor Button
-    public void EditorLoad()
-    {
-        Debug.Log("Loading File!");
-        if (noteHolder.transform.childCount < 10 || compiler.loadFlag)
-        {
-            songInfo = LoadSong(compiler.SongName, true);
-            compiler.SongFileName = songInfo.songFileName;
-            compiler.BPM = songInfo.bpm.ToString();
-            compiler.Scroll = songInfo.startSpeed.ToString();
-            compiler.Delay = songInfo.startDelay.ToString();
-            compiler.End = songInfo.endPos.ToString();
-            compiler.loadFlag = false;
-            compiler.warningText.text = "";
-            Debug.Log("Loading files complete!");
-        }
-        else
-        {
-            compiler.loadFlag = true;
-            compiler.warningText.text = "Sure you want to Load?";
-        }
-        
     }
 
     private bool WordCheck(string word)

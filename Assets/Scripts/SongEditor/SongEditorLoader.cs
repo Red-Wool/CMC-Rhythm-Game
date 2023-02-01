@@ -102,17 +102,18 @@ public class SongEditorLoader : MonoBehaviour
                     {
                         effectStat = JsonUtility.FromJson<EffectStat>(inpStr);
                         i++;
+                        inpStr = text[i].Trim();
 
                         effectObject = SetUpEffectEditor((int)effectStat.type, effectStat);
                         switch (effectStat.type)
                         {
                             case EffectType.Move:
-                                moveData = JsonUtility.FromJson<MoveModule>(inpStr);
-                                effectObject.GetComponent<EditorMoveEffect>().move = moveData;
+                                //moveData = ;
+                                effectObject.GetComponent<EditorMoveEffect>().move = JsonUtility.FromJson<MoveModule>(inpStr);
                                 break;
                             case EffectType.ArrowPath:
-                                arrowPathData = JsonUtility.FromJson<ArrowPathModule>(inpStr);
-                                effectObject.GetComponent<EditorArrowPathEffect>().arrowPath = arrowPathData;
+                                //arrowPathData = ;
+                                effectObject.GetComponent<EditorArrowPathEffect>().arrowPath = JsonUtility.FromJson<ArrowPathModule>(inpStr);
                                 break;
                         }
                         
