@@ -1,0 +1,22 @@
+{"songName":"TestEffect","songFileName":"win","version":"V7","lastEdit":"1/29/2023 1:54:49 PM","bpm":100.0,"startSpeed":100.0,"startDelay":100.0,"endPos":100.0,"totalNotes":6}
+Note
+{"color":1,"yVal":0.0,"isLongNote":false,"longNoteLen":0.0,"temp":false}
+{"color":2,"yVal":2.0,"isLongNote":false,"longNoteLen":0.0,"temp":false}
+{"color":1,"yVal":4.0,"isLongNote":false,"longNoteLen":0.0,"temp":false}
+{"color":0,"yVal":6.0,"isLongNote":false,"longNoteLen":0.0,"temp":false}
+{"color":1,"yVal":8.0,"isLongNote":false,"longNoteLen":0.0,"temp":false}
+{"color":2,"yVal":10.0,"isLongNote":false,"longNoteLen":0.0,"temp":false}
+Effect
+{"xEditor":7.0,"yTime":1.0,"type":1}
+{"objID":"123","yVal":0.0,"editorPos":0.0,"effectType":"","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":0.0,"loops":0,"extra":[],"easeType":0,"loopingStyle":0}
+{"xEditor":9.0,"yTime":3.0,"type":1}
+{"objID":"","yVal":0.0,"editorPos":0.0,"effectType":"","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":0.0,"loops":0,"extra":[],"easeType":0,"loopingStyle":0}
+{"xEditor":11.0,"yTime":5.0,"type":1}
+{"objID":"","yVal":0.0,"editorPos":0.0,"effectType":"","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":0.0,"loops":0,"extra":[],"easeType":0,"loopingStyle":0}
+{"xEditor":13.0,"yTime":7.0,"type":1}
+{"objID":"","yVal":0.0,"editorPos":0.0,"effectType":"","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":0.0,"loops":0,"extra":[],"easeType":0,"loopingStyle":0}
+{"xEditor":7.0,"yTime":5.0,"type":2}
+{"isActive":false,"notePosID":"Circle3D","objID":0,"stats":{"speed":123.0,"startTime":123.0,"duration":123.0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
+{"xEditor":9.0,"yTime":7.0,"type":2}
+{"isActive":false,"notePosID":"","objID":0,"stats":{"speed":0.0,"startTime":0.0,"duration":0.0,"store":[]}}
+End

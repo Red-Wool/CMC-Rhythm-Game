@@ -31,6 +31,8 @@ public class SongComplier : MonoBehaviour
     private EditorNoteObject obj;
     private EditorEffectTriggerObject effectObj;
 
+    GameObject saveObj;
+
     public bool saveFlag;
     public bool loadFlag;
 
@@ -60,7 +62,8 @@ public class SongComplier : MonoBehaviour
         int totalNotes = 0;
         for (int i = 0; i < notes.transform.childCount; i++)
         {
-            obj = notes.transform.GetChild(i).GetComponent<EditorNoteObject>();
+            saveObj = notes.transform.GetChild(i).gameObject;
+            obj = saveObj.GetComponent<EditorNoteObject>();
             if (obj != null)
             {
                 Note noteObj = obj.GetNoteData();
@@ -70,13 +73,10 @@ public class SongComplier : MonoBehaviour
             }
             else
             {
-                effectObj = notes.transform.GetChild(i).GetComponent<EditorEffectTriggerObject>();
+                effectObj = saveObj.GetComponent<EditorEffectTriggerObject>();
                 if (effectObj != null)
                 {
-                    //REQUIRES FIXING
-                    //EffectModule noteObj = effectObj.GetData();
-
-                    //effectString += "\n" + JsonUtility.ToJson(noteObj);
+                    CompileEffect();
                 }
             }
         }
@@ -99,6 +99,21 @@ public class SongComplier : MonoBehaviour
 
         //CreateAssetBundles.BuildAllAssetBundles();
         //}
+    }
+
+    public void CompileEffect()
+    {
+        effectString += "\n" + JsonUtility.ToJson(effectObj.GetStat());
+        switch (effectObj.effectType)
+        {
+            case EffectType.Move:
+                effectString += "\n" + JsonUtility.ToJson(saveObj.GetComponent<EditorMoveEffect>().move);
+                break;
+            case EffectType.ArrowPath:
+                effectString += "\n" + JsonUtility.ToJson(saveObj.GetComponent<EditorArrowPathEffect>().arrowPath);
+                break;
+
+        }
     }
 
     public void EditorCompile()

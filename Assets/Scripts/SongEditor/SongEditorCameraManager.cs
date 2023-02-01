@@ -40,6 +40,9 @@ public class SongEditorCameraManager : MonoBehaviour
 
     //Effect Section
     [Header("Effect Editor"), Space(10),
+     SerializeField] private SongEditorEffectManager effectManager;
+
+    [Space(10),
      SerializeField] private GameObject effectButtonPrefab;
     [Space(10),
      SerializeField] private GameObject effectContainer;
@@ -171,6 +174,7 @@ public class SongEditorCameraManager : MonoBehaviour
             //Regular Arrows
             if (mousePos.x <= 14f && mousePos.x >= -4f)
             {
+                bool isEffect = false;
                 snapPos.y = Mathf.Round(mousePos.y / yPlaceSnap) * yPlaceSnap;
 
                 snapPos.x = CeilOrFloorBasedOnSign(mousePos.x / 2f) * 2f;
@@ -191,16 +195,20 @@ public class SongEditorCameraManager : MonoBehaviour
                         selectedObj = arrowGameObjs[3];
                         break;
                     case 7f:
-                        selectedObj = arrowGameObjs[4];
+                        isEffect = true;
+                        
                         break;
                     case 9f:
-                        selectedObj = arrowGameObjs[4];
+                        isEffect = true;
+                        
                         break;
                     case 11f:
-                        selectedObj = arrowGameObjs[4];
+                        isEffect = true;
+                        
                         break;
                     case 13f:
-                        selectedObj = arrowGameObjs[4];
+                        isEffect = true;
+                        
                         break;
                     default:
                         //selectedObj = arrowGameObjs[0];
@@ -209,20 +217,18 @@ public class SongEditorCameraManager : MonoBehaviour
                         break;
                 }
 
-                if (selectedObj != null)
+                if (isEffect)
+                {
+                    selectedObj = effectManager.CreateEffect(snapPos);
+                    HandleEffectInput();
+                    UpdateEffectEditor();
+                }
+                else if (selectedObj != null)
                 {
                     selectedObj = Instantiate(selectedObj, snapPos, Quaternion.identity, noteHolder.transform);
                     OnSelectGameObject(selectedObj);
 
-                    if (selectedObj.GetComponent<EditorNoteObject>())
-                    {
-                        SetLongNote();
-                    }
-                    else
-                    {
-                        HandleEffectInput();
-                        UpdateEffectEditor();
-                    }
+                    SetLongNote();
                 }
                 
             }

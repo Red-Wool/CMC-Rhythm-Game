@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995c97763fb55254299b2399ca586931, type: 3}
+  m_Name: EditorData
+  m_EditorClassIdentifier: 
+  effectTypeSprites:
+  - type: 0
+    sprite: {fileID: 21300000, guid: dbea3bd7a7d22c24285c424f7125dacc, type: 3}
+  - type: 1
+    sprite: {fileID: 21300000, guid: f05ee41826d8f2c4085226195f0c3d65, type: 3}
+  - type: 2
+    sprite: {fileID: 21300000, guid: d5a749429cb49ed428db603b4f940f8d, type: 3}
+  - type: 4
+    sprite: {fileID: 21300000, guid: cc65f23da7008784ea12fdaa5baa2acf, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: cff0f22a734b4f744a219872a86f6139, type: 3}
+  moveObjectNames: []
+  arrowPathObjectNames: []
+  uiObjectNames: []

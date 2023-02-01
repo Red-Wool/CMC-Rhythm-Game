@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 256199064
+CRC: 1108627365
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4b9b4ec7f9223be50e027d85dc264b4b
+    Hash: a440d29025fb387b059abd76942037e6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -11,6 +11,7 @@ HashAppended: 0
 ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundles/songdata/EffectTest.txt
 - Assets/AssetBundles/songdata/ET1.txt

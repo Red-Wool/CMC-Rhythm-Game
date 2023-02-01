@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class SongEditorData : ScriptableObject
 {
-    public EffectTypeSprite[] sprites;
+    public EffectTypeSprite[] effectTypeSprites;
 
     //Strings to create Buttons
     public string[] moveObjectNames;
@@ -21,5 +22,9 @@ public struct EffectTypeSprite
 
 public enum EffectType
 {
-
+    General,
+    Move,
+    ArrowPath,
+    UI,
+    Shader
 }

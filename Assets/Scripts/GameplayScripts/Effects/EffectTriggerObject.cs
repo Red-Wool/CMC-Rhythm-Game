@@ -18,7 +18,7 @@ public class EffectTriggerObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stat.yVal <= GameManager.instance.GameTime)
+        if (stat.yTime <= GameManager.instance.GameTime)
         {
             //ALSO NEEDS FIX
             //GameManager.instance.bs.ActivateEffect(effectType);

@@ -5,19 +5,44 @@ using UnityEngine;
 
 public class SongEditorLoader : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject noteHolder;
-    [SerializeField]
-    private GameObject[] editorNotePrefab;
-    [SerializeField]
-    private GameObject effectPrefab;
+    [SerializeField] private SongComplier compiler;
+    [SerializeField] private GameObject noteHolder;
+    [SerializeField] private GameObject[] editorNotePrefab;
+    [SerializeField] private GameObject[] editorEffectPrefab;
 
     SongFileInfo songInfo;
+    GameObject effectObject;
     MoveModule moveData;
+    ArrowPathModule arrowPathData;
     Note noteData;
+
+    EffectStat effectStat;
 
     GameObject gameObj;
     EditorNoteObject ediObj;
+
+    public void EditorLoad()
+    {
+        Debug.Log("Loading File!");
+        if (noteHolder.transform.childCount < 10 || compiler.loadFlag)
+        {
+            songInfo = LoadSong(compiler.SongName);
+            compiler.SongFileName = songInfo.songFileName;
+            compiler.BPM = songInfo.bpm.ToString();
+            compiler.Scroll = songInfo.startSpeed.ToString();
+            compiler.Delay = songInfo.startDelay.ToString();
+            compiler.End = songInfo.endPos.ToString();
+            compiler.loadFlag = false;
+            compiler.warningText.text = "";
+            Debug.Log("Loading files complete!");
+        }
+        else
+        {
+            compiler.loadFlag = true;
+            compiler.warningText.text = "Sure you want to Load?";
+        }
+
+    }
 
     public SongFileInfo LoadSong(string songName)
     {
@@ -75,10 +100,22 @@ public class SongEditorLoader : MonoBehaviour
                 {
                     if (effect)
                     {
-                        moveData = JsonUtility.FromJson<MoveModule>(inpStr);
+                        effectStat = JsonUtility.FromJson<EffectStat>(inpStr);
+                        i++;
+
+                        effectObject = SetUpEffectEditor((int)effectStat.type, effectStat);
+                        switch (effectStat.type)
+                        {
+                            case EffectType.Move:
+                                moveData = JsonUtility.FromJson<MoveModule>(inpStr);
+                                effectObject.GetComponent<EditorMoveEffect>().move = moveData;
+                                break;
+                            case EffectType.ArrowPath:
+                                arrowPathData = JsonUtility.FromJson<ArrowPathModule>(inpStr);
+                                effectObject.GetComponent<EditorArrowPathEffect>().arrowPath = arrowPathData;
+                                break;
+                        }
                         
-                        // SET UP THIS
-                        SetUpEffectEditor(new EffectStat());
                     }
                     else
                     {
@@ -105,10 +142,11 @@ public class SongEditorLoader : MonoBehaviour
         return new SongFileInfo();
     }
 
-    public void SetUpEffectEditor(EffectStat data)
+    public GameObject SetUpEffectEditor(int id, EffectStat data)
     {
-        gameObj = Instantiate(effectPrefab, noteHolder.transform);
+        gameObj = Instantiate(editorEffectPrefab[id], noteHolder.transform);
         gameObj.GetComponent<EditorEffectTriggerObject>().SetUp(data);
+        return gameObj;
     }
 
     public void SetUpEditorNote(Note data)

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1975797787
+CRC: 412443324
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2ff9a3afe81db0bb8774b1b4ec6586f7
+    Hash: 68fddb048be4115a600df33972990b37
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -11,13 +11,20 @@ HashAppended: 0
 ClassTypes:
 - Class: 83
   Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundles/music/MicoLieLieLie.mp3
+- Assets/AssetBundles/music/TaylorSwiftHaunted.mp3
+- Assets/AssetBundles/music/Maroon5ThisLove.mp3
+- Assets/AssetBundles/music/NeonTreesAnimal.mp3
 - Assets/AssetBundles/music/TheBoggyGrotto.mp3
+- Assets/AssetBundles/music/HalseyWithoutMe.mp3
 - Assets/AssetBundles/music/FeelGoodInc.mp3
 - Assets/AssetBundles/music/Tunnel.mp3
 - Assets/AssetBundles/music/PurpleSong.mp3
 - Assets/AssetBundles/music/BrunoMarsWhenIWasYourMan.mp3
+- Assets/AssetBundles/music/TaylorSwiftStyle.mp3
 - Assets/AssetBundles/music/BillieEilishBellyache.mp3
+- Assets/AssetBundles/music/ArcticMonkeys505.mp3
 - Assets/AssetBundles/music/ParamoreStillIntoYou.mp3
 Dependencies: []
