@@ -7,6 +7,8 @@ public class SongEditorData : ScriptableObject
 {
     public EffectTypeSprite[] effectTypeSprites;
 
+    public string[] arrowPathOptions;
+
     //Strings to create Buttons
     public string[] moveObjectNames;
     public string[] arrowPathObjectNames;

@@ -46,7 +46,7 @@ public class SongEditorAudioPreview : MonoBehaviour
     {
         if (isPlaying)
         {
-            judgementLine.transform.position += Vector3.up * scrollSpeed * playSpeed * Time.deltaTime;
+            judgementLine.transform.position = Vector3.up * audioPlayer.time * scrollSpeed;//+= Vector3.up * scrollSpeed * playSpeed * Time.deltaTime;
             Camera.main.transform.position = judgementLine.transform.position + Vector3.back * 10;
         }
     }

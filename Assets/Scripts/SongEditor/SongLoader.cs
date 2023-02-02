@@ -131,14 +131,14 @@ public class SongLoader : MonoBehaviour
 
         //Set Arrows in sync with speed Multiplier
         pos = gameObj.transform.localPosition;
-        pos.y = (data.yVal + delay) * speedMultiplier;
+        pos.y = (data.yVal) * speedMultiplier;
         gameObj.transform.localPosition = pos;
 
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
 
         noteObj.SetUpNote(noteButton);
-        noteObj.yVal = (data.yVal + delay) / (bpm / 30);
+        noteObj.yVal = (data.yVal) / (bpm / 30f);
 
         noteObj.count = data.temp;
 

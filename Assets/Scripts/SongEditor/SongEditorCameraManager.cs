@@ -78,7 +78,7 @@ public class SongEditorCameraManager : MonoBehaviour
 
     //Note Grid Background Info + Note Place Varibles
     private Vector3 snapPos;
-    private const float bgSnapDisplacement = -1f;
+    private const float bgSnapDisplacement = 0f;
     private const float bgSnapInterval = 4f;
 
     private const float yPlaceSnap = 1f;
@@ -127,15 +127,6 @@ public class SongEditorCameraManager : MonoBehaviour
         snapPos.z = 0f;
 
         //Add all effects, eases, and loops to editor
-        EffectType[] allEffects = System.Enum.GetValues(typeof(EffectType)) as EffectType[];
-        for (int i = 0; i < allEffects.Length; i++)
-        {
-            tempGameObj = Instantiate(effectButtonPrefab, effectContainer.transform);
-            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((EffectType) i).ToString();
-
-            EffectType e = allEffects[i];
-            tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetEffectType(e));
-        }
 
         Ease[] allEases = System.Enum.GetValues(typeof(Ease)) as Ease[];
         for (int i = 0; i < allEases.Length; i++)
@@ -166,6 +157,8 @@ public class SongEditorCameraManager : MonoBehaviour
             mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             //Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
         }
+
+        AlignGameObjects();
 
         //=====Left Click=========
         //For Placing Notes down and Stuff
@@ -244,13 +237,14 @@ public class SongEditorCameraManager : MonoBehaviour
             {
                 OnSelectGameObject(hit.collider.gameObject);
 
-                if (hit.collider.gameObject.GetComponent<EditorNoteObject>())
+                if (selectedObj.GetComponent<EditorNoteObject>())
                 {
                     GetLongNote(hit.collider.gameObject);
                 }
-                else
+                else if (selectedObj.GetComponent<EditorEffectTriggerObject>())
                 {
-                    UpdateEffectEditor();
+                    effectManager.SelectEffect(selectedObj.GetComponent<EditorEffectTriggerObject>());
+                    //UpdateEffectEditor();
                 }
             }
             else
@@ -284,7 +278,7 @@ public class SongEditorCameraManager : MonoBehaviour
             yVal = origin - difference;
             mainCamera.transform.position = yVal;
 
-            AlignGameObjects();
+            
         }
         //=======Scroll Wheel========
         //Scrolling to pan in and out
@@ -434,12 +428,12 @@ public class SongEditorCameraManager : MonoBehaviour
     {
         for (int i = 0; i < moveWithCamera.Length; i++)
         {
-            moveWithCamera[i].transform.localPosition = Vector3.up * yVal.y;
+            moveWithCamera[i].transform.localPosition = Vector3.up * mainCamera.transform.position.y;
         }
 
         for (int i = 0; i < snapWithCamera.Length; i++)
         {
-            snapWithCamera[i].transform.position = Vector3.up * (Mathf.Round(yVal.y / bgSnapInterval) * bgSnapInterval + bgSnapDisplacement);
+            snapWithCamera[i].transform.position = Vector3.up * (Mathf.Round(mainCamera.transform.position.y / bgSnapInterval) * bgSnapInterval + bgSnapDisplacement);
         }
     }
 

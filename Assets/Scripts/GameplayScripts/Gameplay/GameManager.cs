@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                gameTime += Time.deltaTime;
+                gameTime = music.time;
             }
         }
 

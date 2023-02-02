@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1108627365
+CRC: 2135286103
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a440d29025fb387b059abd76942037e6
+    Hash: c63107d206929e2240b2fcbdcb1b3557
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -14,6 +14,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundles/songdata/EffectTest.txt
+- Assets/AssetBundles/songdata/Style.txt
 - Assets/AssetBundles/songdata/ET1.txt
 - Assets/AssetBundles/songdata/WhenIWasYourMan.txt
 - Assets/AssetBundles/songdata/Purple.txt

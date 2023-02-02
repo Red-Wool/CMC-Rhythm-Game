@@ -62,7 +62,7 @@ public static class ArrowPathFunctions
 
     public static NotePosition GetNotePosition(string id)
     {
-        Debug.Log(id);
+        //Debug.Log(id);
         NotePosition pos = null;
 
         switch (id)
@@ -97,10 +97,10 @@ public static class ArrowPathFunctions
     {
         return new EditorRequest()
         {
-            requestFields = new EditorReqestField[]{
-            new EditorReqestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
-            new EditorReqestField() {fieldName = "Angle Rate", requestType = RequestType.Vector2}, //3-4 X Y 
-            new EditorReqestField() {fieldName = "Angle Time Rate", requestType = RequestType.Vector2}, //5-6 X Y
+            requestFields = new EditorRequestField[]{
+            new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
+            new EditorRequestField() {fieldName = "Angle Rate", requestType = RequestType.Vector2}, //3-4 X Y 
+            new EditorRequestField() {fieldName = "Angle Time Rate", requestType = RequestType.Vector2}, //5-6 X Y
             }
         };
     }
@@ -115,10 +115,10 @@ public static class ArrowPathFunctions
 
     public static EditorRequest OscillateRequest() {
         return new EditorRequest()
-        { requestFields = new EditorReqestField[]{ 
-            new EditorReqestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
-            new EditorReqestField() {fieldName = "Position Rate", requestType = RequestType.Vector3}, //3-5 X Y Z
-            new EditorReqestField() {fieldName = "Time Rate", requestType = RequestType.Vector3}, //6-8 X Y Z
+        { requestFields = new EditorRequestField[]{ 
+            new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
+            new EditorRequestField() {fieldName = "Position Rate", requestType = RequestType.Vector3}, //3-5 X Y Z
+            new EditorRequestField() {fieldName = "Time Rate", requestType = RequestType.Vector3}, //6-8 X Y Z
             } };
     }
     public static Vector3 Oscillate(float time, ArrowPathModuleStat stat)

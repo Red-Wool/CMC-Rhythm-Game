@@ -2306,7 +2306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb70ff79847f45a46bb3f52d2fded927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  album: {fileID: 11400000, guid: e698147cb8db7184ab4516439df37c63, type: 2}
+  album: {fileID: 11400000, guid: 0b624ee18b20f694aa5458c5c4db8bca, type: 2}
   songContainer: {fileID: 967751504}
   songPrefab: {fileID: 4566210056487338049, guid: 76aa08ae3e1181d468f4d625e7f4fc02,
     type: 3}
