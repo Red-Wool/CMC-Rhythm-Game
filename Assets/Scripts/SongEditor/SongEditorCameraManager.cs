@@ -78,7 +78,6 @@ public class SongEditorCameraManager : MonoBehaviour
 
     //Note Grid Background Info + Note Place Varibles
     private Vector3 snapPos;
-    private const float bgSnapDisplacement = 0f;
     private const float bgSnapInterval = 4f;
 
     private const float yPlaceSnap = 1f;
@@ -433,7 +432,7 @@ public class SongEditorCameraManager : MonoBehaviour
 
         for (int i = 0; i < snapWithCamera.Length; i++)
         {
-            snapWithCamera[i].transform.position = Vector3.up * (Mathf.Round(mainCamera.transform.position.y / bgSnapInterval) * bgSnapInterval + bgSnapDisplacement);
+            snapWithCamera[i].transform.position = Vector3.up * (Mathf.Round(mainCamera.transform.position.y / bgSnapInterval) * bgSnapInterval);
         }
     }
 

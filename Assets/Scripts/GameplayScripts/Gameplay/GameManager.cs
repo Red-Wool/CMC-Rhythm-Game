@@ -274,11 +274,11 @@ public class GameManager : MonoBehaviour
     public HitText Evalute(float value)
     {
         value /= 0.25f;
-
-        if (Mathf.Abs(value) < 0.09f) { hitVal = HitText.Perfect; } //2.7 Frames //Remember to Test Rates
-        else if (Mathf.Abs(value) < 0.20f) { hitVal = HitText.Great; } //6 Frames
-        else if (Mathf.Abs(value) < 0.42f) { hitVal = HitText.Good; } //10 Frames
-        else if (Mathf.Abs(value) < 0.75f) { hitVal = HitText.Meh; }
+        //Divide by 4 to get ms
+        if (Mathf.Abs(value) < 0.1f) { hitVal = HitText.Perfect; } //2.7 Frames //Remember to Test Rates //.025
+        else if (Mathf.Abs(value) < 0.22f) { hitVal = HitText.Great; } //6 Frames //.055
+        else if (Mathf.Abs(value) < 0.42f) { hitVal = HitText.Good; } //10 Frames //.105
+        else if (Mathf.Abs(value) < 0.7f) { hitVal = HitText.Meh; } //.175
         else if (value > 0f) { hitVal = HitText.Early; }
         else if (value < 0f) { hitVal = HitText.Late; }
 

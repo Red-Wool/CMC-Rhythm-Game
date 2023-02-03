@@ -61,7 +61,6 @@ public class EditorNoteObject : NoteClass
         note.yVal = transform.position.y;
         note.isLongNote = isLongNote;
         note.longNoteLen = length;
-        note.temp = game;
 
         return note;
     }

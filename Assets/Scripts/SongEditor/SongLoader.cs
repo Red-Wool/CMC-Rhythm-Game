@@ -140,8 +140,6 @@ public class SongLoader : MonoBehaviour
         noteObj.SetUpNote(noteButton);
         noteObj.yVal = (data.yVal) / (bpm / 30f);
 
-        noteObj.count = data.temp;
-
         if (data.isLongNote && data.longNoteLen != 0f)
         {
             length = (int)data.longNoteLen;

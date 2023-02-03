@@ -181,7 +181,6 @@ public struct Note
     public float yVal;
     public bool isLongNote;
     public float longNoteLen;
-    public bool temp;
 }
 
 public struct SongFileInfo

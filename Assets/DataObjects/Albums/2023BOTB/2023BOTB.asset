@@ -16,3 +16,4 @@ MonoBehaviour:
   coverArt: {fileID: 0}
   songList:
   - {fileID: 11400000, guid: 24de3e22779db594f870bae0200068b6, type: 2}
+  - {fileID: 11400000, guid: 2fa04d939401c83459b2d93412710ad6, type: 2}

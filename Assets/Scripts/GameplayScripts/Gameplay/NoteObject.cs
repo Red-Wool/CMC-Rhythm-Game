@@ -9,7 +9,6 @@ public class NoteObject : NoteClass
     private bool canBePressed;
 
     private bool flag;
-    public bool count;
 
     public override NoteType GetNoteType { get { return NoteType.Normal; } }
 

@@ -70,7 +70,7 @@ public class LongNoteObject : NoteClass
             }
 
         }
-        else if (counter != intervals && parentObj.yVal + yVal - GameManager.instance.GameTime < -0.25f)
+        else if (counter != intervals && parentObj.yVal + yVal - GameManager.instance.GameTime < -0.025f)
         {
             MissedLongMiddle();
         }
