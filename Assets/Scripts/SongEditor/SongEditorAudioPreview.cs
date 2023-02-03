@@ -14,6 +14,9 @@ public class SongEditorAudioPreview : MonoBehaviour
     [SerializeField] private Slider songSpeed;
     [SerializeField] private TMP_Text songSpeedDisplay;
 
+    [SerializeField] private TMP_InputField delayInput;
+    private float delayTime;
+
     private const string validNum = "0123456789.";
 
     private bool isPlaying;
@@ -46,7 +49,7 @@ public class SongEditorAudioPreview : MonoBehaviour
     {
         if (isPlaying)
         {
-            judgementLine.transform.position = Vector3.up * audioPlayer.time * scrollSpeed;//+= Vector3.up * scrollSpeed * playSpeed * Time.deltaTime;
+            judgementLine.transform.position = Vector3.up * (audioPlayer.time * scrollSpeed + delayTime);//+= Vector3.up * scrollSpeed * playSpeed * Time.deltaTime;
             Camera.main.transform.position = judgementLine.transform.position + Vector3.back * 10;
         }
     }
@@ -81,6 +84,7 @@ public class SongEditorAudioPreview : MonoBehaviour
     {
         judgementLine.transform.position = Vector3.up * pos;
         judgementLine.SetActive(true);
+        delayTime = float.Parse(delayInput.text);
     }
 
     public void PlaySnippet()

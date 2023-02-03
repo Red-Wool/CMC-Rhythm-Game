@@ -132,12 +132,12 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     music.clip = song;
-                    if (songInfo.startDelay == 0f)
-                    {
-                        music.Play();
-                        hasPlayed = true;
-                        countdownText.text = "";
-                    }
+                    //if (songInfo.startDelay == 0f)
+                    //{
+                    music.Play();
+                    hasPlayed = true;
+                    countdownText.text = "";
+                    //}
                     
                 }
 
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
 
                 gameEnd = true;
             }
-            else if (!hasPlayed && !music.isPlaying && gameTime >= songInfo.startDelay)
+            /*else if (!hasPlayed && !music.isPlaying && gameTime >= songInfo.startDelay)
             {
                 //gameTime += Time.deltaTime;
                 music.Play();
@@ -169,10 +169,11 @@ public class GameManager : MonoBehaviour
 
                 hasPlayed = true;
                 //gameTime = songInfo.startDelay;
-            }
+            }*/
             else
             {
-                gameTime = music.time;
+                //gameTime = music.time;
+                gameTime += Time.deltaTime;
             }
         }
 

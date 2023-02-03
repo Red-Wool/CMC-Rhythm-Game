@@ -56194,6 +56194,7 @@ MonoBehaviour:
   previewTimeInput: {fileID: 1353498398}
   songSpeed: {fileID: 677986531}
   songSpeedDisplay: {fileID: 1415788953}
+  delayInput: {fileID: 1504804425}
 --- !u!82 &1999757030
 AudioSource:
   m_ObjectHideFlags: 0

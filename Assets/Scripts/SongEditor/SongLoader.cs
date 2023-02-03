@@ -60,7 +60,7 @@ public class SongLoader : MonoBehaviour
             //Set Speed
             float spdMult = songInfo.startSpeed;
             float bpm = songInfo.bpm;
-            float delay = songInfo.startDelay / (bpm / 30);
+            float delay = songInfo.startDelay;
 
             //songInfo.startDelay /= bpm / 30;
             //songInfo.endPos /= bpm / 30;
@@ -130,15 +130,15 @@ public class SongLoader : MonoBehaviour
         gameObj = Instantiate(notePrefab[(int)data.color], parent);
 
         //Set Arrows in sync with speed Multiplier
-        pos = gameObj.transform.localPosition;
+        /*pos = gameObj.transform.localPosition;
         pos.y = (data.yVal) * speedMultiplier;
-        gameObj.transform.localPosition = pos;
+        gameObj.transform.localPosition = pos;*/
 
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
 
         noteObj.SetUpNote(noteButton);
-        noteObj.yVal = (data.yVal) / (bpm / 30f);
+        noteObj.yVal = (data.yVal - delay) / (bpm / 30f);
 
         if (data.isLongNote && data.longNoteLen != 0f)
         {
@@ -147,10 +147,8 @@ public class SongLoader : MonoBehaviour
 
             data.yVal += data.longNoteLen;
 
-            //totalNotes += lengthVal;
 
             data.longNoteLen *= speedMultiplier / 2;
-            //pos.y -= 6f;
 
             //Instantiate Long Note Middle
             pos.y += data.longNoteLen;
@@ -177,7 +175,7 @@ public class SongLoader : MonoBehaviour
 
             longNoteEndObj = gameObj.GetComponent<LongNoteEndObject>();
             longNoteEndObj.SetUpNote(noteButton);
-            longNoteEndObj.yVal = data.yVal / (bpm / 30);
+            longNoteEndObj.yVal = (data.yVal - delay) / (bpm / 30);
 
             gameObj.transform.localPosition = pos; 
 
