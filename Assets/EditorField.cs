@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public delegate void GetFieldString(string s, int itemID); 
+
 public class EditorField : MonoBehaviour
 {
-
     [SerializeField] private TMP_Text title; public TMP_Text GetTitle { get { return title; }}
     [SerializeField] private TMP_InputField[] fields; public TMP_InputField[] GetFields { get { return fields; } }
 
     private const string validNum = ".-0123456789";
 
-    public void SetUp(EditorRequestField request)
+    public void SetUp(EditorRequestField request, GetFieldString stringMethod, string[] initValue, int id)
     {
         title.text = request.fieldName;
         for (int i = 0; i < fields.Length; i++)
         {
+            fields[i].text = initValue[i];
             if (request.requestType != RequestType.String)
             {
                 AddNumConstraint(fields[i], 10, request.requestType == RequestType.Int);
             }
+
+            int t = i, tid = id;
+            fields[i].onValueChanged.AddListener(s => stringMethod(s, tid + t));
         }
     }
 

@@ -89,9 +89,9 @@ public class BeatScroller : MonoBehaviour
 
     public int GetTotalNotes() {return totalNotes;}
 
-    public void ActivateMoveEffect(MoveModule effect)
+    public void ActivateMoveEffect(EffectStat stat, MoveModule effect)
     {
-        switch (effect.objID.Trim())
+        switch (stat.effectObj.Trim())
         {
             case "Main":
                 effect.Activate(arrowLineParent);
@@ -110,6 +110,31 @@ public class BeatScroller : MonoBehaviour
                 break;
             case "FlashScreen":
                 effect.Activate(flashScreen);
+                break;
+        }
+    }
+
+    public void ActivateArrowPathEffect(EffectStat stat, ArrowPathModule effect)
+    {
+        switch (stat.effectObj.Trim())
+        {
+            case "Main":
+                arrowButtons[0].GetComponent<NoteButton>().AddModule(effect);
+                arrowButtons[1].GetComponent<NoteButton>().AddModule(effect);
+                arrowButtons[2].GetComponent<NoteButton>().AddModule(effect);
+                arrowButtons[3].GetComponent<NoteButton>().AddModule(effect);
+                break;
+            case "RedLine":
+                arrowButtons[0].GetComponent<NoteButton>().AddModule(effect);
+                break;
+            case "BlueLine":
+                arrowButtons[1].GetComponent<NoteButton>().AddModule(effect);
+                break;
+            case "GreenLine":
+                arrowButtons[2].GetComponent<NoteButton>().AddModule(effect);
+                break;
+            case "YellowLine":
+                arrowButtons[3].GetComponent<NoteButton>().AddModule(effect);
                 break;
         }
     }

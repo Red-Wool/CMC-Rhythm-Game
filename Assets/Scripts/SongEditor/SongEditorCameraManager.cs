@@ -212,8 +212,8 @@ public class SongEditorCameraManager : MonoBehaviour
                 if (isEffect)
                 {
                     selectedObj = effectManager.CreateEffect(snapPos);
-                    HandleEffectInput();
-                    UpdateEffectEditor();
+                    //HandleEffectInput();
+                    //UpdateEffectEditor();
                 }
                 else if (selectedObj != null)
                 {

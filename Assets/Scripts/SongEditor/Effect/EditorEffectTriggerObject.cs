@@ -22,9 +22,4 @@ public class EditorEffectTriggerObject : MonoBehaviour
     }
 }
 
-public struct EffectStat
-{
-    public float xEditor;
-    public float yTime;
-    public EffectType type;
-}
+

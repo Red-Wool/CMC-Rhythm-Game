@@ -7,8 +7,6 @@ using DG.Tweening;
 [System.Serializable]
 public class MoveModule
 {
-    public string objID;
-
     public float yVal;
     public float editorPos;
     public string effectType;

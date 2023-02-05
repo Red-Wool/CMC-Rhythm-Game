@@ -47,13 +47,13 @@ public static class ArrowPathFunctions
             case "MoveDirection":
                 return MoveDirectionRequest();
             case "Circle3D":
-                return MoveDirectionRequest();
+                return Circle3DRequest();
             case "Oscillate":
                 return OscillateRequest();
             case "ZigZag":
-                return MoveDirectionRequest();
+                return OscillateRequest();
             case "SquareWave":
-                return MoveDirectionRequest();
+                return OscillateRequest();
         }
 
         Debug.Log("Invalid Move Function Editor Request: " + id);
@@ -87,16 +87,17 @@ public static class ArrowPathFunctions
         return pos;
     }
 
-    public static EditorRequest MoveDirectionRequest(){return new EditorRequest();}
+    public static EditorRequest MoveDirectionRequest(){return new EditorRequest() {fieldNum = 3, requestFields = new EditorRequestField[] { new EditorRequestField() { fieldName = "Direction", requestType = RequestType.Vector3 } } };}
     public static Vector3 MoveDirection(float time, ArrowPathModuleStat stat)
     {
-        return Vector3.up * time * stat.speed;
+        return new Vector3(stat.store[0],stat.store[1],stat.store[2]) * time * stat.speed;
     }
 
     public static EditorRequest Circle3DRequest()
     {
         return new EditorRequest()
         {
+            fieldNum = 7,
             requestFields = new EditorRequestField[]{
             new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
             new EditorRequestField() {fieldName = "Angle Rate", requestType = RequestType.Vector2}, //3-4 X Y 
@@ -115,7 +116,9 @@ public static class ArrowPathFunctions
 
     public static EditorRequest OscillateRequest() {
         return new EditorRequest()
-        { requestFields = new EditorRequestField[]{ 
+        {
+            fieldNum = 9,
+            requestFields = new EditorRequestField[]{ 
             new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
             new EditorRequestField() {fieldName = "Position Rate", requestType = RequestType.Vector3}, //3-5 X Y Z
             new EditorRequestField() {fieldName = "Time Rate", requestType = RequestType.Vector3}, //6-8 X Y Z

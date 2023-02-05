@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObjectPool
 {
     [SerializeField] private GameObject poolObject;
+    [SerializeField] private Transform spawnParent;
     [SerializeField] private int initAmount;
     private List<GameObject> pool; public List<GameObject> Pool { get { return pool; } }
 
@@ -45,7 +46,7 @@ public class ObjectPool
         GameObject obj = null;
         for (int i = 0; i < num; i++)
         {
-            obj = Object.Instantiate(poolObject);
+            obj = Object.Instantiate(poolObject, spawnParent);
             obj.SetActive(false);
             pool.Add(obj);
         }

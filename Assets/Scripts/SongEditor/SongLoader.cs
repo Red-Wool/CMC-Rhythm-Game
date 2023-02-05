@@ -17,10 +17,11 @@ public class SongLoader : MonoBehaviour
     private GameObject[] longNoteEndPrefab;
 
     [SerializeField] private GameObject effectTriggerPrefab;
+    [SerializeField] private GameObject[] effectTypePrefab;
 
     //Extra Varibles so only instatiated once
     private Note noteData;
-    private MoveModule effectData;
+    private EffectStat effectStat;
     private GameObject gameObj;
 
     private NoteButton noteButton;
@@ -84,16 +85,9 @@ public class SongLoader : MonoBehaviour
                 {
                     if (effect)
                     {
-                        effectData = JsonUtility.FromJson<MoveModule>(inpStr);
-
-                        /*if (isEditor)
-                        {
-                            SetUpEffectEditor(effectData);
-                        }
-                        else
-                        {
-                            SetUpEffect(effectData, bpm);
-                        }*/
+                        effectStat = JsonUtility.FromJson<EffectStat>(inpStr);
+                        i++;
+                        SetUpEffect(effectStat, text[i].Trim(), bpm, delay);
                     }
                     else
                     {
@@ -185,10 +179,22 @@ public class SongLoader : MonoBehaviour
         return 1;
     }
 
-    public void SetUpEffect(EffectStat data, float bpm)
+    public void SetUpEffect(EffectStat data, string effectTypeData, float bpm, float delay)
     {
-        gameObj = Instantiate(effectTriggerPrefab);
+        gameObj = Instantiate(effectTypePrefab[(int)data.type]);
+        data.yTime = (data.yTime - delay) / (bpm / 30f);
+
         gameObj.GetComponent<EffectTriggerObject>().SetupEffect(data, bpm);
+
+        switch (data.type)
+        {
+            case EffectType.Move:
+                gameObj.GetComponent<MoveTriggerObject>().SetData(JsonUtility.FromJson<MoveModule>(effectTypeData));
+                break;
+            case EffectType.ArrowPath:
+                gameObj.GetComponent<ArrowPathTriggerObject>().SetData(JsonUtility.FromJson<ArrowPathModule>(effectTypeData));
+                break;
+        }
     }
 
     private bool WordCheck(string word)

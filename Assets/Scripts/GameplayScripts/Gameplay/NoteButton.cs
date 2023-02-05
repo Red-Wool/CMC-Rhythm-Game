@@ -62,6 +62,7 @@ public class NoteButton : MonoBehaviour
     public void AddModule(ArrowPathModule module)
     {
         moveModules.Add(module);
+        module.isActive = true;
     }
 
     public void DisableModule(string notePosID, int objID)
