@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class SongEditorEffectManager : MonoBehaviour
 {
@@ -17,6 +18,15 @@ public class SongEditorEffectManager : MonoBehaviour
     [Header("Tab Button"),
      SerializeField] private TabGroup tabGroup;
     [SerializeField] private TabButton effectTab;
+
+    [Space(10), Header("General Field"),
+     SerializeField] private TMP_InputField effectObjectField;
+    [SerializeField] private TMP_InputField effectDurationField;
+
+    //Ease
+    [Space(10),
+     SerializeField] private GameObject easeContainer;
+    [SerializeField] private TMP_Text easeText;
 
     //Editor Field
     [Space(10), Header("Effect Field"),
@@ -37,12 +47,14 @@ public class SongEditorEffectManager : MonoBehaviour
      SerializeField] private GameObject effectOptionContainer;
     [SerializeField] private TMP_Text effectOptionText;
 
-    //Ease
-    [Space(10), Header("Ease"),
-     SerializeField] private GameObject easeContainer;
-    [SerializeField] private TMP_Text easeText;
+    
 
     //Loop
+
+    //Arrow Path Effect
+    [Space(10), Header("Arrow Path"),
+     SerializeField] private TMP_InputField arrowPathSpeedField;
+    [SerializeField] private TMP_InputField arrowPathObjIDField;
 
     [SerializeField]
     private Transform effectChooseDisplayParent;
@@ -70,6 +82,17 @@ public class SongEditorEffectManager : MonoBehaviour
         editorFieldSingle.AddObjects();
         editorFieldDouble.AddObjects();
         editorFieldTriple.AddObjects();
+
+        //Ease Options
+        Ease[] allEases = Enum.GetValues(typeof(Ease)) as Ease[];
+        for (int i = 0; i < allEases.Length; i++)
+        {
+            tempGameObj = Instantiate(effectButtonPrefab, easeContainer.transform);
+            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((Ease)i).ToString();
+
+            Ease ea = allEases[i];
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetEase(ea));
+        }
 
         //Effect Option Create
         moveOptionList = new List<GameObject>[(Enum.GetValues(typeof(EffectType)) as EffectType[]).Length];
@@ -112,7 +135,10 @@ public class SongEditorEffectManager : MonoBehaviour
         }
         MoveChoose(0);
 
-
+        effectObjectField.onValueChanged.AddListener(s => selectedGameObject.objectEffect = s);
+        effectDurationField.onValueChanged.AddListener(s => selectArrowPath.arrowPath.stats.duration = float.Parse(s));
+        arrowPathObjIDField.onValueChanged.AddListener(s => selectArrowPath.arrowPath.objID = int.Parse(s));
+        arrowPathSpeedField.onValueChanged.AddListener(s => selectArrowPath.arrowPath.stats.speed = float.Parse(s));
     }
 
     public void Update()
@@ -140,7 +166,20 @@ public class SongEditorEffectManager : MonoBehaviour
 
     public GameObject CreateEffect(Vector3 position)
     {
-        return Instantiate(effectPrefabs[chooseID], position, Quaternion.identity, noteHolder);
+        GameObject obj = Instantiate(effectPrefabs[chooseID], position, Quaternion.identity, noteHolder);
+        obj.GetComponent<EditorEffectTriggerObject>().objectEffect = "Main";
+        return obj;
+    }
+
+    public void SetEffectObject(string s)
+    {
+        selectedGameObject.objectEffect = s;
+    }
+
+    public void SetEase(Ease e)
+    {
+        selectedGameObject.easeType = e;
+        easeText.text = e.ToString();
     }
 
     public void SelectEffect(EditorEffectTriggerObject obj)
@@ -154,6 +193,10 @@ public class SongEditorEffectManager : MonoBehaviour
             return;
         }
 
+
+        effectObjectField.text = obj.objectEffect;
+        easeText.text = obj.easeType.ToString();
+
         string effectName = "";
         switch (selectedGameObject.effectType)
         {
@@ -165,6 +208,9 @@ public class SongEditorEffectManager : MonoBehaviour
                 break;
             case EffectType.ArrowPath:
                 selectArrowPath = obj.GetComponent<EditorArrowPathEffect>();
+
+                arrowPathSpeedField.text = selectArrowPath.arrowPath.stats.speed.ToString();
+                arrowPathObjIDField.text = selectArrowPath.arrowPath.objID.ToString();
 
                 effectName = selectArrowPath.arrowPath.notePosID;
                 effectOptionText.text = effectName;

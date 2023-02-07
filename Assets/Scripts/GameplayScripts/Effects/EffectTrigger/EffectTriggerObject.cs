@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EffectTriggerObject : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class EffectTriggerObject : MonoBehaviour
 public struct EffectStat
 {
     public string effectObj;
+    public Ease ease;
     public float xEditor;
     public float yTime;
     public EffectType type;

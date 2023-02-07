@@ -127,16 +127,6 @@ public class SongEditorCameraManager : MonoBehaviour
 
         //Add all effects, eases, and loops to editor
 
-        Ease[] allEases = System.Enum.GetValues(typeof(Ease)) as Ease[];
-        for (int i = 0; i < allEases.Length; i++)
-        {
-            tempGameObj = Instantiate(effectButtonPrefab, easeContainer.transform);
-            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((Ease)i).ToString();
-
-            Ease ea = allEases[i];
-            tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetEaseType(ea));
-        }
-
         LoopType[] allLoops = System.Enum.GetValues(typeof(LoopType)) as LoopType[];
         for (int i = 0; i < allLoops.Length; i++)
         {

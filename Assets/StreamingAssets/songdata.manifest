@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 325623550
+CRC: 3258168257
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 715c2ba9691c9da3f01a2ea865a7d344
+    Hash: 6828dc02ec16e3b5976c076c9c66ad52
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -26,6 +26,7 @@ Assets:
 - Assets/AssetBundles/songdata/Double.txt
 - Assets/AssetBundles/songdata/Interlap.txt
 - Assets/AssetBundles/songdata/ET3.txt
+- Assets/AssetBundles/songdata/505.txt
 - Assets/AssetBundles/songdata/LieLieLie.txt
 - Assets/AssetBundles/songdata/Bellyache.txt
 - Assets/AssetBundles/songdata/ET2.txt

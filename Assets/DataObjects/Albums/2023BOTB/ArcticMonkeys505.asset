@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3b2fd4c2dbec45bb617017c29237b, type: 3}
   m_Name: ArcticMonkeys505
   m_EditorClassIdentifier: 
-  songName: 
-  artist: 
+  songName: 505
+  artist: Arctic Monkeys
   description: 
   songArt: {fileID: 0}
   songFrameArt: {fileID: 0}
-  mapName: 
+  mapName: 505

@@ -1,4 +1,4 @@
-{"songName":"TestEffect","songFileName":"Tunnel","version":"V7","lastEdit":"2/5/2023 3:54:21 PM","bpm":100.0,"startSpeed":100.0,"startDelay":0.0,"endPos":40.0,"totalNotes":51}
+{"songName":"TestEffect","songFileName":"Tunnel","version":"V7","lastEdit":"2/6/2023 11:45:00 PM","bpm":100.0,"startSpeed":100.0,"startDelay":0.0,"endPos":40.0,"totalNotes":51}
 Note
 {"color":1,"yVal":0.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":2.0,"isLongNote":false,"longNoteLen":0.0}
@@ -27,8 +27,10 @@ Note
 {"color":3,"yVal":33.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":35.0,"isLongNote":false,"longNoteLen":0.0}
 Effect
-{"effectObj":"Main","xEditor":9.0,"yTime":7.0,"type":2}
-{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":2.0,"startTime":0.0,"duration":0.0,"store":[1.0,1.0,3.0,1.10000000149011612,0.30000001192092898,4.800000011920929,0.0,0.0,0.0]}}
-{"effectObj":"Main","xEditor":9.0,"yTime":22.0,"type":2}
-{"isActive":false,"notePosID":"MoveDirection","objID":0,"stats":{"speed":2.0,"startTime":0.0,"duration":0.0,"store":[2.0,0.0,3.0]}}
+{"effectObj":"RedLine","ease":0,"xEditor":9.0,"yTime":7.0,"type":2}
+{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":4.0,"startTime":0.0,"duration":0.0,"store":[1.0,1.0,3.0,1.100000023841858,0.30000001192092898,0.5,0.0,0.0,0.0]}}
+{"effectObj":"BlueLine","ease":0,"xEditor":9.0,"yTime":22.0,"type":2}
+{"isActive":false,"notePosID":"MoveDirection","objID":2,"stats":{"speed":2.0,"startTime":0.0,"duration":0.0,"store":[2.0,0.0,3.0]}}
+{"effectObj":"Main","ease":0,"xEditor":11.0,"yTime":24.0,"type":2}
+{"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":0.0,"store":[1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0]}}
 End
