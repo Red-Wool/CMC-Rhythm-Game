@@ -35,6 +35,7 @@ public class ArrowPathModuleStat
 
     public float startTime;
     public float duration;
+    public Ease easeType;
 
     public float[] store;
 }
@@ -137,12 +138,19 @@ public static class ArrowPathFunctions
 
     public static Vector3 ZigZag(float time, ArrowPathModuleStat stat)
     {
-        return new Vector3(Mathf.Asin(Mathf.Sin(time * stat.speed + Time.time)), 0, 0) * 0.63662f;
+        time *= stat.speed;
+        return new Vector3(
+            stat.store[0] * Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * Time.time)) * 0.63662f,
+            stat.store[1] * Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * Time.time)) * 0.63662f,
+            stat.store[2] * Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * Time.time)) * 0.63662f);
     }
     
     public static Vector3 SquareWave(float time, ArrowPathModuleStat stat)
     {
         time *= stat.speed;
-        return new Vector3(Mathf.Round(Mathf.Asin(Mathf.Sin(time + Time.time)) * 0.63662f), 0, 0);
+        return new Vector3(
+            stat.store[0] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * Time.time))) * 0.63662f,
+            stat.store[1] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * Time.time))) * 0.63662f,
+            stat.store[2] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * Time.time))) * 0.63662f);
     }
 }

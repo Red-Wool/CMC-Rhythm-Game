@@ -9,6 +9,7 @@ public class ArrowPathTriggerObject : EffectTriggerObject
     public void SetData(ArrowPathModule m)
     {
         arrowPathModule = m;
+        arrowPathModule.stats.easeType = stat.ease;
         m.RequestData();
     }
 
@@ -17,7 +18,7 @@ public class ArrowPathTriggerObject : EffectTriggerObject
         //base.Update();
         if (stat.yTime <= GameManager.instance.GameTime)
         {
-            Debug.Log("effect!");
+            //Debug.Log("effect!");
             TriggerEffect();
             gameObject.SetActive(false);
 
@@ -26,7 +27,7 @@ public class ArrowPathTriggerObject : EffectTriggerObject
 
     public override void TriggerEffect()
     {
-        Debug.Log("Great!");
+        //Debug.Log("Great!");
         GameManager.instance.bs.ActivateArrowPathEffect(stat, arrowPathModule);
     }
 }

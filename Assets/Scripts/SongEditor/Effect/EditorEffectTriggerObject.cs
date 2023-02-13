@@ -14,6 +14,7 @@ public class EditorEffectTriggerObject : MonoBehaviour
     {
         transform.position = new Vector3(data.xEditor, data.yTime);
         objectEffect = data.effectObj;
+        easeType = data.ease;
     }
 
     public EffectStat GetStat()

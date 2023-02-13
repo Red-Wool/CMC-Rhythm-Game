@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(LineRenderer))]
 public class LongNoteObject : NoteClass
 {
     [SerializeField]
     private bool valid;
+    private float parentY;
 
     private LineRenderer lineRender;
     private int lineLength;
@@ -16,10 +18,11 @@ public class LongNoteObject : NoteClass
     private GameObject arrowButton;
     private Vector3 tempPos;
     private float percent;
-    private float tempLength;
+    private float missSubtract;
     private int intervals;
     private int counter;
     private bool flag;
+    private bool miss;
 
     public override NoteType GetNoteType{ get { return NoteType.Long; } }
 
@@ -28,6 +31,7 @@ public class LongNoteObject : NoteClass
     {
         valid = false;
         flag = false;
+        miss = false;
     }
 
     // Update is called once per frame
@@ -41,13 +45,16 @@ public class LongNoteObject : NoteClass
             valid = true;
         }
 
-        eval = parentObj.yVal - GameManager.instance.GameTime;
+        eval = parentY - GameManager.instance.GameTime;
         transform.localPosition = button.SetPosition(eval);
-        lineRender.positionCount = Mathf.Clamp((int)(lineLength * (1f-percent)), 0, lineLength) + 1;
+
+        missSubtract = Mathf.Min((eval + .35f) * 40f + lineLength * percent, 0);
+
+        lineRender.positionCount = Mathf.Clamp((int)(lineLength * (1f-percent) + missSubtract), 0, lineLength) + 1;
         for (int i = 0; i < lineRender.positionCount - 1; i++)
         {
             //Debug.Log("");
-            lines[i] = button.transform.position + button.SetPosition(eval + (i + (int)(percent * lineLength)) * .025f);
+            lines[i] = button.transform.position + button.SetPosition(eval + (i - missSubtract + (int)(percent * lineLength)) * .025f);
         }
         lines[lineRender.positionCount - 1] = button.transform.position + button.SetPosition(eval + yVal);
         lineRender.SetPositions(lines);
@@ -70,7 +77,7 @@ public class LongNoteObject : NoteClass
             }
 
         }
-        else if (counter != intervals && parentObj.yVal + yVal - GameManager.instance.GameTime < -0.025f)
+        else if (!miss && counter != intervals && parentY + yVal - GameManager.instance.GameTime < -0.025f)
         {
             MissedLongMiddle();
         }
@@ -88,6 +95,7 @@ public class LongNoteObject : NoteClass
 
         intervals = lenVal;
         yVal = time;
+        parentY = parentObj.yVal;
         arrowButton = arrow;
 
         counter = 1;
@@ -97,19 +105,24 @@ public class LongNoteObject : NoteClass
     {
         //Debug.Log(intervals + " " + counter + " " + (intervals - counter));
 
+        miss = true;
+
         GameManager.instance.LongNoteHit(false, intervals - counter);
 
         ParticleToggle(false, true);
 
-        GetComponent<LongNoteObject>().enabled = false;
+        transform.DOScale(0, eval + yVal + .55f).OnComplete(DisableLongNote);
+    }
 
+    public void DisableLongNote()
+    {
         gameObject.SetActive(false);
     }
 
     public void HandleLongObject() 
     {
         //This Formula tells how much of the long bar is complete Very Good!
-        percent = (GameManager.instance.GameTime - parentObj.yVal) / yVal;
+        percent = (GameManager.instance.GameTime - parentY) / yVal;
 
         //Debug.Log(Mathf.Max(0, (int)(lineLength * (1-percent))));
         
@@ -134,8 +147,8 @@ public class LongNoteObject : NoteClass
         }
     }
 
-    public void ParticleToggle(bool flag, bool flame)
+    public void ParticleToggle(bool isOn, bool flame)
     {
-        ParticleManager.instance.ToggleParticle(flag, arrowButton.transform.position, noteCol, NoteType.Long, (flame) ? HitText.Perfect : HitText.Miss); // - (arrowButton.transform.up * 0.2f)
+        ParticleManager.instance.ToggleParticle(isOn, arrowButton.transform.position, noteCol, NoteType.Long, (flame) ? HitText.Perfect : HitText.Miss); // - (arrowButton.transform.up * 0.2f)
     }
 }

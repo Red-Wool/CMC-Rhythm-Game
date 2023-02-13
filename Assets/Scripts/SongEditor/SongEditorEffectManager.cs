@@ -211,9 +211,12 @@ public class SongEditorEffectManager : MonoBehaviour
 
                 arrowPathSpeedField.text = selectArrowPath.arrowPath.stats.speed.ToString();
                 arrowPathObjIDField.text = selectArrowPath.arrowPath.objID.ToString();
+                effectDurationField.text = selectArrowPath.arrowPath.stats.duration.ToString();
 
                 effectName = selectArrowPath.arrowPath.notePosID;
                 effectOptionText.text = effectName;
+
+                
                 break;
         }
 

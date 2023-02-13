@@ -5,12 +5,14 @@ using DG.Tweening;
 
 public class LongNoteEndObject : NoteClass
 {
-    [SerializeField]
+    //[SerializeField]
     private bool valid;
+    private bool canBePressed;
 
     // Start is called before the first frame update
     void Start()
     {
+        canBePressed = false;
         valid = false;
     }
 
@@ -32,12 +34,16 @@ public class LongNoteEndObject : NoteClass
 
                 GameManager.instance.NoteHit(eval, gameObject);
             }
-            else if (!valid && Mathf.Abs(eval) < 0.25f && (Input.GetKey(keyPress) || Input.GetKey(altKeyPress)))
+            else if (!valid && Mathf.Abs(eval) < 0.25f)
             {
                 valid = true;
             }
-            else if (!valid && eval < -0.25f)
+            else if (valid && eval < -0.25f)
             {
+                valid = false;
+
+                Debug.Log("This Miss");
+
                 transform.DOScale(0, .1f).OnComplete(DisableArrow);
                 GameManager.instance.NoteMissed(null);
             }

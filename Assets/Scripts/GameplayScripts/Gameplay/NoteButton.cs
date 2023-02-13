@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class NoteButton : MonoBehaviour
@@ -61,6 +62,30 @@ public class NoteButton : MonoBehaviour
 
     public void AddModule(ArrowPathModule module)
     {
+        for (int i = 0; i < moveModules.Count; i++)
+        {
+            if (moveModules[i].objID == module.objID && moveModules[i].notePosID == module.notePosID)
+            {
+                //float change = 0;
+                //Debug.Log("Change it up");
+                int o = i;
+
+                DOTween.To(() => moveModules[o].stats.speed,
+                        x => moveModules[o].stats.speed = x,
+                        module.stats.speed, module.stats.duration).SetEase(module.stats.easeType);//.OnUpdate(() => Debug.Log(moveModules[i].stats.speed));
+
+                for (int j = 0; j < moveModules[i].stats.store.Length; j++)
+                {
+                    
+                    int t = j;
+                    //Debug.Log("killer");
+                    DOTween.To(() => moveModules[o].stats.store[t],
+                        x => moveModules[o].stats.store[t] = x,
+                        module.stats.store[t], module.stats.duration).SetEase(module.stats.easeType);//.OnUpdate(() => Debug.Log(moveModules[o].stats.store[t]));
+                }
+                return;
+            }
+        }
         moveModules.Add(module);
         module.isActive = true;
     }

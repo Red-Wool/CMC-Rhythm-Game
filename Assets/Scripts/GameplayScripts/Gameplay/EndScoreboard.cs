@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class EndScoreboard : MonoBehaviour
 {
@@ -32,7 +33,10 @@ public class EndScoreboard : MonoBehaviour
 
     public void ShowScoreboard(int score, int topCombo, int[] hitTypeCount, int totalNotes, int hitNotes)
     {
-        starObj.GetComponent<Animator>().SetTrigger("Trigger");
+        //starObj.GetComponent<Animator>().SetTrigger("Trigger");
+        starObj.transform.localScale = Vector3.zero;
+        starObj.transform.DOScale(100,1.7f).SetEase(Ease.InOutSine);
+        starObj.transform.DORotate(Vector3.forward * 360, 1.6f, RotateMode.LocalAxisAdd);
 
         completeSFX.Play();
 

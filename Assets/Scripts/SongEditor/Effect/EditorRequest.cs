@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class EditorRequest
 {
     public int fieldNum;
     public EditorRequestField[] requestFields;
 }
 
+[System.Serializable]
 public class EditorRequestField
 {
     public string fieldName;

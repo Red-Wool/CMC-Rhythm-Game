@@ -12,9 +12,7 @@ public class EffectTriggerObject : MonoBehaviour
     public void SetupEffect(EffectStat effectStat, float bpm)
     {
         stat = effectStat;
-        //BIG NEED FOR FIX UP
-        //effectType = effect;
-        //yVal = effect.yVal / (bpm / 30);
+        //Debug.Log(effectStat.ease);
     }
 
     // Update is called once per frame

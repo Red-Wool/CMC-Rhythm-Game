@@ -118,8 +118,8 @@ public class MoveModule
 
 
         //Debug.Log("Ew");
-        GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-            GameManager.instance.mainCamera.DOOrthoSize(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+        GameManager.instance.mainCamera.DOFieldOfView(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
+            GameManager.instance.mainCamera.DOFieldOfView(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
     }
 }
 
