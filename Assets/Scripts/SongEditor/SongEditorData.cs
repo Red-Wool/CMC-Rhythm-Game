@@ -13,6 +13,7 @@ public class SongEditorData : ScriptableObject
     public string[] moveObjectNames;
     public string[] arrowPathObjectNames;
     public string[] uiObjectNames;
+    public string[] shaderNames;
 }
 
 [System.Serializable]

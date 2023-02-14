@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 3457067805
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4a1b5d54c54583b514013f5be824e71e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 44935bb519bebf878ce2ab130b3b3d58
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 404fbc5ab327ecb4abccaa26dcaa45ef, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundles/shader/InfiniteReflection.asset
+Dependencies: []

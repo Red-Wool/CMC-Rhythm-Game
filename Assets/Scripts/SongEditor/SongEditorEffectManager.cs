@@ -124,6 +124,17 @@ public class SongEditorEffectManager : MonoBehaviour
             moveOptionList[2].Add(tempGameObj);
         }
 
+        for (int i = 0; i < data.shaderNames.Length; i++)
+        {
+            tempGameObj = Instantiate(effectButtonPrefab, effectOptionContainer.transform);
+            tempGameObj.GetComponentInChildren<TMP_Text>().text = data.shaderNames[i];
+
+            int t = i;
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => ChooseEffectOption(EffectType.Shader, data.shaderNames[t]));
+
+            moveOptionList[4].Add(tempGameObj);
+        }
+
         //Create Effect Type Display
         effectChooseObjects = new List<GameObject>(); 
         for (int i = 0; i < data.effectTypeSprites.Length; i++)
@@ -154,6 +165,10 @@ public class SongEditorEffectManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             MoveChoose(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            MoveChoose(4);
         }
     }
 
@@ -264,11 +279,6 @@ public class SongEditorEffectManager : MonoBehaviour
         selectArrowPath.arrowPath.notePosID = effect;
         effectOptionText.text = effect;
 
-        /*foreach (GameObject i in childrenList)
-        {
-            Destroy(i);
-        }*/
-
         for (int i = 0; i < arrowPathFieldParent.childCount; i++)
         {
             arrowPathFieldParent.GetChild(i).gameObject.SetActive(false);
@@ -292,9 +302,9 @@ public class SongEditorEffectManager : MonoBehaviour
             EditorRequestField[] fields = request.requestFields;
             for (int i = 0; i < fields.Length; i++)
             {
-                
+                num += SetupEditorField(fields[i], ArrowPathFieldChange, arrowPathFieldParent, storeList, num);
                 //Debug.Log(storeList[1]);
-                if (fields[i].requestType == RequestType.Vector3)
+                /*if (fields[i].requestType == RequestType.Vector3)
                 {
                     tempGameObj = editorFieldTriple.GetObject();
                     tempGameObj.transform.parent = arrowPathFieldParent;
@@ -326,7 +336,7 @@ public class SongEditorEffectManager : MonoBehaviour
                     tempGameObj.GetComponent<EditorField>().SetUp(fields[i], fieldString, new string[] { storeList[num].ToString().ToString() }, num);
 
                     num += 1;
-                }
+                }*/
             }
         }
         else
@@ -339,5 +349,43 @@ public class SongEditorEffectManager : MonoBehaviour
     public void ArrowPathFieldChange(string text, int objID)
     {
         selectArrowPath.arrowPath.stats.store[objID] = float.Parse(text);
+    }
+
+    public void ChooseShaderOption(string effect)
+    {
+
+    }
+
+    public int SetupEditorField(EditorRequestField field, GetFieldString fieldMethod, Transform parent, float[] content, int id)
+    {
+        int argumentNum = 0;
+
+        switch (field.requestType)
+        {
+            case RequestType.Vector3:
+                tempGameObj = editorFieldTriple.GetObject();
+                argumentNum = 3;
+                break;
+            case RequestType.Vector2:
+                tempGameObj = editorFieldDouble.GetObject();
+                argumentNum = 2;
+                break;
+            default:
+                tempGameObj = editorFieldSingle.GetObject();
+                argumentNum = 1;
+                break;
+        }
+
+        tempGameObj.transform.parent = parent;
+        tempGameObj.transform.SetAsLastSibling();
+
+        string[] arguments = new string[argumentNum];
+        for (int i = 0; i < argumentNum; i++)
+        {
+            arguments[i] = content[id + i].ToString();
+        }
+        tempGameObj.GetComponent<EditorField>().SetUp(field, fieldMethod, arguments, id);
+
+        return argumentNum;
     }
 }
