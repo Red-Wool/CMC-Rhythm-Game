@@ -47,9 +47,17 @@ public class SongEditorEffectManager : MonoBehaviour
      SerializeField] private GameObject effectOptionContainer;
     [SerializeField] private TMP_Text effectOptionText;
 
-    
+    //Move Effect
+    [Space(10), Header("Move"),
+     SerializeField] private GameObject loopContainer;
+    [SerializeField] private TMP_Text loopTypeText;
 
-    //Loop
+    [SerializeField] private TMP_InputField loopNum;
+
+    [Space(10),
+     SerializeField] private TMP_InputField effectX;
+    [SerializeField] private TMP_InputField effectY;
+    [SerializeField] private TMP_InputField effectZ;
 
     //Arrow Path Effect
     [Space(10), Header("Arrow Path"),
@@ -65,6 +73,7 @@ public class SongEditorEffectManager : MonoBehaviour
     private EditorEffectTriggerObject selectedGameObject;
     private EditorMoveEffect selectMove;
     private EditorArrowPathEffect selectArrowPath;
+    private EditorShaderEffect selectShader;
 
     //ArrowPath
     [Space(10), Header("Arrow Path"),
@@ -92,6 +101,18 @@ public class SongEditorEffectManager : MonoBehaviour
 
             Ease ea = allEases[i];
             tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetEase(ea));
+        }
+
+        //Loop Options
+        LoopType[] allLoops = Enum.GetValues(typeof(LoopType)) as LoopType[];
+        for (int i = 0; i < allLoops.Length; i++)
+        {
+            tempGameObj = Instantiate(effectButtonPrefab, loopContainer.transform);
+            tempGameObj.GetComponentInChildren<TMP_Text>().text = ((LoopType)i).ToString();
+
+            LoopType l = allLoops[i];
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => selectMove.move.loopType = l);
+            tempGameObj.GetComponent<Button>().onClick.AddListener(() => loopTypeText.text = l.ToString());
         }
 
         //Effect Option Create
@@ -147,9 +168,16 @@ public class SongEditorEffectManager : MonoBehaviour
         MoveChoose(0);
 
         effectObjectField.onValueChanged.AddListener(s => selectedGameObject.objectEffect = s);
-        effectDurationField.onValueChanged.AddListener(s => selectArrowPath.arrowPath.stats.duration = float.Parse(s));
+
+        loopNum.onValueChanged.AddListener(s => selectMove.move.loops = int.Parse(s));
+        effectX.onValueChanged.AddListener(s => selectMove.move.vec.x = float.Parse(s));
+        effectY.onValueChanged.AddListener(s => selectMove.move.vec.y = float.Parse(s));
+        effectZ.onValueChanged.AddListener(s => selectMove.move.vec.z = float.Parse(s));
+
+        effectDurationField.onValueChanged.AddListener(s => ChangeDuration(s));
         arrowPathObjIDField.onValueChanged.AddListener(s => selectArrowPath.arrowPath.objID = int.Parse(s));
         arrowPathSpeedField.onValueChanged.AddListener(s => selectArrowPath.arrowPath.stats.speed = float.Parse(s));
+        
     }
 
     public void Update()
@@ -197,6 +225,19 @@ public class SongEditorEffectManager : MonoBehaviour
         easeText.text = e.ToString();
     }
 
+    public void ChangeDuration(string s)
+    {
+        switch (selectedGameObject.effectType)
+        {
+            case EffectType.Move:
+                selectMove.move.bars = float.Parse(s);
+                break;
+            case EffectType.ArrowPath:
+                selectArrowPath.arrowPath.stats.duration = float.Parse(s);
+                break;
+        }
+    }
+
     public void SelectEffect(EditorEffectTriggerObject obj)
     {
         tabGroup.OnTabClick(effectTab);
@@ -208,7 +249,6 @@ public class SongEditorEffectManager : MonoBehaviour
             return;
         }
 
-
         effectObjectField.text = obj.objectEffect;
         easeText.text = obj.easeType.ToString();
 
@@ -218,8 +258,17 @@ public class SongEditorEffectManager : MonoBehaviour
             case EffectType.Move:
                 selectMove = obj.GetComponent<EditorMoveEffect>();
 
+                loopTypeText.text = selectMove.move.loopType.ToString();
+                loopNum.text = selectMove.move.loops.ToString();
+
+                effectX.text = selectMove.move.vec.x.ToString();
+                effectY.text = selectMove.move.vec.y.ToString();
+                effectZ.text = selectMove.move.vec.z.ToString();
+
+                effectDurationField.text = selectMove.move.bars.ToString();
+
                 effectName = selectMove.move.effectType;
-                effectOptionText.text = effectName;
+
                 break;
             case EffectType.ArrowPath:
                 selectArrowPath = obj.GetComponent<EditorArrowPathEffect>();
@@ -229,11 +278,19 @@ public class SongEditorEffectManager : MonoBehaviour
                 effectDurationField.text = selectArrowPath.arrowPath.stats.duration.ToString();
 
                 effectName = selectArrowPath.arrowPath.notePosID;
-                effectOptionText.text = effectName;
 
                 
                 break;
+            case EffectType.Shader:
+                selectShader = obj.GetComponent<EditorShaderEffect>();
+
+                effectName = selectShader.shader.shaderData == null ? "" : 
+                    selectShader.shader.shaderData.shaderName;
+                
+                break;
         }
+
+        effectOptionText.text = effectName;
 
         ChangeEffectOptions((int)selectedGameObject.effectType);
         ChooseEffectOption(selectedGameObject.effectType, effectName);
@@ -241,6 +298,7 @@ public class SongEditorEffectManager : MonoBehaviour
 
     private void ChangeEffectOptions(int id)
     {
+        Debug.Log(moveOptionList.Length);
         for (int i = 0; i < Mathf.Min(moveOptionList.Length, effectTypeTab.Length); i++)
         {
             for (int j = 0; j < moveOptionList[i].Count; j++)
@@ -265,9 +323,13 @@ public class SongEditorEffectManager : MonoBehaviour
             case EffectType.ArrowPath:
                 ChooseArrowPathOption(effect);
                 break;
+            case EffectType.Shader:
+                ChooseShaderOption(effect);
+                break;
         }
     }
 
+    #region ChooseEffectOptionMethods
     public void ChooseMoveOption(MoveType effect)
     {
         selectMove.move.effectType = effect.ToString();
@@ -287,7 +349,6 @@ public class SongEditorEffectManager : MonoBehaviour
         EditorRequest request = ArrowPathFunctions.RequestEditorData(effect);
 
         int num = request.fieldNum;
-        Debug.Log(selectArrowPath.arrowPath.stats.store.Length + " " + num + " " + effect);
         if (selectArrowPath.arrowPath.stats.store.Length != num)
         {
             Debug.Log("Reset");
@@ -303,40 +364,6 @@ public class SongEditorEffectManager : MonoBehaviour
             for (int i = 0; i < fields.Length; i++)
             {
                 num += SetupEditorField(fields[i], ArrowPathFieldChange, arrowPathFieldParent, storeList, num);
-                //Debug.Log(storeList[1]);
-                /*if (fields[i].requestType == RequestType.Vector3)
-                {
-                    tempGameObj = editorFieldTriple.GetObject();
-                    tempGameObj.transform.parent = arrowPathFieldParent;
-                    tempGameObj.transform.SetAsLastSibling();
-
-                    GetFieldString fieldString = ArrowPathFieldChange;
-                    tempGameObj.GetComponent<EditorField>().SetUp(fields[i], fieldString, new string[] { storeList[num].ToString(), storeList[num + 1].ToString(), storeList[num+2].ToString() }, num);
-
-                    num += 3;
-                }
-                else if (fields[i].requestType == RequestType.Vector2)
-                {
-                    tempGameObj = editorFieldDouble.GetObject();
-                    tempGameObj.transform.parent = arrowPathFieldParent;
-                    tempGameObj.transform.SetAsLastSibling();
-
-                    GetFieldString fieldString = ArrowPathFieldChange;
-                    tempGameObj.GetComponent<EditorField>().SetUp(fields[i], fieldString, new string[] { storeList[num].ToString(), storeList[num + 1].ToString()}, num);
-
-                    num += 2;
-                }
-                else
-                {
-                    tempGameObj = editorFieldSingle.GetObject();
-                    tempGameObj.transform.parent = arrowPathFieldParent;
-                    tempGameObj.transform.SetAsLastSibling();
-
-                    GetFieldString fieldString = ArrowPathFieldChange;
-                    tempGameObj.GetComponent<EditorField>().SetUp(fields[i], fieldString, new string[] { storeList[num].ToString().ToString() }, num);
-
-                    num += 1;
-                }*/
             }
         }
         else
@@ -346,6 +373,8 @@ public class SongEditorEffectManager : MonoBehaviour
 
     }
 
+
+
     public void ArrowPathFieldChange(string text, int objID)
     {
         selectArrowPath.arrowPath.stats.store[objID] = float.Parse(text);
@@ -353,9 +382,45 @@ public class SongEditorEffectManager : MonoBehaviour
 
     public void ChooseShaderOption(string effect)
     {
+        //selectArrowPath.arrowPath.notePosID = effect;
+        selectShader.shader.shaderData = LoadAssetBundle.GetShaderObject(effect);
+        effectOptionText.text = effect;
+
+        for (int i = 0; i < arrowPathFieldParent.childCount; i++)
+        {
+            arrowPathFieldParent.GetChild(i).gameObject.SetActive(false);
+        }
+
+        ShaderDataObject shaderData = LoadAssetBundle.GetShaderObject(effect);
+
+        EditorRequest request = shaderData.request;
+
+        int num = request.fieldNum;
+        //Debug.Log(selectArrowPath.arrowPath.stats.store.Length + " " + num + " " + effect);
+        if (selectArrowPath.arrowPath.stats.store.Length != num)
+        {
+            Debug.Log("Reset");
+            float[] list = new float[num];
+            selectArrowPath.arrowPath.stats.store = list;
+        }
+
+        num = 0;
+        if (request != null)
+        {
+            float[] storeList = selectArrowPath.arrowPath.stats.store;
+            EditorRequestField[] fields = request.requestFields;
+            for (int i = 0; i < fields.Length; i++)
+            {
+                num += SetupEditorField(fields[i], ArrowPathFieldChange, arrowPathFieldParent, storeList, num);
+            }
+        }
+        else
+        {
+            Debug.LogError("Null Arrow Path Option");
+        }
 
     }
-
+    #endregion
     public int SetupEditorField(EditorRequestField field, GetFieldString fieldMethod, Transform parent, float[] content, int id)
     {
         int argumentNum = 0;

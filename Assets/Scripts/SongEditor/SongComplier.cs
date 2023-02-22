@@ -112,6 +112,9 @@ public class SongComplier : MonoBehaviour
             case EffectType.ArrowPath:
                 effectString += "\n" + JsonUtility.ToJson(saveObj.GetComponent<EditorArrowPathEffect>().arrowPath);
                 break;
+            case EffectType.Shader:
+                effectString += "\n" + JsonUtility.ToJson(saveObj.GetComponent<EditorShaderEffect>().shader);
+                break;
 
         }
     }

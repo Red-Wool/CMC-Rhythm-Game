@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class ShaderModule
 {
-    string shaderName;
-    float[] store;
+    public ShaderDataObject shaderData;
+    public float[] store;
 }

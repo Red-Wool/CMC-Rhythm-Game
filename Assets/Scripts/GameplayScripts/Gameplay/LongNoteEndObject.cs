@@ -7,12 +7,12 @@ public class LongNoteEndObject : NoteClass
 {
     //[SerializeField]
     private bool valid;
-    private bool canBePressed;
+    //private bool canBePressed;
 
     // Start is called before the first frame update
     void Start()
     {
-        canBePressed = false;
+        //canBePressed = false;
         valid = false;
     }
 
@@ -26,7 +26,7 @@ public class LongNoteEndObject : NoteClass
             eval = yVal - GameManager.instance.GameTime;
             transform.localPosition = button.SetPosition(eval);
 
-            if (valid && (Input.GetKeyUp(keyPress) || Input.GetKeyUp(altKeyPress)))
+            if (valid && (((Input.GetKey(keyPress) || Input.GetKey(altKeyPress)) && eval < 0f) || Input.GetKeyUp(keyPress) || Input.GetKeyUp(altKeyPress)))
             {
                 gameObject.SetActive(false);
 
@@ -42,7 +42,7 @@ public class LongNoteEndObject : NoteClass
             {
                 valid = false;
 
-                Debug.Log("This Miss");
+                //Debug.Log("This Miss");
 
                 transform.DOScale(0, .1f).OnComplete(DisableArrow);
                 GameManager.instance.NoteMissed(null);

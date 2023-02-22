@@ -15,7 +15,7 @@ MonoBehaviour:
   shaderName: Infinite Reflection
   material: {fileID: 2100000, guid: ad707561d4498c0478a474bff36858cd, type: 2}
   request:
-    fieldNum: 0
+    fieldNum: 5
     requestFields:
     - fieldName: _ReflectionDistance
       requestType: 0

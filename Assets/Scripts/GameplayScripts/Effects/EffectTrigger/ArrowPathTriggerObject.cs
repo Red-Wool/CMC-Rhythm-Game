@@ -8,9 +8,10 @@ public class ArrowPathTriggerObject : EffectTriggerObject
 
     public void SetData(ArrowPathModule m)
     {
-        arrowPathModule = m;
+        arrowPathModule = new ArrowPathModule(m.notePosID, m.objID, m.stats);
+        arrowPathModule.stats.duration /= GameManager.instance.bs.bpm / 60f;
         arrowPathModule.stats.easeType = stat.ease;
-        m.RequestData();
+        arrowPathModule.RequestData();
     }
 
     protected override void Update()

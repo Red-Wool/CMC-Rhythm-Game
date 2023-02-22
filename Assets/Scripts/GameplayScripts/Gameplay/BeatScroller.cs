@@ -116,13 +116,16 @@ public class BeatScroller : MonoBehaviour
 
     public void ActivateArrowPathEffect(EffectStat stat, ArrowPathModule effect)
     {
+        //Debug.Log(stat.effectObj.Trim());
         switch (stat.effectObj.Trim())
         {
             case "Main":
-                arrowButtons[0].GetComponent<NoteButton>().AddModule(effect);
-                arrowButtons[1].GetComponent<NoteButton>().AddModule(effect);
-                arrowButtons[2].GetComponent<NoteButton>().AddModule(effect);
-                arrowButtons[3].GetComponent<NoteButton>().AddModule(effect);
+                //Debug.Log("Wow");
+                string jsonCopy = effect.GetJSON();
+                arrowButtons[0].GetComponent<NoteButton>().AddModule(new ArrowPathModule(jsonCopy));
+                arrowButtons[1].GetComponent<NoteButton>().AddModule(new ArrowPathModule(jsonCopy));
+                arrowButtons[2].GetComponent<NoteButton>().AddModule(new ArrowPathModule(jsonCopy));
+                arrowButtons[3].GetComponent<NoteButton>().AddModule(new ArrowPathModule(jsonCopy));
                 break;
             case "RedLine":
                 arrowButtons[0].GetComponent<NoteButton>().AddModule(effect);

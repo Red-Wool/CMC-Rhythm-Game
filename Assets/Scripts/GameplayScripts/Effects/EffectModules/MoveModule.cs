@@ -17,41 +17,43 @@ public class MoveModule
     public float[] extra;
 
     public Ease easeType;
-    public LoopType loopingStyle;
+    public LoopType loopType;
+
 
     public void Activate(GameObject obj)
     {
         MoveType effect;
+        float duration = bars / (GameManager.instance.bs.bpm / 60f);
         System.Enum.TryParse<MoveType>(effectType, out effect);
 
         switch (effect)
         {
             case MoveType.TweenMove:
-                obj.transform.DOMove(vec, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                obj.transform.DOMove(vec, duration).SetEase(easeType).SetLoops(loops, loopType);
                 break;
 
             case MoveType.TweenMoveX:
-                obj.transform.DOMoveX(vec.x, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                obj.transform.DOMoveX(vec.x, duration).SetEase(easeType).SetLoops(loops, loopType);
                 break;
 
             case MoveType.TweenMoveY:
-                obj.transform.DOMoveY(vec.y, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                obj.transform.DOMoveY(vec.y, duration).SetEase(easeType).SetLoops(loops, loopType);
                 break;
 
             case MoveType.TweenMoveJump:
-                obj.transform.DOJump(new Vector3(vec.x, vec.y), vec.z, loops, bars / (GameManager.instance.bs.bpm / 30f));
+                obj.transform.DOJump(new Vector3(vec.x, vec.y), vec.z, loops, duration);
                 break;
 
             case MoveType.TweenMoveJumpLocal:
-                obj.transform.DOLocalJump(new Vector3(vec.x, vec.y), vec.z, loops, bars / (GameManager.instance.bs.bpm / 30f));
+                obj.transform.DOLocalJump(new Vector3(vec.x, vec.y), vec.z, loops, duration);
                 break;
 
             case MoveType.TweenRotate:
-                obj.transform.DORotate(vec, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                obj.transform.DORotate(vec, duration).SetEase(easeType).SetLoops(loops, loopType);
                 break;
 
             case MoveType.TweenScale:
-                obj.transform.DOScale(vec, bars / (GameManager.instance.bs.bpm / 60f)).SetEase(easeType).SetLoops(loops, loopingStyle);
+                obj.transform.DOScale(vec, duration).SetEase(easeType).SetLoops(loops, loopType);
                 break;
 
             case MoveType.TweenKill:
@@ -70,8 +72,8 @@ public class MoveModule
                 break;
 
             case MoveType.Flash:
-                obj.GetComponent<SpriteRenderer>().DOFade(1, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-                obj.GetComponent<SpriteRenderer>().DOFade(0, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+                obj.GetComponent<SpriteRenderer>().DOFade(1, duration).SetEase(easeType).OnComplete(() =>
+                obj.GetComponent<SpriteRenderer>().DOFade(0, duration).SetEase(easeType));
                 break;
 
             case MoveType.CameraSetScale:
@@ -79,47 +81,39 @@ public class MoveModule
                 break;
 
             case MoveType.CameraSmoothScale:
-                GameManager.instance.mainCamera.DOOrthoSize(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType);
+                GameManager.instance.mainCamera.DOOrthoSize(vec.x, duration).SetEase(easeType);
                 break;
 
             case MoveType.CameraBop:
-                GameManager.instance.mainCamera.DOFieldOfView(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-                GameManager.instance.mainCamera.DOFieldOfView(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+                GameManager.instance.mainCamera.DOFieldOfView(vec.x, duration).SetEase(easeType).OnComplete(() =>
+                GameManager.instance.mainCamera.DOFieldOfView(vec.y, duration).SetEase(easeType));
                 break;
 
             case MoveType.CameraBopRepeat:
 
                 for (int i = 0; i < loops; i++)
                 {
-                    CameraRepeat((vec.z / (GameManager.instance.bs.bpm / 30f)) * i);
+                    CameraRepeat(vec.z / (GameManager.instance.bs.bpm / 30f) * i, duration);
                 }
                 break;
 
             case MoveType.ScreenShake:
-                GameManager.instance.mainCamera.DOShakePosition(bars / (GameManager.instance.bs.bpm / 30f), vec.x, Mathf.RoundToInt(vec.y), vec.z).SetEase(easeType);
-                break;
-
-            case MoveType.ActivateShader:
-                GameManager.instance.mainCamera.GetComponent<ShaderApply>().isActive = true;
-                break;
-
-            case MoveType.DeactivateShader:
-                GameManager.instance.mainCamera.GetComponent<ShaderApply>().isActive = false;
+                GameManager.instance.mainCamera.DOShakePosition(duration, vec.x, Mathf.RoundToInt(vec.y), vec.z).SetEase(easeType);
                 break;
         }
     }
 
-    private async void CameraRepeat(float duration)
+    private async void CameraRepeat(float waitTime, float duration)
     {
-        var end = Time.time + duration;
+        var end = Time.time + waitTime;
 
         while (Time.time < end)
             await Task.Yield();
 
 
         //Debug.Log("Ew");
-        GameManager.instance.mainCamera.DOFieldOfView(vec.x, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType).OnComplete(() =>
-            GameManager.instance.mainCamera.DOFieldOfView(vec.y, bars / (GameManager.instance.bs.bpm / 30f)).SetEase(easeType));
+        GameManager.instance.mainCamera.DOFieldOfView(vec.x, duration).SetEase(easeType).OnComplete(() =>
+            GameManager.instance.mainCamera.DOFieldOfView(vec.y, duration).SetEase(easeType));
     }
 }
 
@@ -146,8 +140,6 @@ public enum MoveType
     CameraBop,
     CameraBopRepeat,
     ScreenShake,
-    ActivateShader,
-    DeactivateShader,
 }
 
 

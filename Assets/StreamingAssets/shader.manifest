@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3457067805
+CRC: 2054393854
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4a1b5d54c54583b514013f5be824e71e
+    Hash: f36fabff12559e33d07bbcb5c5b2c8ea
   TypeTreeHash:
     serializedVersion: 2
     Hash: 44935bb519bebf878ce2ab130b3b3d58
@@ -19,5 +19,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/AssetBundles/shader/Outline.asset
+- Assets/AssetBundles/shader/RainbowSpiral.asset
 - Assets/AssetBundles/shader/InfiniteReflection.asset
 Dependencies: []

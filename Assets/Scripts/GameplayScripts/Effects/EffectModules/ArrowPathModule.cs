@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -17,6 +18,32 @@ public class ArrowPathModule
  
     public NotePosition notePos;
 
+    public ArrowPathModule(string posID, int oID, ArrowPathModuleStat stat)
+    {
+        isActive = true;
+        notePosID = posID;
+        objID = oID;
+        stats = stat;
+        notePos = ArrowPathFunctions.GetNotePosition(notePosID);
+    }
+
+    public ArrowPathModule(string json)
+    {
+        ArrowPathModule a = JsonUtility.FromJson<ArrowPathModule>(json);
+
+        isActive = true;
+        notePosID = a.notePosID;
+        objID = a.objID;
+        stats = a.stats;
+        notePos = ArrowPathFunctions.GetNotePosition(notePosID);
+    }
+
+    public string GetJSON()
+    {
+        //ArrowPathModule arrowPath = new ArrowPathModule(notePosID, objID, stats.speed, stats.startTime, stats.duration, stats.easeType, stats.store);
+        return JsonUtility.ToJson(this); //arrowPath;
+    }
+
     public void RequestData()
     {
         notePos = ArrowPathFunctions.GetNotePosition(notePosID);
@@ -24,8 +51,18 @@ public class ArrowPathModule
 
     public Vector3 CalculateNotePosition(float time)
     {
-        return (isActive) ? notePos(time, stats) : Vector3.zero;
+        if (notePos == null)
+        {
+            RequestData();
+            //notePos = ArrowPathFunctions.GetNotePosition(notePosID);
+            Debug.Log("Unset Arrow Path");
+        }
+        return isActive ? 
+
+
+            notePos(time, stats) : Vector3.zero;
     }
+
 }
 
 [System.Serializable]
@@ -111,8 +148,8 @@ public static class ArrowPathFunctions
     {
         time *= stat.speed;
         return new Vector3(
-            Mathf.Sin(time*stat.store[3]+Time.time * stat.store[5]) *time*stat.store[0],
-            Mathf.Cos(time*stat.store[4]+Time.time * stat.store[6]) *time*stat.store[1],
+            Mathf.Sin(time*stat.store[3]+GameManager.instance.GameTime * stat.store[5]) *time*stat.store[0],
+            Mathf.Cos(time*stat.store[4]+GameManager.instance.GameTime * stat.store[6]) *time*stat.store[1],
             time * stat.store[2]); 
     }
 
@@ -130,9 +167,9 @@ public static class ArrowPathFunctions
     {
         time *= stat.speed;
         return new Vector3(
-            stat.store[0] * Mathf.Sin(stat.store[3] * time + stat.store[6] * Time.time),
-            stat.store[1] * Mathf.Sin(stat.store[4] * time + stat.store[7] * Time.time),
-            stat.store[2] * Mathf.Sin(stat.store[5] * time + stat.store[8] * Time.time));
+            stat.store[0] * Mathf.Sin(stat.store[3] * time + stat.store[6] * GameManager.instance.GameTime),
+            stat.store[1] * Mathf.Sin(stat.store[4] * time + stat.store[7] * GameManager.instance.GameTime),
+            stat.store[2] * Mathf.Sin(stat.store[5] * time + stat.store[8] * GameManager.instance.GameTime));
     }
 
 
@@ -140,17 +177,17 @@ public static class ArrowPathFunctions
     {
         time *= stat.speed;
         return new Vector3(
-            stat.store[0] * Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * Time.time)) * 0.63662f,
-            stat.store[1] * Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * Time.time)) * 0.63662f,
-            stat.store[2] * Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * Time.time)) * 0.63662f);
+            stat.store[0] * Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * GameManager.instance.GameTime)),
+            stat.store[1] * Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * GameManager.instance.GameTime)),
+            stat.store[2] * Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * GameManager.instance.GameTime))) * 0.63662f;
     }
     
     public static Vector3 SquareWave(float time, ArrowPathModuleStat stat)
     {
         time *= stat.speed;
         return new Vector3(
-            stat.store[0] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * Time.time))) * 0.63662f,
-            stat.store[1] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * Time.time))) * 0.63662f,
-            stat.store[2] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * Time.time))) * 0.63662f);
+            stat.store[0] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * GameManager.instance.GameTime))),
+            stat.store[1] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * GameManager.instance.GameTime))),
+            stat.store[2] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * GameManager.instance.GameTime)))) * 0.63662f;
     }
 }

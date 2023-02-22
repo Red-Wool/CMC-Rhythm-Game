@@ -6,8 +6,8 @@
         _Step ("Step", float) = 0
         _Difference ("Difference", float) = 0
 
-        [MaterialToggle] _Horizontal ("Horizontal Outline", int) = 0
-        [MaterialToggle] _Vertical ("Vertical Outline", int) = 0
+        _Horizontal ("Horizontal Outline", float) = 0
+        _Vertical ("Vertical Outline", float) = 0
     }
     SubShader
     {
@@ -79,7 +79,7 @@
                 fixed4 dCol = tex2D(_MainTex, i.uv + float2(_Step,0));
                 fixed4 uCol = tex2D(_MainTex, i.uv + float2(0,_Step));
 
-                float dif = (_Horizontal ? length(col - dCol) : 0) + (_Vertical ? length(col - uCol) : 0), d = step(_Difference, dif);
+                float dif = _Horizontal * length(col - dCol) + step(cos(_Time.y+i.uv.x*50.)*.5+.5, _Vertical) * length(col - uCol), d = step(_Difference, dif);
                 col.rgb = float3(d,d,d);
                 // just invert the colors
                 //col.rgb = 1 - col.rgb;

@@ -5,9 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public abstract class NoteClass : MonoBehaviour
 {
-    [SerializeField]
     protected KeyCode keyPress;
-    [SerializeField]
     protected KeyCode altKeyPress;
     [SerializeField]
     protected NoteColor noteCol;
@@ -17,9 +15,11 @@ public abstract class NoteClass : MonoBehaviour
     public float yVal;
     protected float eval;
 
-    public void SetUpNote(NoteButton noteButton)
+    public void SetUpNote(NoteButton noteButton, KeyCode key, KeyCode alt)
     {
         button = noteButton;
+        keyPress = key;
+        altKeyPress = alt;
     }
 
     public KeyCode GetKeyPress() { return keyPress; }

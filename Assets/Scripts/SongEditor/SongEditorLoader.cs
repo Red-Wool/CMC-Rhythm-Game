@@ -108,12 +108,13 @@ public class SongEditorLoader : MonoBehaviour
                         switch (effectStat.type)
                         {
                             case EffectType.Move:
-                                //moveData = ;
                                 effectObject.GetComponent<EditorMoveEffect>().move = JsonUtility.FromJson<MoveModule>(inpStr);
                                 break;
                             case EffectType.ArrowPath:
-                                //arrowPathData = ;
                                 effectObject.GetComponent<EditorArrowPathEffect>().arrowPath = JsonUtility.FromJson<ArrowPathModule>(inpStr);
+                                break;
+                            case EffectType.Shader:
+                                effectObject.GetComponent<EditorShaderEffect>().shader = JsonUtility.FromJson<ShaderModule>(inpStr);
                                 break;
                         }
                         

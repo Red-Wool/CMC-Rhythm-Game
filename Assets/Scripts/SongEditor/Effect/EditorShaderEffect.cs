@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EditorShaderEffect : MonoBehaviour
+public class EditorShaderEffect : EditorEffectTriggerObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ShaderModule shader;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public override EffectType effectType { get { return EffectType.Shader; } }
 }

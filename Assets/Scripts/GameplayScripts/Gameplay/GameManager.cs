@@ -207,6 +207,12 @@ public class GameManager : MonoBehaviour
         UpdateScoreBoard();
     }
 
+    public void SetTime(float time)
+    {
+        music.time = time;
+        gameTime = time;
+    }
+
     #region NoteHitMethods
     //Note Object References this when a note is hit
     public void NoteHit(float value, GameObject note)

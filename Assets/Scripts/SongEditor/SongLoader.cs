@@ -35,11 +35,13 @@ public class SongLoader : MonoBehaviour
     private int length;
     private float temp;
 
+    ControlData control;
+
     public string[] invalidStrings = {"End", "Effect", "Note"};
 
     public SongFileInfo LoadSong(string name)
     {
-
+        control = ControlManager.instance.GetData;
         //Get Path
         //string path = Application.dataPath + "/SongData/" + name + ".txt";
         TextAsset textFile;
@@ -116,7 +118,7 @@ public class SongLoader : MonoBehaviour
 
     public int SetUpGameNote(Note data, float bpm, float speedMultiplier, float delay)
     {
-
+        
         //Track Total Notes
         //totalNotes++;
         Transform parent = GameManager.instance.bs.ArrowLines((int)data.color).transform;
@@ -131,7 +133,7 @@ public class SongLoader : MonoBehaviour
         //Set Up Note
         noteObj = gameObj.GetComponent<NoteObject>();
 
-        noteObj.SetUpNote(noteButton);
+        noteObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
         noteObj.yVal = (data.yVal - delay) / (bpm / 30f);
 
         if (data.isLongNote && data.longNoteLen != 0f)
@@ -155,7 +157,7 @@ public class SongLoader : MonoBehaviour
             gameObj.transform.localScale = scaleTemp;
 
             longNoteObj = gameObj.GetComponent<LongNoteObject>();
-            longNoteObj.SetUpNote(noteButton);
+            longNoteObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
             longNoteObj.LongNoteSetup(
                 noteObj,
                 GameManager.instance.bs.ArrowButtons((int)data.color),
@@ -168,7 +170,7 @@ public class SongLoader : MonoBehaviour
             gameObj = Instantiate(longNoteEndPrefab[(int)data.color], pos, parent.transform.rotation, parent);
 
             longNoteEndObj = gameObj.GetComponent<LongNoteEndObject>();
-            longNoteEndObj.SetUpNote(noteButton);
+            longNoteEndObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
             longNoteEndObj.yVal = (data.yVal - delay) / (bpm / 30);
 
             gameObj.transform.localPosition = pos; 
@@ -192,7 +194,9 @@ public class SongLoader : MonoBehaviour
                 gameObj.GetComponent<MoveTriggerObject>().SetData(JsonUtility.FromJson<MoveModule>(effectTypeData));
                 break;
             case EffectType.ArrowPath:
-                gameObj.GetComponent<ArrowPathTriggerObject>().SetData(JsonUtility.FromJson<ArrowPathModule>(effectTypeData));
+                ArrowPathModule a = JsonUtility.FromJson<ArrowPathModule>(effectTypeData);
+                a.isActive = true;
+                gameObj.GetComponent<ArrowPathTriggerObject>().SetData(a);
                 break;
         }
     }

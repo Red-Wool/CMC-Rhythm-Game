@@ -7,6 +7,8 @@ using DG.Tweening;
 public class NoteButton : MonoBehaviour
 {
     private SpriteRenderer sr;
+    [SerializeField]
+    private NoteColor color;
 
     //If can Press
     [Header("If can Press")]
@@ -31,6 +33,9 @@ public class NoteButton : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         avalible = true;
+
+        keyPress = ControlManager.instance.GetData.GetMainKey(color);
+        altKeyPress = ControlManager.instance.GetData.GetAltKey(color);
 
         for (int i = 0; i < moveModules.Count; i++)
         {
@@ -68,11 +73,12 @@ public class NoteButton : MonoBehaviour
             {
                 //float change = 0;
                 //Debug.Log("Change it up");
+                float duration = module.stats.duration / (GameManager.instance.bs.bpm / 60f);
                 int o = i;
 
                 DOTween.To(() => moveModules[o].stats.speed,
                         x => moveModules[o].stats.speed = x,
-                        module.stats.speed, module.stats.duration).SetEase(module.stats.easeType);//.OnUpdate(() => Debug.Log(moveModules[i].stats.speed));
+                        module.stats.speed, duration).SetEase(module.stats.easeType);//.OnUpdate(() => Debug.Log(moveModules[i].stats.speed));
 
                 for (int j = 0; j < moveModules[i].stats.store.Length; j++)
                 {
@@ -81,7 +87,7 @@ public class NoteButton : MonoBehaviour
                     //Debug.Log("killer");
                     DOTween.To(() => moveModules[o].stats.store[t],
                         x => moveModules[o].stats.store[t] = x,
-                        module.stats.store[t], module.stats.duration).SetEase(module.stats.easeType);//.OnUpdate(() => Debug.Log(moveModules[o].stats.store[t]));
+                        module.stats.store[t], duration).SetEase(module.stats.easeType);//.OnUpdate(() => Debug.Log(moveModules[o].stats.store[t]));
                 }
                 return;
             }
@@ -90,21 +96,17 @@ public class NoteButton : MonoBehaviour
         module.isActive = true;
     }
 
-    public void DisableModule(string notePosID, int objID)
+    public void EnableModule(string notePosID, int objID, bool enable)
     {
-        foreach(ArrowPathModule module in moveModules)
+        for (int i = 0; i < moveModules.Count; i++)
         {
-            if (module.notePosID == notePosID && module.objID == objID)
-                module.isActive = false;
-        }
-    }
-
-    public void EnableModule(string notePosID, int objID)
-    {
-        foreach (ArrowPathModule module in moveModules)
-        {
-            if (module.notePosID == notePosID && module.objID == objID)
-                module.isActive = true;
+            if (moveModules[i].notePosID == notePosID && moveModules[i].objID == objID)
+            {
+                ArrowPathModule a = moveModules[i];
+                a.isActive = enable;
+                moveModules[i] = a;
+            }
+                
         }
     }
 

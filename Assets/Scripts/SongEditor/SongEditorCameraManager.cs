@@ -127,7 +127,7 @@ public class SongEditorCameraManager : MonoBehaviour
 
         //Add all effects, eases, and loops to editor
 
-        LoopType[] allLoops = System.Enum.GetValues(typeof(LoopType)) as LoopType[];
+        /*LoopType[] allLoops = System.Enum.GetValues(typeof(LoopType)) as LoopType[];
         for (int i = 0; i < allLoops.Length; i++)
         {
             tempGameObj = Instantiate(effectButtonPrefab, loopContainer.transform);
@@ -135,7 +135,7 @@ public class SongEditorCameraManager : MonoBehaviour
 
             LoopType l = allLoops[i];
             tempGameObj.GetComponent<Button>().onClick.AddListener(() => SetLoopType(l));
-        }
+        }*/
     }
 
     // Update is called once per frame
