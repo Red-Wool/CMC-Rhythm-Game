@@ -50,7 +50,17 @@ public class LoadAssetBundle : MonoBehaviour
             return null;
         }
 
-        ShaderDataObject asset = localAssetBundle.LoadAsset<ShaderDataObject>(fileName);
+        ShaderDataObject asset = null;
+
+        try
+        {
+            asset = localAssetBundle.LoadAsset<ShaderDataObject>(fileName);
+        }
+        catch
+        {
+            Debug.LogWarning("Invalid Shader Data Object File Name: " + fileName);
+        }
+        
         localAssetBundle.Unload(false);
 
         return asset;

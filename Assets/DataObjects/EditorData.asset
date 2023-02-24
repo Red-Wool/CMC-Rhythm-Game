@@ -34,5 +34,5 @@ MonoBehaviour:
   uiObjectNames: []
   shaderNames:
   - Outline
-  - RainbowSprial
+  - RainbowSpiral
   - InfiniteReflection

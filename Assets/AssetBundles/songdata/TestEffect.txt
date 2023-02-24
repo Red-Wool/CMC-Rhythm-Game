@@ -1,4 +1,4 @@
-{"songName":"TestEffect","songFileName":"Tunnel","version":"V7","lastEdit":"2/21/2023 9:44:34 PM","bpm":100.0,"startSpeed":100.0,"startDelay":0.0,"endPos":40.0,"totalNotes":51}
+{"songName":"TestEffect","songFileName":"Tunnel","version":"V7","lastEdit":"2/23/2023 5:00:09 PM","bpm":100.0,"startSpeed":100.0,"startDelay":0.0,"endPos":40.0,"totalNotes":51}
 Note
 {"color":1,"yVal":0.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":2.0,"isLongNote":false,"longNoteLen":0.0}
@@ -37,4 +37,6 @@ Effect
 {"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":4.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[9.0,0.0,9.0,5.0,0.0,5.0,0.0,0.0,0.0]}}
 {"effectObj":"Main","ease":3,"xEditor":11.0,"yTime":8.0,"type":1}
 {"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":50.0,"y":60.0,"z":2.0},"bars":0.25,"loops":14,"extra":[],"easeType":0,"loopType":1}
+{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":2.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":3.0,"y":0.0,"z":0.0},"bars":1.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
 End

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3144682130980276872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.470407, y: -2.506925, z: 225}
+  m_LocalPosition: {x: 0, y: 0, z: 225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,15 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445aa036088fb6e4a82300c9c01a0214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectType:
-    objID: Main
-    yVal: 0
-    xSpot: 0
-    effectType: 0
-    vec: {x: 0, y: 3, z: 0}
-    bars: 4
-    loops: -1
-    extra: []
-    easeType: 31
-    loopingStyle: 1
-  yVal: 1.57
+  effectType: 0
+  stat:
+    effectObj: 
+    ease: 0
+    xEditor: 0
+    yTime: 0
+    type: 0

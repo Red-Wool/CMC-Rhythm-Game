@@ -198,6 +198,9 @@ public class SongLoader : MonoBehaviour
                 a.isActive = true;
                 gameObj.GetComponent<ArrowPathTriggerObject>().SetData(a);
                 break;
+            case EffectType.Shader:
+                gameObj.GetComponent<ShaderTriggerObject>().SetData(JsonUtility.FromJson<ShaderModule>(effectTypeData));
+                break;
         }
     }
 

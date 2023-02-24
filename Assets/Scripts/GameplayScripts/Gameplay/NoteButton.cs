@@ -73,7 +73,7 @@ public class NoteButton : MonoBehaviour
             {
                 //float change = 0;
                 //Debug.Log("Change it up");
-                float duration = module.stats.duration / (GameManager.instance.bs.bpm / 60f);
+                float duration = module.stats.duration / (GameManager.instance.bs.bpm / 30f);
                 int o = i;
 
                 DOTween.To(() => moveModules[o].stats.speed,

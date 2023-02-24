@@ -23,7 +23,7 @@ public class MoveModule
     public void Activate(GameObject obj)
     {
         MoveType effect;
-        float duration = bars / (GameManager.instance.bs.bpm / 60f);
+        float duration = bars / (GameManager.instance.bs.bpm / 30f);
         System.Enum.TryParse<MoveType>(effectType, out effect);
 
         switch (effect)

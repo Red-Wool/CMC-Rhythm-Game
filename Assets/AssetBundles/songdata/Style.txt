@@ -1,4 +1,4 @@
-{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"2/3/2023 12:29:18 AM","bpm":95.0,"startSpeed":3.0,"startDelay":0.4000000059604645,"endPos":730.0,"totalNotes":520}
+{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"2/23/2023 9:46:30 PM","bpm":95.0,"startSpeed":3.0,"startDelay":0.4000000059604645,"endPos":730.0,"totalNotes":520}
 Note
 {"color":0,"yVal":33.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":49.0,"isLongNote":false,"longNoteLen":0.0}
@@ -343,4 +343,16 @@ Note
 {"color":2,"yVal":559.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":688.0,"isLongNote":false,"longNoteLen":0.0}
 Effect
+{"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":157.0,"type":4}
+{"shaderDataName":"Activate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":1}
+{"effectObj":"Main","ease":4,"xEditor":7.0,"yTime":161.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.10000000149011612,0.0,0.20000000298023225,1.0],"speed":0.0,"duration":4.0,"ease":0,"option":0}
+{"effectObj":"Main","ease":0,"xEditor":9.0,"yTime":157.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.0,0.0,0.0,0.0],"speed":0.0,"duration":0.0,"ease":0,"option":0}
+{"effectObj":"Main","ease":4,"xEditor":7.0,"yTime":169.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.20000000298023225,0.05000000074505806,0.20000000298023225,1.0],"speed":0.0,"duration":4.0,"ease":0,"option":0}
+{"effectObj":"Main","ease":4,"xEditor":7.0,"yTime":177.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.30000001192092898,0.10000000149011612,0.20000000298023225,1.0],"speed":0.0,"duration":4.0,"ease":0,"option":0}
+{"effectObj":"Main","ease":4,"xEditor":7.0,"yTime":185.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.20000000298023225,1.0],"speed":0.0,"duration":8.0,"ease":0,"option":0}
 End

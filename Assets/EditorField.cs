@@ -24,6 +24,7 @@ public class EditorField : MonoBehaviour
             }
 
             int t = i, tid = id;
+            fields[i].onValueChanged.RemoveAllListeners();
             fields[i].onValueChanged.AddListener(s => stringMethod(s, tid + t));
         }
     }

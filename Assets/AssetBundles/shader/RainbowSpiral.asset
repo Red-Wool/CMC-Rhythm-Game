@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404fbc5ab327ecb4abccaa26dcaa45ef, type: 3}
   m_Name: RainbowSpiral
   m_EditorClassIdentifier: 
-  shaderName: RainbowSpiral
+  shaderName: Rainbow Spiral
   material: {fileID: 2100000, guid: e61b08735eef5eb45b344b6130dad2f1, type: 2}
   request:
     fieldNum: 4

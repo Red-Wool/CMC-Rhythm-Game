@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public ComboCircle cc;
     public EndScoreboard ec;
     public CameraEffects ce;
+    public ShaderManager sm;
 
     //UI + Basically UI
     [Header("UI"), Space(10)]
