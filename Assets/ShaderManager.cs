@@ -37,7 +37,7 @@ public class ShaderManager : MonoBehaviour
             {
                 int j = i;
                 float begin = baseMaterial.GetFloat(data.request.requestFields[j].fieldName);//Shader.PropertyToID(data.request.requestFields[i].fieldName);
-                DOTween.To(() => begin, x => begin = x, module.store[j], module.duration).SetEase(module.ease).OnUpdate(() => baseMaterial.SetFloat(data.request.requestFields[j].fieldName, begin));
+                DOTween.To(() => begin, x => begin = x, module.store[j], duration).SetEase(module.ease).OnUpdate(() => baseMaterial.SetFloat(data.request.requestFields[j].fieldName, begin));
             }
         }
     }

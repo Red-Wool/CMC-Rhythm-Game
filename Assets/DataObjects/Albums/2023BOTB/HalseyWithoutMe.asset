@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3b2fd4c2dbec45bb617017c29237b, type: 3}
   m_Name: HalseyWithoutMe
   m_EditorClassIdentifier: 
-  songName: 
-  artist: 
+  songName: Without Me
+  artist: Halsey
   description: 
-  songArt: {fileID: 0}
+  songArt: {fileID: 2800000, guid: a20abf4900fd4be49a7e8819a423a45a, type: 3}
   songFrameArt: {fileID: 0}
-  mapName: 
+  mapName: WithoutMe

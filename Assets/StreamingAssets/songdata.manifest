@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2963528252
+CRC: 2663709416
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bf27d360245d1f9336de07aea492bdcd
+    Hash: a4bb91b0ab9e6d090e50113e9d471e78
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -21,6 +21,7 @@ Assets:
 - Assets/AssetBundles/songdata/Purple.txt
 - Assets/AssetBundles/songdata/FileManager.txt
 - Assets/AssetBundles/songdata/VeryCoolPeople.txt
+- Assets/AssetBundles/songdata/ThisLove.txt
 - Assets/AssetBundles/songdata/StillIntoYou.txt
 - Assets/AssetBundles/songdata/ET4.txt
 - Assets/AssetBundles/songdata/Double.txt

@@ -1,4 +1,4 @@
-{"songName":"LieLieLie","songFileName":"MicoLieLieLie","version":"V7","lastEdit":"2/21/2023 10:16:58 PM","bpm":157.0,"startSpeed":3.0,"startDelay":0.20000000298023225,"endPos":901.0,"totalNotes":675}
+{"songName":"LieLieLie","songFileName":"MicoLieLieLie","version":"V7","lastEdit":"2/24/2023 12:29:38 PM","bpm":157.0,"startSpeed":3.0,"startDelay":0.20000000298023225,"endPos":901.0,"totalNotes":675}
 Note
 {"color":1,"yVal":6.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":7.0,"isLongNote":false,"longNoteLen":0.0}
@@ -477,8 +477,8 @@ Note
 {"color":1,"yVal":892.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":893.0,"isLongNote":true,"longNoteLen":4.0}
 Effect
-{"effectObj":"Main","ease":3,"xEditor":11.0,"yTime":253.0,"type":1}
-{"yVal":253.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":-6.0,"y":0.0,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":3,"loopType":0}
+{"effectObj":"Main","ease":1,"xEditor":11.0,"yTime":253.0,"type":1}
+{"yVal":253.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":-6.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":3,"loopType":0}
 {"effectObj":"Main","ease":4,"xEditor":11.0,"yTime":256.0,"type":1}
 {"yVal":256.0,"editorPos":0.0,"effectType":"TweenMoveX","vec":{"x":6.0,"y":0.0,"z":0.0},"bars":16.0,"loops":-1,"extra":[],"easeType":4,"loopType":1}
 {"effectObj":"Main","ease":0,"xEditor":11.0,"yTime":386.0,"type":1}
@@ -528,9 +528,9 @@ Effect
 {"effectObj":"Main","ease":4,"xEditor":11.0,"yTime":256.0,"type":1}
 {"yVal":256.0,"editorPos":0.0,"effectType":"TweenMoveY","vec":{"x":0.0,"y":4.0,"z":0.0},"bars":12.0,"loops":-1,"extra":[],"easeType":4,"loopType":1}
 {"effectObj":"FlashScreen","ease":16,"xEditor":11.0,"yTime":768.0,"type":1}
-{"yVal":768.0,"editorPos":0.0,"effectType":"Flash","vec":{"x":4.0,"y":0.0,"z":0.0},"bars":1.8,"loops":-1,"extra":[],"easeType":16,"loopType":0}
+{"yVal":768.0,"editorPos":0.0,"effectType":"Flash","vec":{"x":4.0,"y":0.0,"z":0.0},"bars":1.7999999523162842,"loops":-1,"extra":[],"easeType":16,"loopType":0}
 {"effectObj":"FlashScreen","ease":16,"xEditor":11.0,"yTime":880.0,"type":1}
-{"yVal":880.0,"editorPos":0.0,"effectType":"Flash","vec":{"x":4.0,"y":0.0,"z":0.0},"bars":1.8,"loops":-1,"extra":[],"easeType":16,"loopType":0}
+{"yVal":880.0,"editorPos":0.0,"effectType":"Flash","vec":{"x":4.0,"y":0.0,"z":0.0},"bars":1.7999999523162842,"loops":-1,"extra":[],"easeType":16,"loopType":0}
 {"effectObj":"Main","ease":3,"xEditor":11.0,"yTime":131.0,"type":1}
 {"yVal":131.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":56.0,"y":60.0,"z":2.0},"bars":0.5,"loops":28,"extra":[],"easeType":3,"loopType":0}
 {"effectObj":"Main","ease":3,"xEditor":11.0,"yTime":193.0,"type":1}

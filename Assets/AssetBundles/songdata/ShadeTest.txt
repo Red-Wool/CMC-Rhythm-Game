@@ -1,4 +1,4 @@
-{"songName":"ShadeTest","songFileName":"Tunnel","version":"V7","lastEdit":"2/23/2023 9:26:42 PM","bpm":102.0,"startSpeed":1.0,"startDelay":0.6000000238418579,"endPos":100.0,"totalNotes":100}
+{"songName":"ShadeTest","songFileName":"Tunnel","version":"V7","lastEdit":"2/24/2023 9:50:16 PM","bpm":102.0,"startSpeed":1.0,"startDelay":0.6000000238418579,"endPos":100.0,"totalNotes":100}
 Note
 {"color":0,"yVal":4.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":6.0,"isLongNote":false,"longNoteLen":0.0}
@@ -104,15 +104,17 @@ Effect
 {"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":10.0,"type":4}
 {"shaderDataName":"Outline","store":[0.0010000000474974514,0.10000000149011612,1.0,0.5],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":22.0,"type":4}
-{"shaderDataName":"Outline","store":[0.10000000149011612,0.8999999761581421,1.0,0.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
+{"shaderDataName":"Outline","store":[0.10000000149011612,0.10000000149011612,1.0,0.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":34.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.20000000298023225,-10.0],"speed":0.0,"duration":3.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":38.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.20000000298023225,1.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
-{"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":6.0,"type":4}
+{"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":2.0,"type":4}
 {"shaderDataName":"Activate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":1}
 {"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":16.0,"type":4}
 {"shaderDataName":"Deactivate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":2}
 {"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":18.0,"type":4}
 {"shaderDataName":"Activate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":1}
+{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":24.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":4.0,"y":0.0,"z":0.0},"bars":2.0,"loops":0,"extra":[],"easeType":0,"loopType":0}
 End

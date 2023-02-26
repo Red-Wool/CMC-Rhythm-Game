@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b3b2fd4c2dbec45bb617017c29237b, type: 3}
   m_Name: Maroon5ThisLove
   m_EditorClassIdentifier: 
-  songName: 
-  artist: 
+  songName: This Love
+  artist: Maroon 5
   description: 
-  songArt: {fileID: 0}
+  songArt: {fileID: 2800000, guid: 5e956a72e5dc6014e8d63af6ac442950, type: 3}
   songFrameArt: {fileID: 0}
-  mapName: 
+  mapName: ThisLove
