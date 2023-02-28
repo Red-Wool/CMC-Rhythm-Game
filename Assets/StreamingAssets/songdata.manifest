@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2663709416
+CRC: 66154561
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a4bb91b0ab9e6d090e50113e9d471e78
+    Hash: a6771228f8008235d7ebc836940e20b4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -32,6 +32,7 @@ Assets:
 - Assets/AssetBundles/songdata/ShadeTest.txt
 - Assets/AssetBundles/songdata/ThePowerOfThree.txt
 - Assets/AssetBundles/songdata/Bellyache.txt
+- Assets/AssetBundles/songdata/WithoutMe.txt
 - Assets/AssetBundles/songdata/ET2.txt
 - Assets/AssetBundles/songdata/Test.txt
 - Assets/AssetBundles/songdata/Stream.txt

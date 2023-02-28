@@ -15,6 +15,7 @@ public class ArrowPathModule
     public int objID;
     public ArrowPathModuleStat stats;
 
+    
  
     public NotePosition notePos;
 
@@ -147,9 +148,10 @@ public static class ArrowPathFunctions
     public static Vector3 Circle3D(float time, ArrowPathModuleStat stat)
     {
         time *= stat.speed;
+        float gameTime = GameManager.instance.GameTime - stat.startTime;
         return new Vector3(
-            Mathf.Sin(time*stat.store[3]+GameManager.instance.GameTime * stat.store[5]) *time*stat.store[0],
-            Mathf.Cos(time*stat.store[4]+GameManager.instance.GameTime * stat.store[6]) *time*stat.store[1],
+            Mathf.Sin(time*stat.store[3]+gameTime * stat.store[5]) *time*stat.store[0],
+            Mathf.Cos(time*stat.store[4]+gameTime * stat.store[6]) *time*stat.store[1],
             time * stat.store[2]); 
     }
 
@@ -166,28 +168,31 @@ public static class ArrowPathFunctions
     public static Vector3 Oscillate(float time, ArrowPathModuleStat stat)
     {
         time *= stat.speed;
+        float gameTime = GameManager.instance.GameTime - stat.startTime;
         return new Vector3(
-            stat.store[0] * Mathf.Sin(stat.store[3] * time + stat.store[6] * GameManager.instance.GameTime),
-            stat.store[1] * Mathf.Sin(stat.store[4] * time + stat.store[7] * GameManager.instance.GameTime),
-            stat.store[2] * Mathf.Sin(stat.store[5] * time + stat.store[8] * GameManager.instance.GameTime));
+            stat.store[0] * Mathf.Sin(stat.store[3] * time + stat.store[6] * gameTime),
+            stat.store[1] * Mathf.Sin(stat.store[4] * time + stat.store[7] * gameTime),
+            stat.store[2] * Mathf.Sin(stat.store[5] * time + stat.store[8] * gameTime));
     }
 
 
     public static Vector3 ZigZag(float time, ArrowPathModuleStat stat)
     {
         time *= stat.speed;
+        float gameTime = GameManager.instance.GameTime - stat.startTime;
         return new Vector3(
-            stat.store[0] * Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * GameManager.instance.GameTime)),
-            stat.store[1] * Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * GameManager.instance.GameTime)),
-            stat.store[2] * Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * GameManager.instance.GameTime))) * 0.63662f;
+            stat.store[0] * Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * gameTime)),
+            stat.store[1] * Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * gameTime)),
+            stat.store[2] * Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * gameTime))) * 0.63662f;
     }
     
     public static Vector3 SquareWave(float time, ArrowPathModuleStat stat)
     {
         time *= stat.speed;
+        float gameTime = GameManager.instance.GameTime - stat.startTime;
         return new Vector3(
-            stat.store[0] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * GameManager.instance.GameTime))),
-            stat.store[1] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * GameManager.instance.GameTime))),
-            stat.store[2] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * GameManager.instance.GameTime)))) * 0.63662f;
+            stat.store[0] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[3] * time + stat.store[6] * gameTime))),
+            stat.store[1] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[4] * time + stat.store[7] * gameTime))),
+            stat.store[2] * Mathf.Round(Mathf.Asin(Mathf.Sin(stat.store[5] * time + stat.store[8] * gameTime)))) * 0.63662f;
     }
 }

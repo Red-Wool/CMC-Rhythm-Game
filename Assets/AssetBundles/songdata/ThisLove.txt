@@ -1,4 +1,4 @@
-{"songName":"ThisLove","songFileName":"Maroon5ThisLove","version":"V7","lastEdit":"2/26/2023 5:51:16 PM","bpm":95.0,"startSpeed":1.0,"startDelay":0.0,"endPos":650.0,"totalNotes":478}
+{"songName":"ThisLove","songFileName":"Maroon5ThisLove","version":"V7","lastEdit":"2/27/2023 11:39:01 PM","bpm":95.0,"startSpeed":1.0,"startDelay":0.20000000298023225,"endPos":650.0,"totalNotes":477}
 Note
 {"color":0,"yVal":36.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":38.0,"isLongNote":false,"longNoteLen":0.0}
@@ -102,7 +102,7 @@ Note
 {"color":1,"yVal":240.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":240.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":241.5,"isLongNote":true,"longNoteLen":1.5}
-{"color":2,"yVal":243.5,"isLongNote":true,"longNoteLen":0.5}
+{"color":2,"yVal":243.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":244.5,"isLongNote":true,"longNoteLen":1.5}
 {"color":0,"yVal":258.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":258.0,"isLongNote":false,"longNoteLen":0.0}
@@ -125,7 +125,6 @@ Note
 {"color":1,"yVal":275.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":275.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":276.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":2,"yVal":276.20001220703127,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":280.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":281.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":282.5,"isLongNote":false,"longNoteLen":0.0}
@@ -343,4 +342,24 @@ Note
 {"color":0,"yVal":583.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":581.5,"isLongNote":false,"longNoteLen":0.0}
 Effect
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":36.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":54.0,"y":60.0,"z":2.0},"bars":0.25,"loops":60,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":156.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":54.0,"y":60.0,"z":2.0},"bars":0.25,"loops":36,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":236.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":54.0,"y":60.0,"z":2.0},"bars":0.25,"loops":27,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":292.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":52.0,"y":60.0,"z":2.0},"bars":0.25,"loops":49,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":452.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":52.0,"y":60.0,"z":2.0},"bars":0.25,"loops":80,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":612.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":54.0,"y":60.0,"z":2.0},"bars":0.25,"loops":4,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":618.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":56.0,"y":60.0,"z":2.0},"bars":0.25,"loops":4,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":626.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":57.5,"y":60.0,"z":2.0},"bars":0.25,"loops":4,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":634.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":59.0,"y":60.0,"z":2.0},"bars":0.25,"loops":4,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":9,"xEditor":7.0,"yTime":642.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":59.5,"y":60.0,"z":2.0},"bars":0.25,"loops":4,"extra":[],"easeType":0,"loopType":0}
 End

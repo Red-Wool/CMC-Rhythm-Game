@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour
             playing = true;
             hasPlayed = false;
 
+            StartCoroutine(FixTime());
+
             songInfo = bs.StartGame();
             songInfo.startDelay /= songInfo.bpm / 30;
             songInfo.endPos /= songInfo.bpm / 30;
@@ -178,6 +180,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    public IEnumerator FixTime()
+    {
+        while (playing)
+        {
+            gameTime = music.time;
+            yield return new WaitForSeconds(2f);
+        }
     }
 
     public void StartGame()

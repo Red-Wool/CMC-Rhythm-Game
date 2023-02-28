@@ -15,6 +15,6 @@ MonoBehaviour:
   songName: Haunted
   artist: 
   description: 
-  songArt: {fileID: 0}
+  songArt: {fileID: 2800000, guid: ddfd75730f3d3a54c84b503d811e65fc, type: 3}
   songFrameArt: {fileID: 0}
   mapName: 

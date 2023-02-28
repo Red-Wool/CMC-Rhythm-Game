@@ -11,6 +11,8 @@ public class ArrowPathTriggerObject : EffectTriggerObject
         arrowPathModule = new ArrowPathModule(m.notePosID, m.objID, m.stats);
         arrowPathModule.stats.duration /= GameManager.instance.bs.bpm / 60f;
         arrowPathModule.stats.easeType = stat.ease;
+        arrowPathModule.stats.startTime = stat.yTime;
+
         arrowPathModule.RequestData();
     }
 

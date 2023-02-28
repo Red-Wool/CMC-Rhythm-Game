@@ -1,11 +1,11 @@
-{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"2/24/2023 9:54:12 PM","bpm":95.0,"startSpeed":3.0,"startDelay":0.4000000059604645,"endPos":730.0,"totalNotes":506}
+{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"2/27/2023 11:54:17 PM","bpm":95.0,"startSpeed":3.0,"startDelay":0.4000000059604645,"endPos":730.0,"totalNotes":506}
 Note
 {"color":0,"yVal":33.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":49.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":1,"yVal":65.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":3,"yVal":66.5,"isLongNote":false,"longNoteLen":0.0}
+{"color":1,"yVal":65.0999984741211,"isLongNote":false,"longNoteLen":0.0}
+{"color":3,"yVal":66.5999984741211,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":81.0,"isLongNote":false,"longNoteLen":0.0}
-{"color":0,"yVal":82.5,"isLongNote":false,"longNoteLen":0.0}
+{"color":0,"yVal":82.69999694824219,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":97.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":98.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":113.0,"isLongNote":false,"longNoteLen":0.0}
@@ -346,13 +346,13 @@ Effect
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":161.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.10000000149011612,0.0,0.10000000149011612,0.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":0,"xEditor":9.0,"yTime":157.0,"type":4}
-{"shaderDataName":"RainbowSpiral","store":[0.0,0.0,0.0,0.0],"speed":0.0,"duration":0.0,"ease":0,"option":0}
+{"shaderDataName":"RainbowSpiral","store":[0.0010000000474974514,0.0,0.0,0.0],"speed":0.0,"duration":0.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":169.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.20000000298023225,0.05000000074505806,0.10000000149011612,0.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":177.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.30000001192092898,0.10000000149011612,0.10000000149011612,0.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
-{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":185.0,"type":4}
-{"shaderDataName":"RainbowSpiral","store":[0.5,0.10000000149011612,0.10000000149011612,0.0],"speed":0.0,"duration":4.0,"ease":0,"option":0}
+{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":185.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.20000000298023225,0.0,0.10000000149011612,0.0],"speed":0.0,"duration":7.5,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":33.0,"type":1}
 {"yVal":0.0,"editorPos":0.0,"effectType":"CameraBop","vec":{"x":56.0,"y":60.0,"z":0.0},"bars":0.5,"loops":0,"extra":[],"easeType":0,"loopType":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":49.0,"type":1}
@@ -409,14 +409,14 @@ Effect
 {"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":6.0,"easeType":0,"store":[3.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"YellowLine","ease":3,"xEditor":13.0,"yTime":417.0,"type":2}
 {"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":6.0,"easeType":0,"store":[-3.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
-{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":424.0,"type":2}
-{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":1.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":423.0,"type":2}
+{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":2.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"BlueLine","ease":3,"xEditor":9.0,"yTime":425.0,"type":2}
-{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":6.0,"easeType":0,"store":[4.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
+{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":6.0,"easeType":0,"store":[2.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"GreenLine","ease":3,"xEditor":11.0,"yTime":425.0,"type":2}
-{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":6.0,"easeType":0,"store":[-4.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
-{"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":432.0,"type":2}
-{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":1.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
+{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":6.0,"easeType":0,"store":[-2.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":431.0,"type":2}
+{"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":2.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"RedLine","ease":3,"xEditor":7.0,"yTime":433.0,"type":2}
 {"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":8.0,"easeType":0,"store":[5.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"YellowLine","ease":3,"xEditor":13.0,"yTime":433.0,"type":2}
@@ -427,7 +427,7 @@ Effect
 {"isActive":false,"notePosID":"Circle3D","objID":0,"stats":{"speed":0.0,"startTime":0.0,"duration":0.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"Main","ease":1,"xEditor":9.0,"yTime":433.0,"type":2}
 {"isActive":false,"notePosID":"Circle3D","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":8.0,"easeType":0,"store":[1.0,1.0,0.0,5.0,5.0,0.0,0.0]}}
-{"effectObj":"Main","ease":1,"xEditor":9.0,"yTime":443.0,"type":2}
+{"effectObj":"Main","ease":1,"xEditor":9.0,"yTime":441.0,"type":2}
 {"isActive":false,"notePosID":"Circle3D","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":3.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"RedLine","ease":3,"xEditor":7.0,"yTime":444.0,"type":2}
 {"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":2.0,"easeType":0,"store":[0.5,0.0,2.0,4.0,0.0,2.0,1.0,0.0,0.0]}}
@@ -444,7 +444,7 @@ Effect
 {"effectObj":"Main","ease":3,"xEditor":13.0,"yTime":425.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.20000000298023225,0.10000000149011612,0.10000000149011612,-6.0],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":11.0,"yTime":433.0,"type":4}
-{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.10000000149011612,-10.0],"speed":0.0,"duration":8.0,"ease":0,"option":0}
+{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.10000000149011612,-5.0],"speed":0.0,"duration":8.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":515.0,"type":1}
 {"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":54.0,"y":60.0,"z":2.0},"bars":0.5,"loops":23,"extra":[],"easeType":0,"loopType":0}
 {"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":641.0,"type":1}
@@ -521,4 +521,6 @@ Effect
 {"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":1.0,"y":-6.0,"z":3.0},"bars":2.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
 {"effectObj":"YellowLine","ease":3,"xEditor":13.0,"yTime":577.0,"type":1}
 {"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":3.0,"y":-6.0,"z":3.0},"bars":2.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":193.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.5,0.10000000149011612,0.10000000149011612,0.0],"speed":0.0,"duration":0.25,"ease":0,"option":0}
 End
