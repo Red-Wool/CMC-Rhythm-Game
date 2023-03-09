@@ -1,4 +1,4 @@
-{"songName":"WithoutMe","songFileName":"HalseyWithoutMe","version":"V7","lastEdit":"3/6/2023 11:57:59 PM","bpm":136.0,"startSpeed":1.0,"startDelay":0.5,"endPos":907.0,"totalNotes":770}
+{"songName":"WithoutMe","songFileName":"HalseyWithoutMe","version":"V7","lastEdit":"3/8/2023 11:30:20 PM","bpm":136.0,"startSpeed":1.0,"startDelay":0.6000000238418579,"endPos":907.0,"totalNotes":770}
 Note
 {"color":1,"yVal":68.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":72.0,"isLongNote":false,"longNoteLen":0.0}

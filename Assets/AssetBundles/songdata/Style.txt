@@ -1,4 +1,4 @@
-{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"3/6/2023 10:51:13 PM","bpm":95.0,"startSpeed":3.0,"startDelay":0.5,"endPos":730.0,"totalNotes":522}
+{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"3/8/2023 10:09:22 PM","bpm":95.0,"startSpeed":3.0,"startDelay":0.5,"endPos":730.0,"totalNotes":522}
 Note
 {"color":0,"yVal":33.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":49.0,"isLongNote":false,"longNoteLen":0.0}
@@ -545,12 +545,12 @@ Effect
 {"shaderDataName":"RainbowSpiral","store":[0.6000000238418579,0.10000000149011612,0.10000000149011612,-1.5],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":13.0,"yTime":508.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[1.0,0.10000000149011612,0.10000000149011612,-0.5],"speed":0.0,"duration":2.0,"ease":0,"option":0}
-{"effectObj":"Main","ease":3,"xEditor":13.0,"yTime":515.0,"type":4}
-{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.10000000149011612,-3.5],"speed":0.0,"duration":1.5,"ease":0,"option":0}
+{"effectObj":"Main","ease":3,"xEditor":13.0,"yTime":513.0,"type":4}
+{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.10000000149011612,-3.5],"speed":0.0,"duration":0.5,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":13.0,"yTime":564.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[0.6000000238418579,0.10000000149011612,0.10000000149011612,-1.5],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":572.0,"type":4}
 {"shaderDataName":"RainbowSpiral","store":[1.0,0.10000000149011612,0.10000000149011612,-0.5],"speed":0.0,"duration":2.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":3,"xEditor":13.0,"yTime":641.0,"type":4}
-{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.10000000149011612,-3.5],"speed":0.0,"duration":4.0,"ease":0,"option":0}
+{"shaderDataName":"RainbowSpiral","store":[0.4000000059604645,0.10000000149011612,0.10000000149011612,-3.5],"speed":0.0,"duration":0.5,"ease":0,"option":0}
 End
