@@ -18,11 +18,18 @@ public class EndScoreboard : MonoBehaviour
     private GameObject starObj;
     [SerializeField]
     private GameObject starObjSupport;
+    [SerializeField]
+    private GameObject challenge;
 
     [SerializeField]
     private Texture[] gradeTextures;
 
     private int[] hitTypeVal;
+
+    void Start()
+    {
+        challenge.SetActive(PlayerPrefs.GetInt("Challenge") == 1);
+    }
 
     // Update is called once per frame
     void Update()

@@ -21,5 +21,5 @@ MonoBehaviour:
     Challenge 20'
   songArt: {fileID: 2800000, guid: ddfd75730f3d3a54c84b503d811e65fc, type: 3}
   songFrameArt: {fileID: 0}
-  mapName: Haunted
+  mapName: HauntedStandard
   challengeMap: Haunted

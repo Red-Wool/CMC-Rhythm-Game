@@ -21,5 +21,5 @@ MonoBehaviour:
     Challenge 12'
   songArt: {fileID: 2800000, guid: be70b63e21ce42e4fad892a499df608a, type: 3}
   songFrameArt: {fileID: 0}
-  mapName: WithoutMe
+  mapName: WithoutMeStandard
   challengeMap: WithoutMe

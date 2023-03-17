@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3540093346
+CRC: 4080504632
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b27c0ec349324417137cb7a518d8e00d
+    Hash: 28a5c2eb8ca9f344af399b8d5855338c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -16,12 +16,14 @@ Assets:
 - Assets/AssetBundles/songdata/TestEffect.txt
 - Assets/AssetBundles/songdata/HauntedStandard.txt
 - Assets/AssetBundles/songdata/EffectTest.txt
+- Assets/AssetBundles/songdata/WithoutMeStandard.txt
 - Assets/AssetBundles/songdata/StyleStandard.txt
 - Assets/AssetBundles/songdata/Style - Copy.txt
 - Assets/AssetBundles/songdata/ET1.txt
 - Assets/AssetBundles/songdata/WhenIWasYourMan.txt
 - Assets/AssetBundles/songdata/Purple.txt
 - Assets/AssetBundles/songdata/FileManager.txt
+- Assets/AssetBundles/songdata/AnimalStandard.txt
 - Assets/AssetBundles/songdata/VeryCoolPeople.txt
 - Assets/AssetBundles/songdata/ThisLove.txt
 - Assets/AssetBundles/songdata/505Standard.txt

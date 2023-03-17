@@ -115,15 +115,15 @@ public class BeatScroller : MonoBehaviour
                 effect.Activate(flashScreen);
                 break;
             case "Background":
-                Debug.Log("back in black");
+                //Debug.Log("back in black");
                 effect.Activate(background);
                 break;
             case "Car":
-                Debug.Log("Beep Beep");
+                //Debug.Log("Beep Beep");
                 effect.Activate(car);
                 break;
             case "Light":
-                Debug.Log("lights out");
+                //Debug.Log("lights out");
                 effect.Activate(carLight);
                 break;
         }

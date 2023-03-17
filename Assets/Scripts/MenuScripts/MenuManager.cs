@@ -60,6 +60,7 @@ public class MenuManager : MonoBehaviour
             mapName = song.mapName;
         PlayerPrefs.SetString("CurrentMap", mapName);
         PlayerPrefs.SetString("MapName", song.songName);
+        PlayerPrefs.SetInt("Challenge", challengeMode ? 1 : 0);
         infoText.text = song.songName + "\nBy: " + song.artist + "\n" + song.description;
     }
 
@@ -75,6 +76,7 @@ public class MenuManager : MonoBehaviour
         if (mapName == "")
             mapName = currentMap.mapName;
         PlayerPrefs.SetString("CurrentMap", mapName);
+        PlayerPrefs.SetInt("Challenge", challengeMode ? 1 : 0);
     }
 }
 
