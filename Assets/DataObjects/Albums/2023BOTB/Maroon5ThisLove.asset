@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: This Love
   artist: Maroon 5
-  description: 
+  description: 'Difficulty
+
+    Standard 3
+
+    Challenge 10'
   songArt: {fileID: 2800000, guid: 5e956a72e5dc6014e8d63af6ac442950, type: 3}
   songFrameArt: {fileID: 0}
-  mapName: ThisLove
+  mapName: ThisLoveStandard
+  challengeMap: ThisLove

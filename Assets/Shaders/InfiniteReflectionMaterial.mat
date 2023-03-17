@@ -20,8 +20,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Background:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 3aafd1c2f5c24284d98a61b69c5b58d7, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
@@ -75,7 +75,7 @@ Material:
     - _ReflectionDistance: 1
     - _ReflectionMove: 0
     - _ReflectionMoveInten: 1
-    - _ReflectionMoveSpeed: 1
+    - _ReflectionMoveSpeed: 2
     - _ReflectionSetback: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

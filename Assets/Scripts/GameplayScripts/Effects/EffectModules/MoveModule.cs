@@ -81,7 +81,7 @@ public class MoveModule
                 break;
 
             case MoveType.CameraSmoothScale:
-                GameManager.instance.mainCamera.DOOrthoSize(vec.x, duration).SetEase(easeType);
+                GameManager.instance.mainCamera.DOFieldOfView(vec.x, duration).SetEase(easeType);
                 break;
 
             case MoveType.CameraBop:
@@ -99,6 +99,12 @@ public class MoveModule
 
             case MoveType.ScreenShake:
                 GameManager.instance.mainCamera.DOShakePosition(duration, vec.x, Mathf.RoundToInt(vec.y), vec.z).SetEase(easeType);
+                break;
+            case MoveType.ActivateObject:
+                obj.SetActive(true);
+                break;
+            case MoveType.DeactivateObject:
+                obj.SetActive(false);
                 break;
         }
     }
@@ -140,6 +146,8 @@ public enum MoveType
     CameraBop,
     CameraBopRepeat,
     ScreenShake,
+    ActivateObject,
+    DeactivateObject
 }
 
 

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 924145751
+CRC: 3540093346
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9c7963d1deee3ae245694d2116b6b146
+    Hash: b27c0ec349324417137cb7a518d8e00d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -14,27 +14,35 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundles/songdata/TestEffect.txt
+- Assets/AssetBundles/songdata/HauntedStandard.txt
 - Assets/AssetBundles/songdata/EffectTest.txt
-- Assets/AssetBundles/songdata/Style.txt
+- Assets/AssetBundles/songdata/StyleStandard.txt
+- Assets/AssetBundles/songdata/Style - Copy.txt
 - Assets/AssetBundles/songdata/ET1.txt
 - Assets/AssetBundles/songdata/WhenIWasYourMan.txt
 - Assets/AssetBundles/songdata/Purple.txt
 - Assets/AssetBundles/songdata/FileManager.txt
 - Assets/AssetBundles/songdata/VeryCoolPeople.txt
 - Assets/AssetBundles/songdata/ThisLove.txt
+- Assets/AssetBundles/songdata/505Standard.txt
 - Assets/AssetBundles/songdata/StillIntoYou.txt
+- Assets/AssetBundles/songdata/songDataTest.txt
 - Assets/AssetBundles/songdata/ET4.txt
+- Assets/AssetBundles/songdata/ST1.txt
 - Assets/AssetBundles/songdata/Double.txt
 - Assets/AssetBundles/songdata/Interlap.txt
 - Assets/AssetBundles/songdata/ET3.txt
 - Assets/AssetBundles/songdata/505.txt
 - Assets/AssetBundles/songdata/LieLieLie.txt
+- Assets/AssetBundles/songdata/ThisLoveStandard.txt
 - Assets/AssetBundles/songdata/ShadeTest.txt
+- Assets/AssetBundles/songdata/Animal.txt
 - Assets/AssetBundles/songdata/ThePowerOfThree.txt
 - Assets/AssetBundles/songdata/Bellyache.txt
 - Assets/AssetBundles/songdata/WithoutMe.txt
 - Assets/AssetBundles/songdata/ET2.txt
 - Assets/AssetBundles/songdata/Test.txt
+- Assets/AssetBundles/songdata/Style.txt
 - Assets/AssetBundles/songdata/Haunted.txt
 - Assets/AssetBundles/songdata/Stream.txt
 - Assets/AssetBundles/songdata/Grotto.txt

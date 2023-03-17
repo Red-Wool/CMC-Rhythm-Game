@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,11 +13,19 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private Album album;
 
+    [SerializeField] private Button playButton;
+    [SerializeField] private Toggle challengeToggle;
+    [SerializeField] private RectTransform keybindPage;
+    [SerializeField] private RectTransform target;
+
     [SerializeField] private GameObject songContainer;
     [SerializeField] private GameObject songPrefab;
 
     [SerializeField]
     private TextMeshProUGUI infoText;
+
+    private Song currentMap;
+    private bool challengeMode;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +33,11 @@ public class MenuManager : MonoBehaviour
         instance = this;
         SetUpSongList(album);
         
+    }
+
+    public void MoveKeyBind(bool flag)
+    {
+        keybindPage.DOMoveX(flag ? target.transform.position.x : 5000, .5f);
     }
     
     public void SetUpSongList(Album album)
@@ -37,9 +52,29 @@ public class MenuManager : MonoBehaviour
 
     public void UpdateInfoText(Song song)
     {
-        PlayerPrefs.SetString("CurrentMap", song.mapName);
+        playButton.interactable = true;
+
+        currentMap = song;
+        string mapName = (challengeMode ? song.challengeMap : song.mapName);
+        if (mapName == "")
+            mapName = song.mapName;
+        PlayerPrefs.SetString("CurrentMap", mapName);
         PlayerPrefs.SetString("MapName", song.songName);
         infoText.text = song.songName + "\nBy: " + song.artist + "\n" + song.description;
+    }
+
+    public void ChangeChallenge()
+    {
+        if (currentMap == null)
+        {
+            return;
+        }
+        challengeMode = challengeToggle.isOn;
+
+        string mapName = (challengeMode ? currentMap.challengeMap : currentMap.mapName);
+        if (mapName == "")
+            mapName = currentMap.mapName;
+        PlayerPrefs.SetString("CurrentMap", mapName);
     }
 }
 

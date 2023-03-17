@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: 505
   artist: Arctic Monkeys
-  description: 
+  description: 'Difficulty
+
+    Standard 4
+
+    Challenge 11'
   songArt: {fileID: 2800000, guid: ae391ebd9e91e31489fe1862d934af15, type: 3}
   songFrameArt: {fileID: 0}
-  mapName: 505
+  mapName: 505Standard
+  challengeMap: 505

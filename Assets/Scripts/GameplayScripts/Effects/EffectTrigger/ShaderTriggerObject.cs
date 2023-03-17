@@ -24,7 +24,7 @@ public class ShaderTriggerObject : EffectTriggerObject
     {
         if (stat.yTime <= GameManager.instance.GameTime)
         {
-            Debug.Log("effect!");
+            //Debug.Log("effect!");
             TriggerEffect();
             gameObject.SetActive(false);
 

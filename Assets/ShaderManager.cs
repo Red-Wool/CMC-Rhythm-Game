@@ -14,7 +14,7 @@ public class ShaderManager : MonoBehaviour
         
         if (module.option != ShaderOption.Change)
         {
-            Debug.Log(module.option);
+            //Debug.Log(module.option);
             isActive = module.option == ShaderOption.On;
         }
         else if (baseMaterial.name != data.material.name)

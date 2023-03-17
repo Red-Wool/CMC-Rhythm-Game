@@ -1,4 +1,4 @@
-{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"3/8/2023 10:09:22 PM","bpm":95.0,"startSpeed":3.0,"startDelay":0.5,"endPos":730.0,"totalNotes":522}
+{"songName":"Style","songFileName":"TaylorSwiftStyle","version":"V7","lastEdit":"3/11/2023 9:33:33 AM","bpm":95.0,"startSpeed":3.0,"startDelay":0.5,"endPos":730.0,"totalNotes":522}
 Note
 {"color":0,"yVal":33.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":49.0,"isLongNote":false,"longNoteLen":0.0}
@@ -429,7 +429,7 @@ Effect
 {"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":8.0,"easeType":0,"store":[5.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"YellowLine","ease":3,"xEditor":13.0,"yTime":433.0,"type":2}
 {"isActive":false,"notePosID":"Oscillate","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":8.0,"easeType":0,"store":[-5.0,0.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0]}}
-{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":7.0,"type":2}
+{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":-3.0,"type":2}
 {"isActive":false,"notePosID":"MoveDirection","objID":0,"stats":{"speed":7.0,"startTime":0.0,"duration":1.0,"easeType":0,"store":[0.0,1.0,0.0]}}
 {"effectObj":"Main","ease":0,"xEditor":13.0,"yTime":431.0,"type":2}
 {"isActive":false,"notePosID":"Circle3D","objID":0,"stats":{"speed":0.0,"startTime":0.0,"duration":0.0,"easeType":0,"store":[0.0,0.0,0.0,0.0,0.0,0.0,0.0]}}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404fbc5ab327ecb4abccaa26dcaa45ef, type: 3}
+  m_Name: Vortex
+  m_EditorClassIdentifier: 
+  shaderName: Vortex
+  material: {fileID: 2100000, guid: ecd7e7b748115f045a6f7ad6460b6cae, type: 2}
+  request:
+    fieldNum: 3
+    requestFields:
+    - fieldName: _Strength
+      requestType: 0
+    - fieldName: _StepX
+      requestType: 0
+    - fieldName: _StepY
+      requestType: 0

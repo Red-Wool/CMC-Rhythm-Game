@@ -22,6 +22,9 @@ public class BeatScroller : MonoBehaviour
     [SerializeField] private GameObject[] arrowButtons; public GameObject ArrowButtons(int i) { if (arrowButtons == null) arrowButtons = GameObject.FindGameObjectsWithTag("Activator"); return arrowButtons[i]; }
     [SerializeField] private GameObject[] arrowLines; public GameObject ArrowLines(int i) { return arrowLines[i]; }
     [SerializeField] private GameObject flashScreen;
+    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject car;
+    [SerializeField] private GameObject carLight;
 
 
     private SongFileInfo songInfo;
@@ -43,7 +46,7 @@ public class BeatScroller : MonoBehaviour
 
         //arrowButtons = GameObject.FindGameObjectsWithTag("Activator");
 
-        Debug.Log("Loaded!");
+        Debug.Log("Loaded " + PlayerPrefs.GetString("CurrentMap") + " !");
     }
 
     public SongFileInfo StartGame()
@@ -110,6 +113,18 @@ public class BeatScroller : MonoBehaviour
                 break;
             case "FlashScreen":
                 effect.Activate(flashScreen);
+                break;
+            case "Background":
+                Debug.Log("back in black");
+                effect.Activate(background);
+                break;
+            case "Car":
+                Debug.Log("Beep Beep");
+                effect.Activate(car);
+                break;
+            case "Light":
+                Debug.Log("lights out");
+                effect.Activate(carLight);
                 break;
         }
     }

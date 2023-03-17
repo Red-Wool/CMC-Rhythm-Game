@@ -17,7 +17,7 @@ public class MoveTriggerObject : EffectTriggerObject
         //base.Update();
         if (stat.yTime <= GameManager.instance.GameTime)
         {
-            //Debug.Log("effect!");
+            Debug.Log("effect! " + moveModule.effectType);
             TriggerEffect();
             gameObject.SetActive(false);
 

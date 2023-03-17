@@ -77,6 +77,10 @@ public class EndScoreboard : MonoBehaviour
         {
             texture = gradeTextures[4];
         }
+        else if (accuracy == 0)
+        {
+            texture = gradeTextures[6];
+        }
         else
         {
             texture = gradeTextures[5];

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
+        DOTween.KillAll();
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
 }

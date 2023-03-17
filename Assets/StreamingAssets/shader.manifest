@@ -1,15 +1,17 @@
 ManifestFileVersion: 0
-CRC: 3237495634
+CRC: 1182803085
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c27572a4e3f3913094417df10c4e7d4b
+    Hash: deb1bc1669e99b1ef1cf9f1d288afc36
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 44935bb519bebf878ce2ab130b3b3d58
+    Hash: 9a0947035ec2fe40fda95b46d6da2d2a
 HashAppended: 0
 ClassTypes:
 - Class: 21
+  Script: {instanceID: 0}
+- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -19,7 +21,10 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/AssetBundles/shader/ScreenPanel.asset
+- Assets/AssetBundles/shader/FireAfterImage.asset
 - Assets/AssetBundles/shader/Outline.asset
 - Assets/AssetBundles/shader/RainbowSpiral.asset
 - Assets/AssetBundles/shader/InfiniteReflection.asset
+- Assets/AssetBundles/shader/Vortex.asset
 Dependencies: []

@@ -78,12 +78,20 @@
                 return false;
             }
 
+            fixed4 clampGetTex(float2 uv, float size)
+            {
+                if (uv.x > 1 || uv.x < 0 || uv.y > 1 || uv.y < 0)
+                    return fixed4(1, 1, 1, 1);
+                return tex2Dgrad(_MainTex, size * (uv - (1. - (1. / size)) * .5), 0, 0);
+            }
+
             fixed4 frag(v2f i) : SV_Target
             {
                 fixed4 col = fixed4(1,1,1,1);//tex2D(_MainTex, i.uv);
                 // just invert the colors
                 //float3 col = vec3(1),//
-                float4 endCol = tex2D(_Background, i.uv);//cos(uv.xyx*.2+iTime*5. + vec3(0,2,4))*.5+.5;
+                float2 result = i.uv + _Time.y * .1 + float2(cos(i.uv.x * 20.) * .5, 0);
+                float4 endCol = tex2D(_Background, result);//cos(uv.xyx*.2+iTime*5. + vec3(0,2,4))*.5+.5;
                 //texture(iChannel0, uv+.5 + d).xyz;
 
                 float// t = mod(iTime,2.)-1.,
@@ -107,7 +115,7 @@
                     {
                         float size = (1. + x * _ReflectionDistance - move);
                         //(sin(iTime)*.2+.3) //(1.-(1./size))
-                        col = tex2Dgrad(_MainTex, clamp(size * (i.uv - (1. - (1. / size))*.5), 0., 1.),0,0);
+                        col = clampGetTex(i.uv, size);//tex2Dgrad(_MainTex, clamp(size * (i.uv - (1. - (1. / size))*.5), 0., 1.),0,0);
                         key = x;
                     }
                     else

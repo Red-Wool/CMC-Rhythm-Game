@@ -49,7 +49,7 @@ public class BackgroundManager : MonoBehaviour
     void Start()
     {
         update = true;
-        string mapName = PlayerPrefs.GetString("CurrentMap");
+        string mapName = PlayerPrefs.GetString("MapName");
         bool flag = false;
         for (int i = 1; i < backgrounds.Length; i++)
         {

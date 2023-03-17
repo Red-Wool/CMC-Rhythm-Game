@@ -11,4 +11,5 @@ public class Song : ScriptableObject
     public Texture songArt;
     public Texture songFrameArt;
     public string mapName;
+    public string challengeMap;
 }

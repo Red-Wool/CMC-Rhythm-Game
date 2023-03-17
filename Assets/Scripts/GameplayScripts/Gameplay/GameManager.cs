@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public bool playing;
     public bool hasPlayed;
 
+    private bool paused;
+
     public AudioSource hitSFX;
 
     //Other Component
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
     //UI + Basically UI
     [Header("UI"), Space(10)]
     public UIEffects uiEffects;
+    public GameObject pauseMenu;
 
     public TextMeshProUGUI countdownText;
 
@@ -109,6 +112,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (paused)
+            {
+                DisablePause();
+            }
+            else if (!gameEnd)
+            {
+                paused = true;
+                pauseMenu.SetActive(true);
+                
+                music.Pause();
+                Time.timeScale = 0;
+                return;
+            }
+        }
+
+        if (paused)
+        {
+            return;
+        }
         //Press a Key to start Playing
         if (!playing && Input.anyKeyDown)
         {
@@ -183,12 +207,22 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void DisablePause()
+    {
+        paused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+        music.UnPause();
+    }
+
     public IEnumerator FixTime()
     {
+        yield return new WaitForSeconds(.1f);
+        gameTime = music.time;
         while (playing && music.isPlaying)
         {
             gameTime = music.time;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
