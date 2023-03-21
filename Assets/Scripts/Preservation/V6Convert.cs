@@ -28,29 +28,37 @@ public class V6Convert : MonoBehaviour
 
     public void ConvertText(string songName)
     {
-        string[] text = File.ReadAllLines(Application.dataPath + "/AssetBundles/songdata/" + songName + ".txt");
+        string path = Application.dataPath + "/AssetBundles/songdata/" + songName + ".txt";
+        string[] text = File.ReadAllLines(path);
         string result = "";
 
         bool effect = false;
 
         for (int i = 0; i < text.Length; i++)
         {
-            if (effect && text[i] != "End")
+            string l = text[i].Trim();
+            if (effect && l != "End")
             {
-                OldV6Effect e = JsonUtility.FromJson<OldV6Effect>(text[i]);
+                
+                OldV6Effect e = JsonUtility.FromJson<OldV6Effect>(l);
+
+                Debug.Log("Changing... " + e);
+
                 result += JsonUtility.ToJson(new EffectStat { effectObj = e.objID, ease = e.easeType, yTime = e.yVal, xEditor = e.xSpot, type = EffectType.Move }) + "\n";
                 result += JsonUtility.ToJson(new MoveModule {yVal = e.yVal, editorPos = e.xSpot, effectType = e.effectType, vec = e.vec, bars = e.bars, loops = e.loops, extra = e.extra, easeType = e.easeType, loopType = e.loopType }) + "\n";
             }
             else
             {
-                result += text[i] + "\n";
+                result += l + "\n";
             }
             
-            if (text[i] == "Effect")
+            if (l == "Effect")
             {
                 effect = true;
             }
         }
+
+        File.WriteAllText(path, result);
 
     }
 }
