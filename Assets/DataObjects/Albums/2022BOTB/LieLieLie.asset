@@ -22,3 +22,4 @@ MonoBehaviour:
   songArt: {fileID: 2800000, guid: b2e9cfc7ae6849c4899f8df82ae7065f, type: 3}
   songFrameArt: {fileID: 0}
   mapName: LieLieLie
+  challengeMap: LieLieLie
