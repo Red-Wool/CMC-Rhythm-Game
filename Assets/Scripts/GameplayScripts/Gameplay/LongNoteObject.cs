@@ -54,9 +54,9 @@ public class LongNoteObject : NoteClass
         for (int i = 0; i < lineRender.positionCount - 1; i++)
         {
             //Debug.Log("");
-            lines[i] = button.transform.position + button.SetPosition(eval + (i - missSubtract + (int)(percent * lineLength)) * .025f);
+            lines[i] = button.transform.position + button.transform.rotation * button.SetPosition(eval + (i - missSubtract + (int)(percent * lineLength)) * .025f);
         }
-        lines[lineRender.positionCount - 1] = button.transform.position + button.SetPosition(eval + yVal);
+        lines[lineRender.positionCount - 1] = button.transform.position + button.transform.rotation * button.SetPosition(eval + yVal);
         lineRender.SetPositions(lines);
 
         if (valid)
