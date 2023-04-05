@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1182803085
+CRC: 2638064525
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: deb1bc1669e99b1ef1cf9f1d288afc36
+    Hash: c1f5614b215074240fee09312ed1efa5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9a0947035ec2fe40fda95b46d6da2d2a
@@ -27,4 +27,5 @@ Assets:
 - Assets/AssetBundles/shader/RainbowSpiral.asset
 - Assets/AssetBundles/shader/InfiniteReflection.asset
 - Assets/AssetBundles/shader/Vortex.asset
+- Assets/AssetBundles/shader/OldTelevision.asset
 Dependencies: []

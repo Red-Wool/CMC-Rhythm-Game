@@ -160,12 +160,12 @@ public class UIEffects : MonoBehaviour
     }
 
     //To Start Animation and stuff for the Hit Text
-    public void BounceGameObj (GameObject gameObj, bool hitOrMiss)
+    public void BounceGameObj (GameObject gameObj, bool hit)
     {
         bouncingGameObj = gameObj;
         bounceVal = Vector3.one;
 
-        this.hitOrMiss = hitOrMiss;
+        hitOrMiss = hit;
 
         bounceTimer = 0f;
     }
@@ -212,7 +212,7 @@ public class UIEffects : MonoBehaviour
     //Add a combo Break Effect to the pool
     public void CreateComboBreakEffect()
     {
-        cbpObj = Instantiate(comboBreakPopupPrefab, comboBreakPopupParent.transform) as GameObject;
+        cbpObj = Instantiate(comboBreakPopupPrefab, comboBreakPopupParent.transform);
 
         cbpObj.SetActive(false);
 

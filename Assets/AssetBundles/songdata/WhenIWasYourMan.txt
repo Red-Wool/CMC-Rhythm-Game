@@ -1,4 +1,4 @@
-{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V7","lastEdit":"3/23/2023 11:17:34 PM","bpm":73.0,"startSpeed":3.0,"startDelay":0.0,"endPos":347.0,"totalNotes":235}
+{"songName":"WhenIWasYourMan","songFileName":"BrunoMarsWhenIWasYourMan","version":"V7","lastEdit":"4/5/2023 5:14:36 PM","bpm":73.0,"startSpeed":3.0,"startDelay":0.20000000298023225,"endPos":347.0,"totalNotes":235}
 Note
 {"color":1,"yVal":16.700000762939454,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":20.5,"isLongNote":false,"longNoteLen":0.0}
@@ -270,5 +270,5 @@ Effect
 {"effectObj":"YellowLine","ease":3,"xEditor":13.0,"yTime":339.0,"type":1}
 {"yVal":339.0,"editorPos":13.0,"effectType":"TweenMove","vec":{"x":-20.0,"y":0.0,"z":3.0},"bars":12.0,"loops":1,"extra":[],"easeType":3,"loopType":0}
 {"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":-2.0,"type":2}
-{"isActive":false,"notePosID":"MoveDirection","objID":0,"stats":{"speed":6.0,"startTime":0.0,"duration":0.0,"easeType":0,"store":[0.0,1.0,0.0]}}
+{"isActive":false,"notePosID":"MoveDirection","objID":0,"stats":{"speed":7.0,"startTime":0.0,"duration":0.0,"easeType":0,"store":[0.0,1.0,0.0]}}
 End

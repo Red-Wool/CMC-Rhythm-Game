@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     //UI + Basically UI
     [Header("UI"), Space(10)]
     public UIEffects uiEffects;
+    public ComboRemarks comboRemarks;
     public GameObject pauseMenu;
 
     public TextMeshProUGUI countdownText;
@@ -411,7 +412,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            StartCoroutine("WaitOneFrame", result);
+            StartCoroutine(WaitOneFrame(result));
             //result.ActivateArrow();
         }
     }
@@ -438,6 +439,11 @@ public class GameManager : MonoBehaviour
 
         //Updates Scoreboard + ComboBoard, go for a perfect?
         uiEffects.SmoothNumberIncrease(score);
+
+        if (combo != 0 && combo % 100 == 0)
+        {
+            comboRemarks.Remark(Mathf.RoundToInt(combo * .01f)-1);
+        }
         comboBoard.text = "Combo: " + combo;
 
         multiplierText.text = "x" + currentMultiplier;

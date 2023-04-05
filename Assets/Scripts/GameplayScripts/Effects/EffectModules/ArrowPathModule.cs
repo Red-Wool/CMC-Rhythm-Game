@@ -158,7 +158,7 @@ public static class ArrowPathFunctions
     public static EditorRequest OscillateRequest() {
         return new EditorRequest()
         {
-            fieldNum = 9,
+            fieldNum = 12,
             requestFields = new EditorRequestField[]{ 
             new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
             new EditorRequestField() {fieldName = "Position Rate", requestType = RequestType.Vector3}, //3-5 X Y Z

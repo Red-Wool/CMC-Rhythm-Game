@@ -1,4 +1,4 @@
-{"songName":"Bellyache","songFileName":"BillieEilishBellyache","version":"V7","lastEdit":"3/20/2023 11:53:23 PM","bpm":100.0,"startSpeed":3.0,"startDelay":0.0,"endPos":601.0,"totalNotes":516}
+{"songName":"Bellyache","songFileName":"BillieEilishBellyache","version":"V7","lastEdit":"4/2/2023 3:18:01 PM","bpm":100.0,"startSpeed":3.0,"startDelay":0.0,"endPos":601.0,"totalNotes":516}
 Note
 {"color":2,"yVal":1.0,"isLongNote":true,"longNoteLen":10.0}
 {"color":1,"yVal":17.0,"isLongNote":true,"longNoteLen":10.0}
@@ -403,4 +403,18 @@ Effect
 {"yVal":585.0,"editorPos":7.0,"effectType":"TweenRotate","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":3,"loopType":0}
 {"effectObj":"Main\n","ease":3,"xEditor":7.0,"yTime":592.0,"type":1}
 {"yVal":592.0,"editorPos":7.0,"effectType":"TweenRotate","vec":{"x":0.0,"y":90.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":3,"loopType":0}
+{"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":279.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":3.0},"bars":1.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":401.5,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":1.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"Main","ease":3,"xEditor":9.0,"yTime":471.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":3.0},"bars":1.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"RedLine","ease":3,"xEditor":9.0,"yTime":592.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"BlueLine","ease":3,"xEditor":11.0,"yTime":592.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"GreenLine","ease":3,"xEditor":13.0,"yTime":592.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
+{"effectObj":"YellowLine","ease":3,"xEditor":7.0,"yTime":592.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":0,"loopType":1}
 End

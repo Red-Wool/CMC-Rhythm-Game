@@ -41,11 +41,11 @@ public class MoveModule
                 break;
 
             case MoveType.TweenMoveJump:
-                obj.transform.DOJump(new Vector3(vec.x, vec.y), vec.z, loops, duration);
+                obj.transform.DOJump(new Vector3(vec.x, vec.y, 3), vec.z, loops, duration);
                 break;
 
             case MoveType.TweenMoveJumpLocal:
-                obj.transform.DOLocalJump(new Vector3(vec.x, vec.y), vec.z, loops, duration);
+                obj.transform.DOLocalJump(new Vector3(vec.x, vec.y, 3), vec.z, loops, duration);
                 break;
 
             case MoveType.TweenRotate:

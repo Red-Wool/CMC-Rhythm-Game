@@ -4218,7 +4218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb70ff79847f45a46bb3f52d2fded927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  album: {fileID: 11400000, guid: 5743ba361a0eb1645a2697ceb99ae34e, type: 2}
+  album: {fileID: 11400000, guid: 3f9c8d6cc2bdccf4cad8189457a253da, type: 2}
   playButton: {fileID: 1635277357}
   challengeToggle: {fileID: 432089923}
   keybindPage: {fileID: 1517099922}

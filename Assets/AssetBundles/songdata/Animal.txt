@@ -1,4 +1,4 @@
-{"songName":"Animal","songFileName":"NeonTreesAnimal","version":"V7","lastEdit":"3/16/2023 12:42:39 AM","bpm":148.0,"startSpeed":1.0,"startDelay":0.800000011920929,"endPos":1043.0,"totalNotes":1259}
+{"songName":"Animal","songFileName":"NeonTreesAnimal","version":"V7","lastEdit":"4/5/2023 1:31:55 PM","bpm":148.0,"startSpeed":1.0,"startDelay":0.800000011920929,"endPos":1043.0,"totalNotes":1259}
 Note
 {"color":3,"yVal":17.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":3,"yVal":16.0,"isLongNote":false,"longNoteLen":0.0}
@@ -802,9 +802,37 @@ Effect
 {"effectObj":"Main","ease":0,"xEditor":9.0,"yTime":603.0,"type":2}
 {"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":0.0,"easeType":0,"store":[0.5,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":675.0,"type":2}
-{"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":32.0,"easeType":0,"store":[0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":32.0,"easeType":0,"store":[-1.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0,0.0]}}
 {"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":1018.0,"type":2}
 {"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":16.0,"easeType":0,"store":[5.0,5.0,5.0,5.0,5.0,5.0,0.0,0.0,0.0]}}
 {"effectObj":"Main","ease":1,"xEditor":9.0,"yTime":1018.0,"type":2}
 {"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":16.0,"easeType":0,"store":[1.0,1.0,1.0,2.0,2.0,2.0,3.0,3.0,3.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":127.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[-3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":131.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":135.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[-3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":139.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":18,"xEditor":7.0,"yTime":152.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":1.0,"easeType":0,"store":[-3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":18,"xEditor":9.0,"yTime":153.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":1.0,"easeType":0,"store":[3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":18,"xEditor":11.0,"yTime":154.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":1.0,"easeType":0,"store":[-3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":187.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":191.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[-3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":195.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":199.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[-3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":203.0,"type":2}
+{"isActive":false,"notePosID":"ZigZag","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":4.0,"easeType":0,"store":[3.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":714.0,"type":2}
+{"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":32.0,"easeType":0,"store":[2.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0]}}
+{"effectObj":"Main","ease":1,"xEditor":7.0,"yTime":755.0,"type":2}
+{"isActive":false,"notePosID":"SquareWave","objID":0,"stats":{"speed":1.0,"startTime":0.0,"duration":20.0,"easeType":0,"store":[0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]}}
 End
