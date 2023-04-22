@@ -10,7 +10,13 @@ public class SongMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     [SerializeField]
     private AnimationCurve sizeChange;
-    [SerializeField] //Remember to remove this later
+
+    [SerializeField] private RawImage display;
+
+    private bool isAlbum;
+    private Album album;
+
+    //[SerializeField] //Remember to remove this later
     private Song songData;
     //private Button button;
 
@@ -53,13 +59,28 @@ public class SongMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void SetupButton(Song data)
     {
+        isAlbum = false;
         songData = data;
-        GetComponent<RawImage>().texture = songData.songArt;
+        display.texture = songData.songArt;
+    }
+
+    public void SetupButton(Album data)
+    {
+        isAlbum = true;
+        album = data;
+        display.texture = data.coverArt;
     }
 
     public void ButtonPress()
     {
-        MenuManager.instance.UpdateInfoText(songData);
+        if (isAlbum)
+        {
+            MenuManager.instance.SetUpSongList(album);
+        }
+        else
+        {
+            MenuManager.instance.UpdateInfoText(songData);
+        }
     }
 
 

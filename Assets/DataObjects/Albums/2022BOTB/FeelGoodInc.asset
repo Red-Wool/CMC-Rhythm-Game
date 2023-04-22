@@ -18,3 +18,6 @@ MonoBehaviour:
   songArt: {fileID: 2800000, guid: 92cb20ea51ae4b74a9fc1f6b6e17700f, type: 3}
   songFrameArt: {fileID: 0}
   mapName: FeelGoodInc
+  hasChallenge: 0
+  challengeMap: 824950
+  devScore: 0

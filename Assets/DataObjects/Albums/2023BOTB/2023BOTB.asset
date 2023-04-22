@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe48443057bde0b49bc3367543ee5ace, type: 3}
   m_Name: 2023BOTB
   m_EditorClassIdentifier: 
-  albumName: 
-  coverArt: {fileID: 0}
+  albumName: 2023BOTB
+  coverArt: {fileID: 2800000, guid: b64a6cc91895eed43b451802cab7d587, type: 3}
   songList:
   - {fileID: 11400000, guid: 24de3e22779db594f870bae0200068b6, type: 2}
   - {fileID: 11400000, guid: c93523629c3abf74ab621ed96fef108d, type: 2}
@@ -21,5 +21,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7681be4601dca2944b77e765485cb3da, type: 2}
   - {fileID: 11400000, guid: e3d990a7e5f0b76468ae5797b51ee511, type: 2}
   - {fileID: 11400000, guid: 5035199ee895acf46b8599c583e37004, type: 2}
-  - {fileID: 11400000, guid: 2fa04d939401c83459b2d93412710ad6, type: 2}
-  - {fileID: 11400000, guid: c4640d11688c1294488c7f56f8e4818f, type: 2}

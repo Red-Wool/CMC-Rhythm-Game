@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 using DG.Tweening;
 
@@ -19,9 +20,12 @@ public class MoveModule
     public Ease easeType;
     public LoopType loopType;
 
+    //private bool validAsync = false;
 
     public void Activate(GameObject obj)
     {
+        
+
         MoveType effect;
         float duration = bars / (GameManager.instance.bs.bpm / 30f);
         System.Enum.TryParse<MoveType>(effectType, out effect);
@@ -90,7 +94,7 @@ public class MoveModule
                 break;
 
             case MoveType.CameraBopRepeat:
-
+                yVal = GameManager.instance.GameTime;
                 for (int i = 0; i < loops; i++)
                 {
                     CameraRepeat(vec.z / (GameManager.instance.bs.bpm / 30f) * i, duration);
@@ -109,18 +113,23 @@ public class MoveModule
         }
     }
 
+    
+
     private async void CameraRepeat(float waitTime, float duration)
     {
         var end = Time.time + waitTime;
 
         while (Time.time < end)
+        {
             await Task.Yield();
+        }
 
-
-        //Debug.Log("Ew");
-        GameManager.instance.mainCamera.DOFieldOfView(vec.x, duration).SetEase(easeType).OnComplete(() =>
+        if (GameManager.instance != null && Mathf.Abs(yVal+waitTime-GameManager.instance.GameTime) <= .5f)
+            GameManager.instance.mainCamera.DOFieldOfView(vec.x, duration).SetEase(easeType).OnComplete(() =>
             GameManager.instance.mainCamera.DOFieldOfView(vec.y, duration).SetEase(easeType));
     }
+
+    
 }
 
 public enum MoveType

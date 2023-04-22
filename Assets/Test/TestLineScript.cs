@@ -5,6 +5,7 @@ using UnityEngine;
 public class TestLineScript : MonoBehaviour
 {
     public GameObject end;
+    public Vector3 displace;
 
     public ArrowPathModule[] moveModules;
 
@@ -48,9 +49,9 @@ public class TestLineScript : MonoBehaviour
     {
         for (int i = 1; i < 100; i++)
         {
-            lines[i] = GetPos(i*.05f);
+            lines[i] = GetPos(i*.05f) + displace;
         }
         lr.SetPositions(lines);
-        end.transform.position = GetPos(4.95f);
+        end.transform.position = GetPos(4.95f) + displace;
     }
 }

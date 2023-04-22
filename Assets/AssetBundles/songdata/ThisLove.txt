@@ -1,4 +1,4 @@
-{"songName":"ThisLove","songFileName":"Maroon5ThisLove","version":"V7","lastEdit":"3/12/2023 11:56:17 AM","bpm":95.0,"startSpeed":1.0,"startDelay":0.20000000298023225,"endPos":650.0,"totalNotes":546}
+{"songName":"ThisLove","songFileName":"Maroon5ThisLove","version":"V7","lastEdit":"4/8/2023 9:00:33 PM","bpm":95.0,"startSpeed":1.0,"startDelay":0.20000000298023225,"endPos":650.0,"totalNotes":546}
 Note
 {"color":0,"yVal":36.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":2,"yVal":38.0,"isLongNote":false,"longNoteLen":0.0}
@@ -526,4 +526,6 @@ Effect
 {"shaderDataName":"ScreenPanel","store":[0.0,0.20000000298023225,0.30000001192092898,0.6000000238418579,0.5,20.0,1.0,2.0],"speed":0.0,"duration":1.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":0,"xEditor":13.0,"yTime":235.0,"type":4}
 {"shaderDataName":"ScreenPanel","store":[0.0,1.5,0.30000001192092898,0.10000000149011612,0.5,2.0,2.0,1.0],"speed":0.0,"duration":0.0,"ease":0,"option":0}
+{"effectObj":"Main","ease":9,"xEditor":9.0,"yTime":442.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"CameraBopRepeat","vec":{"x":54.0,"y":60.0,"z":1.0},"bars":0.25,"loops":8,"extra":[],"easeType":0,"loopType":0}
 End

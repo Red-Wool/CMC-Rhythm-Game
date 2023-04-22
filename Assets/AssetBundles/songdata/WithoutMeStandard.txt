@@ -1,4 +1,4 @@
-{"songName":"WithoutMeStandard","songFileName":"HalseyWithoutMe","version":"V7","lastEdit":"3/17/2023 12:37:17 AM","bpm":136.0,"startSpeed":1.0,"startDelay":0.699999988079071,"endPos":907.0,"totalNotes":577}
+{"songName":"WithoutMeStandard","songFileName":"HalseyWithoutMe","version":"V7","lastEdit":"4/9/2023 11:33:40 PM","bpm":136.0,"startSpeed":1.0,"startDelay":0.699999988079071,"endPos":907.0,"totalNotes":577}
 Note
 {"color":1,"yVal":68.0,"isLongNote":false,"longNoteLen":0.0}
 {"color":0,"yVal":72.0,"isLongNote":false,"longNoteLen":0.0}
@@ -577,7 +577,7 @@ Effect
 {"effectObj":"FlashScreen","ease":3,"xEditor":7.0,"yTime":772.0,"type":1}
 {"yVal":0.0,"editorPos":0.0,"effectType":"Flash","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":1.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
 {"effectObj":"Main","ease":0,"xEditor":9.0,"yTime":773.0,"type":4}
-{"shaderDataName":"InfiniteReflection","store":[1.0,10.0,0.0,2.0,1.0],"speed":0.0,"duration":0.0,"ease":0,"option":0}
+{"shaderDataName":"InfiniteReflection","store":[1.0,10.0,0.0,1.0,1.0],"speed":0.0,"duration":0.0,"ease":0,"option":0}
 {"effectObj":"Main","ease":0,"xEditor":9.0,"yTime":772.0,"type":4}
 {"shaderDataName":"Activate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":1}
 {"effectObj":"Background","ease":1,"xEditor":11.0,"yTime":773.0,"type":1}

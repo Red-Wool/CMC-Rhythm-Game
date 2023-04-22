@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: lie lie lie
   artist: MICO
-  description: 'Bonus Song from last year!
-
-    Difficulty
-
-    Challenge 12'
+  description: 
   songArt: {fileID: 2800000, guid: b2e9cfc7ae6849c4899f8df82ae7065f, type: 3}
   songFrameArt: {fileID: 0}
   mapName: LieLieLie
+  hasChallenge: 0
   challengeMap: LieLieLie
+  devScore: 821700

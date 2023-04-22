@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: Style
   artist: Taylor Swift
-  description: 'Difficulty
-
-    Standard 1
-
-    Challenge 8'
+  description: 
   songArt: {fileID: 2800000, guid: 415b29e42208fcc4291b19b415c93b50, type: 3}
   songFrameArt: {fileID: 0}
   mapName: StyleStandard
+  hasChallenge: 1
   challengeMap: Style
+  devScore: 564300

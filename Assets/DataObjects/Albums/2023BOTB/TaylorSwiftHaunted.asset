@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: TaylorSwiftHaunted
   m_EditorClassIdentifier: 
   songName: Haunted
-  artist: 
-  description: 'Difficulty
-
-    Standard 10
-
-    Challenge 20'
+  artist: Taylor Swift
+  description: 
   songArt: {fileID: 2800000, guid: ddfd75730f3d3a54c84b503d811e65fc, type: 3}
   songFrameArt: {fileID: 0}
   mapName: HauntedStandard
+  hasChallenge: 1
   challengeMap: Haunted
+  devScore: 1772800

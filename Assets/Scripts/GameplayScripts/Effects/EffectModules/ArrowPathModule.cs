@@ -137,11 +137,12 @@ public static class ArrowPathFunctions
     {
         return new EditorRequest()
         {
-            fieldNum = 7,
+            fieldNum = 9,
             requestFields = new EditorRequestField[]{
             new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
             new EditorRequestField() {fieldName = "Angle Rate", requestType = RequestType.Vector2}, //3-4 X Y 
             new EditorRequestField() {fieldName = "Angle Time Rate", requestType = RequestType.Vector2}, //5-6 X Y
+            new EditorRequestField() {fieldName = "Angle Displace", requestType = RequestType.Vector2} //7-8 X Y
             }
         };
     }
@@ -150,15 +151,15 @@ public static class ArrowPathFunctions
         time *= stat.speed;
         float gameTime = GameManager.instance.GameTime - stat.startTime;
         return new Vector3(
-            Mathf.Sin(time*stat.store[3]+gameTime * stat.store[5]) *time*stat.store[0],
-            Mathf.Cos(time*stat.store[4]+gameTime * stat.store[6]) *time*stat.store[1],
+            Mathf.Sin(time*stat.store[3]+gameTime * stat.store[5] + stat.store[7] * Mathf.Deg2Rad) *time*stat.store[0],
+            Mathf.Cos(time*stat.store[4]+gameTime * stat.store[6] + stat.store[8] * Mathf.Deg2Rad) *time*stat.store[1],
             time * stat.store[2]); 
     }
 
     public static EditorRequest OscillateRequest() {
         return new EditorRequest()
         {
-            fieldNum = 12,
+            fieldNum = 9,
             requestFields = new EditorRequestField[]{ 
             new EditorRequestField() {fieldName = "Strength", requestType = RequestType.Vector3}, //0-2 X Y Z
             new EditorRequestField() {fieldName = "Position Rate", requestType = RequestType.Vector3}, //3-5 X Y Z

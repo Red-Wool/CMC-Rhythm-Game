@@ -7,6 +7,8 @@ using DG.Tweening;
 
 public class EndScoreboard : MonoBehaviour
 {
+    [SerializeField] private SaveDataScriptableObject saveData;
+
     [SerializeField]
     private AudioSource completeSFX;
     [SerializeField]
@@ -15,20 +17,28 @@ public class EndScoreboard : MonoBehaviour
     [SerializeField]
     private GameObject[] finalScoreboardObjs;
     [SerializeField]
-    private GameObject starObj;
+    private StarTransition starObj;
     [SerializeField]
     private GameObject starObjSupport;
     [SerializeField]
     private GameObject challenge;
+    [SerializeField]
+    private GameObject speed;
+    [SerializeField]
+    private GameObject devScore;
 
     [SerializeField]
-    private Texture[] gradeTextures;
+    private Sprite[] gradeTextures;
+    [SerializeField] private Sprite allMiss;
+    [SerializeField] private Sprite pausing;
 
     private int[] hitTypeVal;
 
     void Start()
     {
+        starObj.CloseStar(.5f,.01f);
         challenge.SetActive(PlayerPrefs.GetInt("Challenge") == 1);
+        speed.SetActive(PlayerPrefs.GetFloat("Speed") >= 1.2f);
     }
 
     // Update is called once per frame
@@ -41,9 +51,13 @@ public class EndScoreboard : MonoBehaviour
     public void ShowScoreboard(int score, int topCombo, int[] hitTypeCount, int totalNotes, int hitNotes)
     {
         //starObj.GetComponent<Animator>().SetTrigger("Trigger");
+        /*
         starObj.transform.localScale = Vector3.zero;
         starObj.transform.DOScale(100,1.7f).SetEase(Ease.InOutSine);
         starObj.transform.DORotate(Vector3.forward * 360, 1.6f, RotateMode.LocalAxisAdd);
+        */
+
+        starObj.OpenStar(1.6f,.1f);
 
         completeSFX.Play();
 
@@ -62,40 +76,91 @@ public class EndScoreboard : MonoBehaviour
         finalScoreboardObjs[finalScoreboardObjs.Length - 3].GetComponent<TextMeshProUGUI>().text += " " + score;
         finalScoreboardObjs[finalScoreboardObjs.Length - 2].GetComponent<TextMeshProUGUI>().text += " " + topCombo;
 
-        Texture texture;
+        Sprite texture = null;
+        ScoreGrade grade;
 
-        if (accuracy > 0.98f)
+        if (accuracy == 0f)
         {
+            grade = ScoreGrade.Cang;
+            texture = allMiss;
+        }
+        else if (PlayerPrefs.GetInt("PauseNum") >= 5)
+        {
+            grade = ScoreGrade.Paused;
+            texture = pausing;
+        }
+        else if (accuracy >= 1f)
+        {
+            grade = ScoreGrade.Perfect;
             texture = gradeTextures[0];
+        }
+        else if (accuracy > 0.98f)
+        {
+            grade = ScoreGrade.S;
+            texture = gradeTextures[1];
         }
         else if (accuracy > 0.90f)
         {
-            texture = gradeTextures[1];
+            grade = ScoreGrade.A;
+            texture = gradeTextures[2];
         }
         else if (accuracy > 0.80f)
         {
-            texture = gradeTextures[2];
+            grade = ScoreGrade.B;
+            texture = gradeTextures[3];
         }
         else if (accuracy > 0.70f)
         {
-            texture = gradeTextures[3];
+            grade = ScoreGrade.C;
+            texture = gradeTextures[4];
         }
         else if (accuracy > 0.6f)
         {
-            texture = gradeTextures[4];
-        }
-        else if (accuracy == 0)
-        {
-            texture = gradeTextures[6];
+            grade = ScoreGrade.D;
+            texture = gradeTextures[5];
         }
         else
         {
-            texture = gradeTextures[5];
+            grade = ScoreGrade.F;
+            texture = gradeTextures[6];
         }
 
-        finalScoreboardObjs[finalScoreboardObjs.Length - 4].GetComponent<RawImage>().texture = texture;
+        devScore.SetActive(score > PlayerPrefs.GetInt("DevScore") && PlayerPrefs.GetInt("PauseNum") < 5);
+        SaveScore(score, hitTypeCount, grade, devScore.activeSelf);
+
+        finalScoreboardObjs[finalScoreboardObjs.Length - 4].GetComponent<Image>().sprite = texture;
 
         StartCoroutine("DisplayScoreboard");
+    }
+
+    private void SaveScore(int score, int[] hitCategories, ScoreGrade grade, bool dev)
+    {
+        LevelScoreData scoreData = new LevelScoreData { score = score, hitCategories = hitCategories, grade = grade, beatDev = dev };
+        foreach (var mapPair in saveData.save.scoreData)
+        {
+            if (mapPair.Key.Equal(PlayerPrefs.GetString("CurrentMap"), PlayerPrefs.GetFloat("Speed")))
+            {
+                //Too lazy to do binary search rn
+                for (int i = 0; i < mapPair.Value.Count; i++)
+                {
+                    if (mapPair.Value[i].score < score)
+                    {
+                        mapPair.Value.Insert(i, scoreData);
+                        SaveManager.Save("FishballKite", saveData.save);
+                        return;
+                    }
+                }
+                mapPair.Value.Add(scoreData);
+                SaveManager.Save("FishballKite", saveData.save);
+                return;
+            }
+        }
+
+        LevelType level = new LevelType { levelName = PlayerPrefs.GetString("CurrentMap"), speed = PlayerPrefs.GetFloat("Speed") };
+        List<LevelScoreData> newScoreList = new List<LevelScoreData> { scoreData };
+        saveData.save.scoreData.Add(level, newScoreList);
+
+        SaveManager.Save("FishballKite", saveData.save);
     }
 
     private IEnumerator DisplayScoreboard()

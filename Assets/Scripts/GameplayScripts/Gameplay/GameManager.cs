@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     private int topCombo;
 
+    private int pauseAmount;
     private float gameTime; public float GameTime { get { return gameTime; } }
     private SongFileInfo songInfo;
     private List<NoteObject>[] arrowList;
@@ -72,6 +73,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public Camera mainCamera;
 
+    private bool getMusic;
+    private float gameSpeed = 1f;
     private bool gameEnd;
 
     //Extra Varibles declared only once to save memory
@@ -92,6 +95,8 @@ public class GameManager : MonoBehaviour
 
         topCombo = 0;
 
+        pauseAmount = 0;
+
         gameEnd = false;
 
         hitVal = HitText.Miss;
@@ -107,12 +112,47 @@ public class GameManager : MonoBehaviour
 
         hitTypeCount = new int[7];
 
+        ChangeGameSpeed(Mathf.Max(PlayerPrefs.GetFloat("Speed"),1f));
+        getMusic = false;
+
         UpdateScoreBoard();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!getMusic)
+        {
+            getMusic = true;
+
+            songInfo = bs.StartGame();
+            songInfo.startDelay /= songInfo.bpm / 30;
+            songInfo.endPos /= songInfo.bpm / 30;
+
+            try
+            {
+                AudioClip song = LoadAssetBundle.GetMusic(songInfo.songFileName); //Resources.Load<AudioClip>("Music/" + songInfo.songFileName);
+                if (song == null)
+                {
+                    Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
+                }
+                else
+                {
+                    music.clip = song;
+                    //if (songInfo.startDelay == 0f)
+                    //{
+                    
+                    //}
+
+                }
+
+            }
+            catch
+            {
+                //Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (paused)
@@ -121,13 +161,15 @@ public class GameManager : MonoBehaviour
             }
             else if (!gameEnd)
             {
+                pauseAmount++;
                 paused = true;
                 pauseMenu.SetActive(true);
                 
                 music.Pause();
                 Time.timeScale = 0;
-                return;
+                
             }
+            return;
         }
 
         if (paused)
@@ -142,39 +184,14 @@ public class GameManager : MonoBehaviour
             playing = true;
             hasPlayed = false;
 
-            
-
-            songInfo = bs.StartGame();
-            songInfo.startDelay /= songInfo.bpm / 30;
-            songInfo.endPos /= songInfo.bpm / 30;
 
             endName.text = PlayerPrefs.GetString("MapName");
 
-            try
-            {
-                AudioClip song = LoadAssetBundle.GetMusic(songInfo.songFileName); //Resources.Load<AudioClip>("Music/" + songInfo.songFileName);
-                if (song == null)
-                {
-                    Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
-                }
-                else
-                {
-                    music.clip = song;
-                    //if (songInfo.startDelay == 0f)
-                    //{
-                    music.Play();
-                    StartCoroutine(FixTime());
-                    hasPlayed = true;
-                    countdownText.text = "";
-                    //}
-                    
-                }
+            music.Play();
+            StartCoroutine(FixTime());
+            hasPlayed = true;
+            countdownText.text = "";
 
-            }
-            catch
-            {
-                //Debug.LogError("Invalid Song Path: Music/" + songInfo.songFileName);
-            }
 
             //music.Play();
         }
@@ -183,6 +200,7 @@ public class GameManager : MonoBehaviour
             if (gameTime >= songInfo.endPos)
             {
                 Debug.Log("The End");
+                PlayerPrefs.SetInt("PauseNum", pauseAmount);
                 ec.ShowScoreboard(score, topCombo, hitTypeCount, bs.GetTotalNotes(), hits);
 
                 bs.playing = false;
@@ -212,7 +230,7 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = gameSpeed;
         music.UnPause();
     }
 
@@ -259,6 +277,13 @@ public class GameManager : MonoBehaviour
     {
         music.time = time;
         gameTime = time;
+    }
+
+    public void ChangeGameSpeed(float speed)
+    {
+        gameSpeed = speed;
+        Time.timeScale = speed;
+        music.pitch = speed;
     }
 
     #region NoteHitMethods

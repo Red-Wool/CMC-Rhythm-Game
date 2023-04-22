@@ -18,3 +18,5 @@ MonoBehaviour:
   songArt: {fileID: 0}
   songFrameArt: {fileID: 0}
   mapName: Stream
+  challengeMap: 
+  devScore: 1000

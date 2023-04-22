@@ -7,7 +7,9 @@ using DG.Tweening;
 public class ComboRemarks : MonoBehaviour
 {
     [SerializeField] private Image remarkImage;
+    [SerializeField] private Image remarkModImage;
     [SerializeField] private Sprite[] remarks;
+    [SerializeField] private Sprite[] remarkMod;
 
     [SerializeField] private float jumpHeight;
     [SerializeField] private float jumpTime;
@@ -18,15 +20,27 @@ public class ComboRemarks : MonoBehaviour
 
     public void Start()
     {
-        remarkImage.gameObject.SetActive(false);
+        remarkImage.DOFade(0, 0f);
+        remarkModImage.DOFade(0, 0f);
         savePos = remarkImage.transform.position;
     }
 
     public void Remark(int i)
     {
         remarkImage.sprite = remarks[i % remarks.Length];
-        remarkImage.gameObject.SetActive(true);
         remarkImage.transform.DOJump(savePos, jumpHeight, 1, jumpTime);
+        remarkImage.DOFade(1, .1f);
+
+        int mod = i / remarks.Length;
+        if (mod == 0)
+        {
+            remarkModImage.color = new Color(1, 1, 1, 0);
+        }
+        else
+        {
+            remarkModImage.DOFade(1, .1f);
+            remarkModImage.sprite = remarkMod[(mod - 1) % remarkMod.Length];
+        }
 
         if (timer != null)
         {
@@ -39,7 +53,8 @@ public class ComboRemarks : MonoBehaviour
     private IEnumerator RemarkTimer()
     {
         yield return new WaitForSeconds(remarkTime);
-        remarkImage.gameObject.SetActive(false);
+        remarkImage.DOFade(0, .1f);
+        remarkModImage.DOFade(0, .1f);
     }
 }
 

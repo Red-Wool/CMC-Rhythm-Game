@@ -13,8 +13,6 @@ public class BeatScroller : MonoBehaviour
     [HideInInspector]
     public bool playing;
 
-    private const float averageBeatNormal = 3f;
-
     [Header("Instatiate References"), Space(10), SerializeField]
     private SongLoader sl;
 
@@ -28,8 +26,6 @@ public class BeatScroller : MonoBehaviour
 
 
     private SongFileInfo songInfo;
-
-    private Vector3 tempPos;
 
     // Start is called before the first frame update
     void Start()

@@ -15,7 +15,7 @@ public class TimeSkipTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             GameManager.instance.SetTime(time);
         }

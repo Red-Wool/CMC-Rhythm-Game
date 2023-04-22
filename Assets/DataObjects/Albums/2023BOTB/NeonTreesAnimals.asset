@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: Animal
   artist: Neon Trees
-  description: 'Difficulty
-
-    Standard 8
-
-    Challenge 18'
+  description: 
   songArt: {fileID: 2800000, guid: ec82f4b09dbd6c9498ec9c2e96f11da4, type: 3}
   songFrameArt: {fileID: 0}
   mapName: AnimalStandard
+  hasChallenge: 1
   challengeMap: Animal
+  devScore: 1385900

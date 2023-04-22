@@ -16,7 +16,6 @@ public class LongNoteObject : NoteClass
 
     private NoteObject parentObj;
     private GameObject arrowButton;
-    private Vector3 tempPos;
     private float percent;
     private float missSubtract;
     private int intervals;

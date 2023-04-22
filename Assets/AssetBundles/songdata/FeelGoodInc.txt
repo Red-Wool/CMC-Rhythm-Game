@@ -1,4 +1,4 @@
-{"songName":"FeelGoodInc","songFileName":"FeelGoodInc","version":"V7","lastEdit":"4/5/2023 4:39:36 PM","bpm":139.0,"startSpeed":3.0,"startDelay":0.4000000059604645,"endPos":1034.0,"totalNotes":652}
+{"songName":"FeelGoodInc","songFileName":"FeelGoodInc","version":"V7","lastEdit":"4/7/2023 11:53:10 PM","bpm":139.0,"startSpeed":3.0,"startDelay":0.4000000059604645,"endPos":1034.0,"totalNotes":652}
 Note
 {"color":0,"yVal":29.5,"isLongNote":false,"longNoteLen":0.0}
 {"color":1,"yVal":31.5,"isLongNote":false,"longNoteLen":0.0}
@@ -612,8 +612,8 @@ Effect
 {"yVal":674.5,"editorPos":9.0,"effectType":"Flash","vec":{"x":-1.0,"y":0.0,"z":0.0},"bars":1.0,"loops":2,"extra":[],"easeType":3,"loopType":0}
 {"effectObj":"Main\n","ease":3,"xEditor":7.0,"yTime":907.5,"type":1}
 {"yVal":907.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":-3.0,"y":0.0,"z":0.0},"bars":2.0,"loops":2,"extra":[],"easeType":3,"loopType":1}
-{"effectObj":"Main\n","ease":3,"xEditor":7.0,"yTime":939.5,"type":1}
-{"yVal":939.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":3.0,"y":0.0,"z":0.0},"bars":2.0,"loops":2,"extra":[],"easeType":3,"loopType":0}
+{"effectObj":"Main\n","ease":3,"xEditor":7.0,"yTime":938.5,"type":1}
+{"yVal":939.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":3.0,"y":0.0,"z":0.0},"bars":2.0,"loops":2,"extra":[],"easeType":3,"loopType":1}
 {"effectObj":"RedLine","ease":3,"xEditor":9.0,"yTime":908.5,"type":1}
 {"yVal":908.5,"editorPos":9.0,"effectType":"TweenMoveJumpLocal","vec":{"x":-3.0,"y":-6.0,"z":1.0},"bars":4.0,"loops":1,"extra":[],"easeType":3,"loopType":0}
 {"effectObj":"BlueLine","ease":3,"xEditor":11.0,"yTime":909.5,"type":1}
@@ -707,11 +707,11 @@ Effect
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":564.0,"type":1}
 {"yVal":564.0,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":890.5,"type":1}
-{"yVal":890.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":2.0,"y":0.0,"z":0.0},"bars":2.0,"loops":8,"extra":[],"easeType":15,"loopType":1}
+{"yVal":890.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":2.0,"y":0.0,"z":0.0},"bars":1.0,"loops":8,"extra":[],"easeType":15,"loopType":1}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":884.5,"type":1}
 {"yVal":884.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":-2.0,"y":0.0,"z":0.0},"bars":6.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":900.5,"type":1}
-{"yVal":900.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":-2.0,"y":0.0,"z":0.0},"bars":3.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
+{"yVal":900.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":-2.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":902.5,"type":1}
 {"yVal":902.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":5.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":916.5,"type":1}
@@ -719,9 +719,9 @@ Effect
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":922.5,"type":1}
 {"yVal":922.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":-2.0,"y":0.0,"z":0.0},"bars":1.0,"loops":8,"extra":[],"easeType":15,"loopType":1}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":932.5,"type":1}
-{"yVal":932.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":2.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
+{"yVal":932.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":2.0,"y":0.0,"z":0.0},"bars":1.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
 {"effectObj":"Main\n","ease":15,"xEditor":7.0,"yTime":934.5,"type":1}
-{"yVal":934.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":5.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
+{"yVal":934.5,"editorPos":7.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":2.0,"loops":1,"extra":[],"easeType":15,"loopType":0}
 {"effectObj":"Main","ease":0,"xEditor":9.0,"yTime":303.0,"type":4}
 {"shaderDataName":"Activate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":1}
 {"effectObj":"Main","ease":0,"xEditor":11.0,"yTime":302.0,"type":4}
@@ -734,4 +734,6 @@ Effect
 {"shaderDataName":"Deactivate","store":[],"speed":0.0,"duration":0.0,"ease":0,"option":2}
 {"effectObj":"Main","ease":0,"xEditor":7.0,"yTime":-2.0,"type":2}
 {"isActive":false,"notePosID":"MoveDirection","objID":0,"stats":{"speed":12.0,"startTime":0.0,"duration":0.0,"easeType":0,"store":[0.0,1.0,0.0]}}
+{"effectObj":"Main","ease":3,"xEditor":7.0,"yTime":945.0,"type":1}
+{"yVal":0.0,"editorPos":0.0,"effectType":"TweenMove","vec":{"x":0.0,"y":0.0,"z":0.0},"bars":1.0,"loops":1,"extra":[],"easeType":0,"loopType":0}
 End

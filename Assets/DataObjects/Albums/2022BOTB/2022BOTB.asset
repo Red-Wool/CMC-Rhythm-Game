@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe48443057bde0b49bc3367543ee5ace, type: 3}
   m_Name: 2022BOTB
   m_EditorClassIdentifier: 
-  albumName: Battle of the Bands 2022
-  coverArt: {fileID: 0}
+  albumName: BOTB2023
+  coverArt: {fileID: 2800000, guid: d5698c62a254f8e49aac64d94bebb284, type: 3}
   songList:
   - {fileID: 11400000, guid: b2deab7c46cf1c044b9e8818d6972f9e, type: 2}
   - {fileID: 11400000, guid: c4640d11688c1294488c7f56f8e4818f, type: 2}
-  - {fileID: 11400000, guid: 78b7f398b319f8543ab29e909a4a35ef, type: 2}
-  - {fileID: 11400000, guid: 2fa04d939401c83459b2d93412710ad6, type: 2}
   - {fileID: 11400000, guid: c48284d69cb06ef409ea706418730c99, type: 2}
-  - {fileID: 11400000, guid: 1f9ffa1a06617e544925816feac4bce2, type: 2}
+  - {fileID: 11400000, guid: 2fa04d939401c83459b2d93412710ad6, type: 2}
