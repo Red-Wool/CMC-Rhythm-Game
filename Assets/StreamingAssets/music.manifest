@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 689115068
+CRC: 3105912357
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b2a00f3d38474a50c9328f5895c776ce
+    Hash: 123c42839d3da81b5036c10eabf77942
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -18,6 +18,7 @@ Assets:
 - Assets/AssetBundles/music/Maroon5ThisLove.mp3
 - Assets/AssetBundles/music/NeonTreesAnimal.mp3
 - Assets/AssetBundles/music/TheBoggyGrotto.mp3
+- Assets/AssetBundles/music/XiBlueZenith.mp3
 - Assets/AssetBundles/music/HalseyWithoutMe.mp3
 - Assets/AssetBundles/music/ThePowerOfThree.mp3
 - Assets/AssetBundles/music/FeelGoodInc.mp3

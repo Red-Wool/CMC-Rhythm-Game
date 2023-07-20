@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3535054162
+CRC: 254960008
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ec2fb03bda6adbb2dc5ba783e0e9d9c5
+    Hash: 0c2d6a5388650ec6a362d15ee481d22a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -24,6 +24,7 @@ Assets:
 - Assets/AssetBundles/songdata/Purple.txt
 - Assets/AssetBundles/songdata/FileManager.txt
 - Assets/AssetBundles/songdata/AnimalStandard.txt
+- Assets/AssetBundles/songdata/BlueZenith.txt
 - Assets/AssetBundles/songdata/VeryCoolPeople.txt
 - Assets/AssetBundles/songdata/ThisLove.txt
 - Assets/AssetBundles/songdata/505Standard.txt
