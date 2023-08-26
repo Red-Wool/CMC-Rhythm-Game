@@ -139,41 +139,29 @@ public class SongLoader : MonoBehaviour
         if (data.isLongNote && data.longNoteLen != 0f)
         {
             length = (int)data.longNoteLen;
-            temp = data.longNoteLen;
+            //temp =;
 
             data.yVal += data.longNoteLen;
 
-
-            data.longNoteLen *= speedMultiplier / 2;
-
             //Instantiate Long Note Middle
-            pos.y += data.longNoteLen;
             gameObj = Instantiate(longNoteMiddlePrefab[(int)data.color], pos, parent.transform.rotation, parent); //arrowButton.transform.position + Vector3.up * ((1f - percent) * tempLength / 2)
-            gameObj.transform.localPosition = pos;
-
-            scaleTemp = Vector3.one;
-            scaleTemp.y = data.longNoteLen;
-
-            gameObj.transform.localScale = scaleTemp;
 
             longNoteObj = gameObj.GetComponent<LongNoteObject>();
             longNoteObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
             longNoteObj.LongNoteSetup(
                 noteObj,
                 GameManager.instance.bs.ArrowButtons((int)data.color),
-                data.longNoteLen * 2,
                 length,
-                temp / (bpm / 30)
+                data.longNoteLen / (bpm / 30)
                 );
 
-            pos.y += data.longNoteLen;
             gameObj = Instantiate(longNoteEndPrefab[(int)data.color], pos, parent.transform.rotation, parent);
 
             longNoteEndObj = gameObj.GetComponent<LongNoteEndObject>();
             longNoteEndObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
             longNoteEndObj.yVal = (data.yVal - delay) / (bpm / 30);
 
-            gameObj.transform.localPosition = pos; 
+            //gameObj.transform.localPosition = pos;
 
             return length + 1;
         }

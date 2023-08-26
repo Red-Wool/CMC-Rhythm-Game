@@ -31,6 +31,8 @@ public class ArrowPathTriggerObject : EffectTriggerObject
     public override void TriggerEffect()
     {
         //Debug.Log("Great!");
+        arrowPathModule.UpdateData();
+
         GameManager.instance.bs.ActivateArrowPathEffect(stat, arrowPathModule);
     }
 }

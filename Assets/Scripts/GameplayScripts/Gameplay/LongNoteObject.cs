@@ -44,6 +44,10 @@ public class LongNoteObject : NoteClass
             valid = true;
         }
 
+        float size = button.transform.localScale.x;
+
+        //lineRender.widthMultiplier = size;
+
         eval = parentY - GameManager.instance.GameTime;
         transform.localPosition = button.SetPosition(eval);
 
@@ -53,9 +57,9 @@ public class LongNoteObject : NoteClass
         for (int i = 0; i < lineRender.positionCount - 1; i++)
         {
             //Debug.Log("");
-            lines[i] = button.transform.position + button.transform.rotation * button.SetPosition(eval + (i - missSubtract + (int)(percent * lineLength)) * .025f);
+            lines[i] = button.transform.position + button.transform.rotation * button.SetPosition(eval + (i - missSubtract + (int)(percent * lineLength)) * .025f)*size;
         }
-        lines[lineRender.positionCount - 1] = button.transform.position + button.transform.rotation * button.SetPosition(eval + yVal);
+        lines[lineRender.positionCount - 1] = button.transform.position + button.transform.rotation * button.SetPosition(eval + yVal) * size;
         lineRender.SetPositions(lines);
 
         if (valid)
@@ -82,7 +86,7 @@ public class LongNoteObject : NoteClass
         }
     }
 
-    public void LongNoteSetup(NoteObject parent, GameObject arrow, float len, int lenVal, float time)
+    public void LongNoteSetup(NoteObject parent, GameObject arrow, int lenVal, float time)
     {
         parentObj = parent;
 

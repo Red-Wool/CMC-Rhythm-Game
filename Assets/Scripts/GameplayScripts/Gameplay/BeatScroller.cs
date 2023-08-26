@@ -23,6 +23,8 @@ public class BeatScroller : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject car;
     [SerializeField] private GameObject carLight;
+    [SerializeField] private GameObject moon;
+    [SerializeField] private GameObject clouds;
 
 
     private SongFileInfo songInfo;
@@ -121,6 +123,12 @@ public class BeatScroller : MonoBehaviour
             case "Light":
                 //Debug.Log("lights out");
                 effect.Activate(carLight);
+                break;
+            case "Moon":
+                effect.Activate(moon);
+                break;
+            case "Cloud":
+                effect.Activate(clouds);
                 break;
         }
     }

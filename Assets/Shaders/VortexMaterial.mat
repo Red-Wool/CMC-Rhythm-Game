@@ -74,9 +74,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StepX: 0.15
-    - _StepY: 0.15
-    - _Strength: 0.4
+    - _StepX: 0.1
+    - _StepY: 0.1
+    - _Strength: 0.25
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

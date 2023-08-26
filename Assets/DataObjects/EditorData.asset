@@ -29,6 +29,8 @@ MonoBehaviour:
   - Oscillate
   - ZigZag
   - SquareWave
+  - PopIn
+  - QuadraticBezierCurve
   moveObjectNames: []
   arrowPathObjectNames: []
   uiObjectNames: []

@@ -156,7 +156,8 @@ public enum MoveType
     CameraBopRepeat,
     ScreenShake,
     ActivateObject,
-    DeactivateObject
+    DeactivateObject,
+    Bezier
 }
 
 
