@@ -25,6 +25,13 @@ public class NoteObject : NoteClass
         if (yVal != -1) 
         {
             eval = yVal - GameManager.instance.GameTime;
+            
+            //Temp solution to not calculate notes far away. Purely for testing, do not keep this!
+            if (eval > 20)
+            {
+                transform.localPosition = Vector3.up * 10000;
+                return;
+            }
             transform.localPosition = button.SetPosition(eval);
 
             if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))

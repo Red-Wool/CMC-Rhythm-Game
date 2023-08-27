@@ -24,6 +24,13 @@ public class LongNoteEndObject : NoteClass
         if (yVal != -1)
         {
             eval = yVal - GameManager.instance.GameTime;
+
+            //Temp solution to not calculate notes far away. Purely for testing, do not keep this!
+            if (eval > 20)
+            {
+                transform.localPosition = Vector3.up * 10000;
+                return;
+            }
             transform.localPosition = button.SetPosition(eval);
 
             if (valid && (((Input.GetKey(keyPress) || Input.GetKey(altKeyPress)) && eval < 0f) || Input.GetKeyUp(keyPress) || Input.GetKeyUp(altKeyPress)))

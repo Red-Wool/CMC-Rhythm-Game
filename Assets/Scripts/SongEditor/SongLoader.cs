@@ -31,9 +31,8 @@ public class SongLoader : MonoBehaviour
     private SongFileInfo songInfo;
 
     private Vector3 pos;
-    private Vector3 scaleTemp;
     private int length;
-    private float temp;
+    private float bpmMult;
 
     ControlData control;
 
@@ -61,7 +60,7 @@ public class SongLoader : MonoBehaviour
             songInfo = JsonUtility.FromJson<SongFileInfo>(text[0]);
 
             //Set Speed
-            float spdMult = songInfo.startSpeed;
+            //float spdMult = songInfo.startSpeed;
             float bpm = songInfo.bpm;
             float delay = songInfo.startDelay;
 
@@ -96,7 +95,7 @@ public class SongLoader : MonoBehaviour
                         noteData = JsonUtility.FromJson<Note>(inpStr);
 
                         //Check if editor edition
-                        SetUpGameNote(noteData, bpm, spdMult, delay);
+                        SetUpGameNote(noteData, bpm, delay);
                     }
                 }
             }
@@ -116,7 +115,7 @@ public class SongLoader : MonoBehaviour
         return new SongFileInfo();
     }
 
-    public int SetUpGameNote(Note data, float bpm, float speedMultiplier, float delay)
+    public int SetUpGameNote(Note data, float bpm, float delay)
     {
         
         //Track Total Notes
@@ -134,7 +133,9 @@ public class SongLoader : MonoBehaviour
         noteObj = gameObj.GetComponent<NoteObject>();
 
         noteObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
-        noteObj.yVal = (data.yVal - delay) / (bpm / 30f);
+
+        bpmMult = 1f / (bpm / 30f);
+        noteObj.yVal = (data.yVal - delay) * bpmMult;
 
         if (data.isLongNote && data.longNoteLen != 0f)
         {
@@ -152,14 +153,14 @@ public class SongLoader : MonoBehaviour
                 noteObj,
                 GameManager.instance.bs.ArrowButtons((int)data.color),
                 length,
-                data.longNoteLen / (bpm / 30)
+                data.longNoteLen * bpmMult
                 );
 
             gameObj = Instantiate(longNoteEndPrefab[(int)data.color], pos, parent.transform.rotation, parent);
 
             longNoteEndObj = gameObj.GetComponent<LongNoteEndObject>();
             longNoteEndObj.SetUpNote(noteButton, control.GetMainKey(data.color), control.GetAltKey(data.color));
-            longNoteEndObj.yVal = (data.yVal - delay) / (bpm / 30);
+            longNoteEndObj.yVal = (data.yVal - delay) * bpmMult;
 
             //gameObj.transform.localPosition = pos;
 

@@ -12,8 +12,10 @@ public class DoTweenTest : MonoBehaviour
     //bpm / 30 = b 
     //bpm / 30 = sps = bars
     //bars -> sec bpm / 60
+    Ease e = Ease.InOutSine;
     void Start()
     {
+        noteMove.transform.DORotate(new Vector3(0f, 90f, 0f), 1f).SetEase(Ease.Unset).SetLoops(4, LoopType.Incremental);
         //noteMove.transform.do
         //noteMove.transform.DOMoveX(6, 4/(157f/120f)).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         //noteMove.transform.DOMoveY(6, 4 / (157f / 45f)).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);

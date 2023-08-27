@@ -36,6 +36,15 @@ public class LongNoteObject : NoteClass
     // Update is called once per frame
     void Update()
     {
+        eval = parentY - GameManager.instance.GameTime;
+
+        //Temp solution to not calculate notes far away. Purely for testing, do not keep this!
+        if (eval > 20)
+        {
+            lineRender.positionCount = 0;
+            return;
+        }
+
         if (!flag && parentObj && !parentObj.gameObject.activeSelf && (Input.GetKey(keyPress) || Input.GetKey(altKeyPress)))
         {
             ParticleToggle(true, true);
@@ -48,7 +57,7 @@ public class LongNoteObject : NoteClass
 
         //lineRender.widthMultiplier = size;
 
-        eval = parentY - GameManager.instance.GameTime;
+        
         transform.localPosition = button.SetPosition(eval);
 
         missSubtract = Mathf.Min((eval + .35f) * 40f + lineLength * percent, 0);

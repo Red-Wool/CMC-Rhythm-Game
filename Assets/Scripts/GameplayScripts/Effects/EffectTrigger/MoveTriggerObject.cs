@@ -10,6 +10,7 @@ public class MoveTriggerObject : EffectTriggerObject
     public void SetData(MoveModule m)
     {
         moveModule = m;
+        moveModule.easeType = stat.ease;
     }
 
     protected override void Update()
