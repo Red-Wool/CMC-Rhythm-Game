@@ -53,7 +53,7 @@ public class MoveModule
                 break;
 
             case MoveType.TweenRotate:
-                obj.transform.DORotate(vec, duration).SetEase(easeType).SetLoops(loops, loopType);
+                obj.transform.DORotate(vec, duration, RotateMode.FastBeyond360).SetEase(easeType).SetLoops(loops, loopType);
                 break;
 
             case MoveType.TweenScale:

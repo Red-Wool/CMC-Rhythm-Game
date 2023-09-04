@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer hitTextDisplay;
 
     public List<Sprite> hitTextSprites;
+    public ParticleSystem hitPS;
 
     //Game Stuff: Score, Combo, Multiplier, Hit Types and Counter
     [Header("Game Statistics"), Space(10)]
@@ -67,9 +68,6 @@ public class GameManager : MonoBehaviour
     private float gameTime; public float GameTime { get { return gameTime; } }
     private SongFileInfo songInfo;
     private List<NoteObject>[] arrowList;
-
-    //[HideInInspector]
-    //public float buttonSize;
 
     [HideInInspector] public Camera mainCamera;
 
@@ -290,12 +288,13 @@ public class GameManager : MonoBehaviour
     //Note Object References this when a note is hit
     public void NoteHit(float value, GameObject note)
     {
+        hitPS.Play();
 
         //Evalute how good the hit was
         hitVal = Evalute(value);
 
         //Setting stuff, bounce animation, and add score
-        NoteHitEffects(hitVal);
+        NoteHitEffects(hitVal, value>0f);
 
         //Add Score
         score += baseNoteScore * currentMultiplier;
@@ -368,7 +367,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Manages the effects of hitting a note
-    public void NoteHitEffects(HitText hitValue)
+    public void NoteHitEffects(HitText hitValue, bool isEarly = false)
     {
         hitTextDisplay.sprite = hitTextSprites[(int)hitValue];
 

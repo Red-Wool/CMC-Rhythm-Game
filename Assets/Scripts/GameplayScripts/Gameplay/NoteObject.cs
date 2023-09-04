@@ -22,46 +22,44 @@ public class NoteObject : NoteClass
     void Update()
     {
 
-        if (yVal != -1) 
+        eval = yVal - GameManager.instance.GameTime;
+
+        //Temp solution to not calculate notes far away. Purely for testing, do not keep this!
+        if (eval > 20)
         {
-            eval = yVal - GameManager.instance.GameTime;
-            
-            //Temp solution to not calculate notes far away. Purely for testing, do not keep this!
-            if (eval > 20)
-            {
-                transform.localPosition = Vector3.up * 10000;
-                return;
-            }
-            transform.localPosition = button.SetPosition(eval);
-
-            if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))
-            {
-                gameObject.SetActive(false);
-
-                GameManager.instance.NoteHit(eval, this.gameObject);
-
-                enabled = false;
-            }
-            else if (!flag && Mathf.Abs(eval) < 0.25f)
-            {
-                flag = true;
-                canBePressed = GameManager.instance.NoteCanBePressed(this);
-            }
-            else if (flag && eval < -0.25f)
-            {
-                transform.DOScale(0, .1f).OnComplete(DisableArrow);
-
-                canBePressed = false;
-                flag = false;
-                GameManager.instance.NoteMissed(this);
-            }
+            transform.localPosition = Vector3.up * 10000;
+            return;
         }
+        transform.localPosition = button.SetPosition(eval);
+
+        if (canBePressed && (Input.GetKeyDown(keyPress) || Input.GetKeyDown(altKeyPress)))
+        {
+            gameObject.SetActive(false);
+
+            GameManager.instance.NoteHit(eval, gameObject);
+
+            enabled = false;
+        }
+        else if (!flag && Mathf.Abs(eval) < 0.25f)
+        {
+            flag = true;
+            canBePressed = GameManager.instance.NoteCanBePressed(this);
+        }
+        else if (flag && eval < -0.25f)
+        {
+            transform.DOScale(0, .1f).OnComplete(DisableArrow);
+
+            canBePressed = false;
+            flag = false;
+            GameManager.instance.NoteMissed(this);
+        }
+
     }
 
     private void DisableArrow()
     {
         gameObject.SetActive(false);
-        yVal = -1;
+        //yVal = -1;
     }
 
     public void ActivateArrow()

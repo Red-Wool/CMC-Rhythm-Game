@@ -119,30 +119,7 @@ public class UIEffects : MonoBehaviour
 
         }
 
-        //Text UI Effects
-        textMesh.ForceMeshUpdate();
-        mesh = textMesh.mesh;
-        vertices = mesh.vertices;
         
-        for (int i = 0; i < textMesh.textInfo.characterCount; i++)
-        {
-            TMP_CharacterInfo c = textMesh.textInfo.characterInfo[i];
-
-            int index = c.vertexIndex;
-
-            offset = WobbleOffset(vertices[i], Time.time + i);
-
-            for (int j = 0; j < 4; j++)
-            {
-                vertices[index + j] = vertices[index + j] + offset;
-            }
-
-            
-        }
-
-        mesh.vertices = vertices;
-
-        textMesh.canvasRenderer.SetMesh(mesh);
 
         //Smooth Score Increase
         if (smoothScore != targetScore)
@@ -157,6 +134,34 @@ public class UIEffects : MonoBehaviour
         }
 
         //boun
+    }
+
+    private void FixedUpdate()
+    {
+        //Text UI Effects
+        textMesh.ForceMeshUpdate();
+        mesh = textMesh.mesh;
+        vertices = mesh.vertices;
+
+        for (int i = 0; i < textMesh.textInfo.characterCount; i++)
+        {
+            TMP_CharacterInfo c = textMesh.textInfo.characterInfo[i];
+
+            int index = c.vertexIndex;
+
+            offset = WobbleOffset(vertices[i], Time.time + i);
+
+            for (int j = 0; j < 4; j++)
+            {
+                vertices[index + j] = vertices[index + j] + offset;
+            }
+
+
+        }
+
+        mesh.vertices = vertices;
+
+        textMesh.canvasRenderer.SetMesh(mesh);
     }
 
     //To Start Animation and stuff for the Hit Text

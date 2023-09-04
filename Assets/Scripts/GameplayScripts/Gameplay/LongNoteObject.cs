@@ -54,9 +54,6 @@ public class LongNoteObject : NoteClass
         }
 
         float size = button.transform.localScale.x;
-
-        //lineRender.widthMultiplier = size;
-
         
         transform.localPosition = button.SetPosition(eval);
 
@@ -103,7 +100,6 @@ public class LongNoteObject : NoteClass
 
         lineRender = GetComponent<LineRenderer>();
         lines = new Vector3[lineLength + 1];
-        lineRender.positionCount = lineLength;
 
         intervals = lenVal;
         yVal = time;
